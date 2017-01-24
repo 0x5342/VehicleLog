@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Vehicle Log</string>
+    <string name="title_vehicle_detail">Vehicle Detail</string>
+</resources>
