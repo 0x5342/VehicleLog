@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Vehicle Log</string>
     <string name="title_vehicle_detail">Vehicle Detail</string>
+    <string name="temp_text">Temp Text to Delete</string>
 </resources>
