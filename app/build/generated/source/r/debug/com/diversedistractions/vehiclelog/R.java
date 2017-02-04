@@ -2636,13 +2636,13 @@ containing a value of this type.
         public static final int abc_textfield_search_material=0x7f020051;
         public static final int abc_vector_test=0x7f020052;
         public static final int avd_hide_password=0x7f020053;
-        public static final int avd_hide_password_1=0x7f020068;
-        public static final int avd_hide_password_2=0x7f020069;
-        public static final int avd_hide_password_3=0x7f02006a;
+        public static final int avd_hide_password_1=0x7f02006b;
+        public static final int avd_hide_password_2=0x7f02006c;
+        public static final int avd_hide_password_3=0x7f02006d;
         public static final int avd_show_password=0x7f020054;
-        public static final int avd_show_password_1=0x7f02006b;
-        public static final int avd_show_password_2=0x7f02006c;
-        public static final int avd_show_password_3=0x7f02006d;
+        public static final int avd_show_password_1=0x7f02006e;
+        public static final int avd_show_password_2=0x7f02006f;
+        public static final int avd_show_password_3=0x7f020070;
         public static final int design_bottom_navigation_item_background=0x7f020055;
         public static final int design_fab_background=0x7f020056;
         public static final int design_ic_visibility=0x7f020057;
@@ -2658,10 +2658,13 @@ containing a value of this type.
         public static final int notification_bg_normal=0x7f020061;
         public static final int notification_bg_normal_pressed=0x7f020062;
         public static final int notification_icon_background=0x7f020063;
-        public static final int notification_template_icon_bg=0x7f020066;
-        public static final int notification_template_icon_low_bg=0x7f020067;
+        public static final int notification_template_icon_bg=0x7f020069;
+        public static final int notification_template_icon_low_bg=0x7f02006a;
         public static final int notification_tile_bg=0x7f020064;
         public static final int notify_panel_notification_icon_bg=0x7f020065;
+        public static final int vi_car=0x7f020066;
+        public static final int vi_motorcycle=0x7f020067;
+        public static final int vi_truck=0x7f020068;
     }
     public static final class id {
         public static final int action0=0x7f0d0089;
@@ -2702,7 +2705,6 @@ containing a value of this type.
         public static final int clip_horizontal=0x7f0d0032;
         public static final int clip_vertical=0x7f0d0033;
         public static final int collapseActionView=0x7f0d003b;
-        public static final int content=0x7f0d00a0;
         public static final int contentPanel=0x7f0d004e;
         public static final int custom=0x7f0d0055;
         public static final int customPanel=0x7f0d0054;
@@ -2733,7 +2735,6 @@ containing a value of this type.
         public static final int homeAsUp=0x7f0d0013;
         public static final int icon=0x7f0d0049;
         public static final int icon_group=0x7f0d0097;
-        public static final int id=0x7f0d009f;
         public static final int ifRoom=0x7f0d003c;
         public static final int image=0x7f0d0046;
         public static final int info=0x7f0d0093;
@@ -2744,10 +2745,12 @@ containing a value of this type.
         public static final int line3=0x7f0d009a;
         public static final int listMode=0x7f0d000f;
         public static final int list_item=0x7f0d0048;
-        public static final int masked=0x7f0d00a2;
+        public static final int makeText=0x7f0d00a1;
+        public static final int masked=0x7f0d00a4;
         public static final int media_actions=0x7f0d008c;
         public static final int middle=0x7f0d0039;
         public static final int mini=0x7f0d0037;
+        public static final int modelText=0x7f0d00a2;
         public static final int multiply=0x7f0d001f;
         public static final int navigation_header_container=0x7f0d0080;
         public static final int never=0x7f0d003d;
@@ -2820,11 +2823,13 @@ containing a value of this type.
         public static final int transition_scene_layoutid_cache=0x7f0d000c;
         public static final int up=0x7f0d000d;
         public static final int useLogo=0x7f0d0018;
+        public static final int vehicleImage=0x7f0d009f;
+        public static final int vehicleYear=0x7f0d00a0;
         public static final int vehicle_detail=0x7f0d009d;
         public static final int vehicle_detail_container=0x7f0d0077;
         public static final int vehicle_list=0x7f0d009e;
         public static final int view_offset_helper=0x7f0d000e;
-        public static final int visible=0x7f0d00a1;
+        public static final int visible=0x7f0d00a3;
         public static final int withText=0x7f0d003e;
         public static final int wrap_content=0x7f0d0024;
     }
@@ -2904,7 +2909,7 @@ containing a value of this type.
         public static final int support_simple_spinner_dropdown_item=0x7f04003d;
         public static final int vehicle_detail=0x7f04003e;
         public static final int vehicle_list=0x7f04003f;
-        public static final int vehicle_list_content=0x7f040040;
+        public static final int vehicle_list_item=0x7f040040;
     }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;

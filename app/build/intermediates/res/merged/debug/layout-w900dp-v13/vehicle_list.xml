@@ -27,7 +27,7 @@
         android:layout_marginRight="16dp"
         app:layoutManager="LinearLayoutManager"
         tools:context="com.diversedistractions.vehiclelog.VehicleListActivity"
-        tools:listitem="@layout/vehicle_list_content" />
+        tools:listitem="@layout/vehicle_list_item" />
 
     <FrameLayout
         android:id="@+id/vehicle_detail_container"

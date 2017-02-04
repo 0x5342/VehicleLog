@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    >
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="90dp"
+        app:srcCompat="@drawable/vi_car"
+        android:id="@+id/vehicleImage"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/text_margin">
+
+        <TextView
+            android:id="@+id/vehicleYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1973"
+            android:layout_weight="1"
+            android:textColor="@color/colorListItemText"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:gravity="bottom" />
+
+        <TextView
+            android:id="@+id/makeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chevrolet"
+            android:layout_weight="1"
+            android:textColor="@color/colorListItemText"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:gravity="bottom" />
+
+        <TextView
+            android:id="@+id/modelText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Monte Carlo"
+            android:layout_weight="1"
+            android:textColor="@color/colorListItemText"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:gravity="top" />
+    </LinearLayout>
+</LinearLayout>

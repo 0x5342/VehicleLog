@@ -2,6 +2,7 @@ package com.diversedistractions.vehiclelog;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -12,11 +13,16 @@ import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
-import com.diversedistractions.vehiclelog.dummy.DummyContent;
+import com.diversedistractions.vehiclelog.dummy.DummyContentProvider;
+import com.diversedistractions.vehiclelog.models.VehicleItem;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 /**
@@ -34,6 +40,8 @@ public class VehicleListActivity extends AppCompatActivity {
      * device.
      */
     private boolean mTwoPane;
+
+    List<VehicleItem> vehicleItemList = DummyContentProvider.vehicleItemList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,75 +75,95 @@ public class VehicleListActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(DummyContent.ITEMS));
+        recyclerView.setAdapter(new VehicleItemAdapter(this, vehicleItemList));
     }
 
-    public class SimpleItemRecyclerViewAdapter
-            extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
+    public class VehicleItemAdapter extends RecyclerView.Adapter<VehicleItemAdapter.ViewHolder>{
 
-        private final List<DummyContent.DummyItem> mValues;
+        private final List<VehicleItem> mItems;
+        private Context mContext;
 
-        public SimpleItemRecyclerViewAdapter(List<DummyContent.DummyItem> items) {
-            mValues = items;
+        public VehicleItemAdapter(Context context, List<VehicleItem> items) {
+            mItems = items;
+            mContext = context;
         }
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.vehicle_list_content, parent, false);
-            return new ViewHolder(view);
+            View vehicleItemView = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.vehicle_list_item, parent, false);
+            return new ViewHolder(vehicleItemView);
         }
 
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
-            holder.mItem = mValues.get(position);
-            holder.mIdView.setText(mValues.get(position).id);
-            holder.mContentView.setText(mValues.get(position).content);
+            final VehicleItem vehicleItem = mItems.get(position);
+//            holder.mIdView.setText(mValues.get(position).id);
+//            holder.mContentView.setText(mValues.get(position).content);
+
+            try {
+                holder.vYear.setText(Integer.toString(vehicleItem.getVehicleYear()));
+                holder.vMake.setText(vehicleItem.getVehicleMake());
+                holder.vModel.setText(vehicleItem.getVehicleModel());
+                String vehicleImageFile = vehicleItem.getVehicleImage();
+                InputStream inputStream = mContext.getAssets().open(vehicleImageFile);
+                Drawable drawable = Drawable.createFromStream(inputStream, null);
+                holder.vImage.setImageDrawable(drawable);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (mTwoPane) {
-                        Bundle arguments = new Bundle();
-                        arguments.putString(VehicleDetailFragment.ARG_ITEM_ID, holder.mItem.id);
-                        VehicleDetailFragment fragment = new VehicleDetailFragment();
-                        fragment.setArguments(arguments);
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.vehicle_detail_container, fragment)
-                                .commit();
-                    } else {
-                        Context context = v.getContext();
-                        Intent intent = new Intent(context, VehicleDetailActivity.class);
-                        intent.putExtra(VehicleDetailFragment.ARG_ITEM_ID, holder.mItem.id);
-
-                        context.startActivity(intent);
-                    }
+                    Toast.makeText(mContext, "You selected: " + vehicleItem.getVehicleYear() + " " +
+                                    vehicleItem.getVehicleMake() + " " + vehicleItem.getVehicleModel(),
+                            Toast.LENGTH_SHORT).show();
+//                    if (mTwoPane) {
+//                        Bundle arguments = new Bundle();
+//                        arguments.putString(VehicleDetailFragment.ARG_ITEM_ID, holder.mItem.id);
+//                        VehicleDetailFragment fragment = new VehicleDetailFragment();
+//                        fragment.setArguments(arguments);
+//                        getSupportFragmentManager().beginTransaction()
+//                                .replace(R.id.vehicle_detail_container, fragment)
+//                                .commit();
+//                    } else {
+//                        Context context = v.getContext();
+//                        Intent intent = new Intent(context, VehicleDetailActivity.class);
+//                        intent.putExtra(VehicleDetailFragment.ARG_ITEM_ID, holder.mItem.id);
+//
+//                        context.startActivity(intent);
+//                    }
                 }
             });
         }
 
         @Override
         public int getItemCount() {
-            return mValues.size();
+            return mItems.size();
         }
 
         public class ViewHolder extends RecyclerView.ViewHolder {
-            public final View mView;
-            public final TextView mIdView;
-            public final TextView mContentView;
-            public DummyContent.DummyItem mItem;
+            public TextView vYear;
+            public TextView vMake;
+            public TextView vModel;
+            public ImageView vImage;
+            public View mView;
+//            public DummyContentProvider.DummyItem mItem;
 
-            public ViewHolder(View view) {
-                super(view);
-                mView = view;
-                mIdView = (TextView) view.findViewById(R.id.id);
-                mContentView = (TextView) view.findViewById(R.id.content);
+            public ViewHolder(View vehicleItemView) {
+                super(vehicleItemView);
+                vYear = (TextView) vehicleItemView.findViewById(R.id.vehicleYear);
+                vMake = (TextView) vehicleItemView.findViewById(R.id.makeText);
+                vModel = (TextView) vehicleItemView.findViewById(R.id.modelText);
+                vImage = (ImageView) vehicleItemView.findViewById(R.id.vehicleImage);
+                mView = vehicleItemView;
             }
 
-            @Override
-            public String toString() {
-                return super.toString() + " '" + mContentView.getText() + "'";
-            }
+//            @Override
+//            public String toString() {
+//                return super.toString() + " '" + mContentView.getText() + "'";
+//            }
         }
     }
 }
