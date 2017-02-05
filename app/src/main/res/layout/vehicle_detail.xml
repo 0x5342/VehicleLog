@@ -39,7 +39,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/no_vehicle_year_to_display"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textStyle="normal|bold" />
 
     </LinearLayout>
 
@@ -64,7 +65,8 @@
             android:layout_height="wrap_content"
             android:text="@string/no_vehicle_make_to_display"
             android:layout_weight="1"
-            android:gravity="center_vertical" />
+            android:gravity="center_vertical"
+            android:textStyle="normal|bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -88,7 +90,8 @@
             android:layout_height="wrap_content"
             android:text="@string/no_vehicle_model_to_display"
             android:layout_weight="1"
-            android:gravity="center_vertical" />
+            android:gravity="center_vertical"
+            android:textStyle="normal|bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -111,7 +114,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/vehicleVinText"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textStyle="normal|bold" />
 
     </LinearLayout>
 
@@ -135,7 +139,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/vehicleLicensePlateText"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textStyle="normal|bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -158,7 +163,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/vehicleLpRenewalDateText"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textStyle="normal|bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -181,7 +187,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/vehToDateText"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textStyle="normal|bold" />
 
     </LinearLayout>
 
@@ -196,8 +203,11 @@
         android:text="@string/no_notes_to_display"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@drawable/border"
         android:id="@+id/vehNotesText"
         android:layout_weight="1"
-        android:minLines="4" />
+        android:minLines="4"
+        android:textStyle="normal|bold" />
 
 </LinearLayout>
