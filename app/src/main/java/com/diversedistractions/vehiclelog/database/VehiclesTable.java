@@ -58,10 +58,10 @@ public class VehiclesTable {
     public static final String VEHICLES_TABLE_CREATE =
             "create table " + VEHICLE_DATABASE_TABLE + "(" +
                     COL_VEHICLE_ROW_ID + " text primary key," +
-                    COL_VEHICLE_TYPE + " text not null," +
-                    COL_VEHICLE_MAKE + " text not null," +
-                    COL_VEHICLE_MODEL + " text not null," +
-                    COL_VEHICLE_YEAR + " integer not null," +
+                    COL_VEHICLE_TYPE + " text," +
+                    COL_VEHICLE_MAKE + " text," +
+                    COL_VEHICLE_MODEL + " text," +
+                    COL_VEHICLE_YEAR + " integer," +
                     COL_VEHICLE_VIN + " text," +
                     COL_VEHICLE_LP + " text," +
                     COL_VEHICLE_REN_DATE + " integer," +

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="no_notes_to_display">No notes to display</string>
+    <string name="no_fuel_economy_to_display">No fuel economy to display</string>
+    <string name="no_renewal_date_to_display">No renewal date to display</string>
+    <string name="no_license_plate_to_display">No license plate to display</string>
+    <string name="no_vin_to_display">No VIN to display</string>
+    <string name="no_vehicle_year_to_display">No vehicle year to display</string>
+    <string name="no_vehicle_make_to_display">No vehicle make to display</string>
+    <string name="no_vehicle_model_to_display">No vehicle model to display</string>
+    <string name="notes">Notes:</string>
+    <string name="fuel_economy">Fuel economy:</string>
+    <string name="lp_renew_date">LP renew date:</string>
+    <string name="license_plate">License Plate:</string>
+    <string name="vin">VIN:</string>
+    <string name="model_year">Model year:</string>
+    <string name="model">Model:</string>
+    <string name="make">Make:</string>
+    <string name="vehicle_view">Vehicle View</string>
+</resources>

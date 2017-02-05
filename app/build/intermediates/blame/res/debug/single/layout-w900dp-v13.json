@@ -1,9 +1,5 @@
 [
     {
-        "merged": "C:\\Users\\sbrown\\AndroidStudioProjects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\layout-w900dp-v13\\vehicle_list.xml",
-        "source": "C:\\Users\\sbrown\\AndroidStudioProjects\\VehicleLog\\app\\src\\main\\res\\layout-w900dp\\vehicle_list.xml"
-    },
-    {
         "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\layout-w900dp-v13\\vehicle_list.xml",
         "source": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\layout-w900dp\\vehicle_list.xml"
     }

@@ -98,8 +98,6 @@ public class VehicleListActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
             final VehicleItem vehicleItem = mItems.get(position);
-//            holder.mIdView.setText(mValues.get(position).id);
-//            holder.mContentView.setText(mValues.get(position).content);
 
             try {
                 holder.vYear.setText(Integer.toString(vehicleItem.getVehicleYear()));
@@ -116,24 +114,22 @@ public class VehicleListActivity extends AppCompatActivity {
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(mContext, "You selected: " + vehicleItem.getVehicleYear() + " " +
-                                    vehicleItem.getVehicleMake() + " " + vehicleItem.getVehicleModel(),
-                            Toast.LENGTH_SHORT).show();
-//                    if (mTwoPane) {
-//                        Bundle arguments = new Bundle();
-//                        arguments.putString(VehicleDetailFragment.ARG_ITEM_ID, holder.mItem.id);
-//                        VehicleDetailFragment fragment = new VehicleDetailFragment();
-//                        fragment.setArguments(arguments);
-//                        getSupportFragmentManager().beginTransaction()
-//                                .replace(R.id.vehicle_detail_container, fragment)
-//                                .commit();
-//                    } else {
-//                        Context context = v.getContext();
-//                        Intent intent = new Intent(context, VehicleDetailActivity.class);
-//                        intent.putExtra(VehicleDetailFragment.ARG_ITEM_ID, holder.mItem.id);
-//
-//                        context.startActivity(intent);
-//                    }
+                    String itemId = vehicleItem.getVehicleId();
+                    if (mTwoPane) {
+                        Bundle arguments = new Bundle();
+                        arguments.putString(VehicleDetailFragment.ARG_ITEM_ID, itemId);
+                        VehicleDetailFragment fragment = new VehicleDetailFragment();
+                        fragment.setArguments(arguments);
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.vehicle_detail_container, fragment)
+                                .commit();
+                    } else {
+                        Context context = v.getContext();
+                        Intent intent = new Intent(context, VehicleDetailActivity.class);
+                        intent.putExtra(VehicleDetailFragment.ARG_ITEM_ID, itemId);
+
+                        context.startActivity(intent);
+                    }
                 }
             });
         }

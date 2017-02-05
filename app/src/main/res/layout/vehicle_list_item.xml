@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="120dp"
         android:layout_height="90dp"
-        app:srcCompat="@drawable/vi_car"
+        app:srcCompat="@drawable/vi_no_vehicle_image"
         android:id="@+id/vehicleImage"/>
 
     <LinearLayout
@@ -24,7 +24,7 @@
             android:id="@+id/vehicleYear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1973"
+            android:text="@string/no_vehicle_year_to_display"
             android:layout_weight="1"
             android:textColor="@color/colorListItemText"
             android:textAppearance="?attr/textAppearanceListItem"
@@ -34,7 +34,7 @@
             android:id="@+id/makeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chevrolet"
+            android:text="@string/no_vehicle_make_to_display"
             android:layout_weight="1"
             android:textColor="@color/colorListItemText"
             android:textAppearance="?attr/textAppearanceListItem"
@@ -44,7 +44,7 @@
             android:id="@+id/modelText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Monte Carlo"
+            android:text="@string/no_vehicle_model_to_display"
             android:layout_weight="1"
             android:textColor="@color/colorListItemText"
             android:textAppearance="?attr/textAppearanceListItem"

@@ -12,10 +12,6 @@
         "source": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable\\abc_ic_go_search_api_material.xml"
     },
     {
-        "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\vi_car.png",
-        "source": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\drawable\\vi_car.png"
-    },
-    {
         "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
         "source": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable\\abc_btn_radio_material.xml"
     },
@@ -44,8 +40,8 @@
         "source": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable\\abc_ratingbar_indicator_material.xml"
     },
     {
-        "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\vi_truck.png",
-        "source": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\drawable\\vi_truck.png"
+        "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\vi_no_vehicle_image.png",
+        "source": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\drawable\\vi_no_vehicle_image.png"
     },
     {
         "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_menu_overflow_material.xml",
@@ -114,10 +110,6 @@
     {
         "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
         "source": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable\\abc_cab_background_top_material.xml"
-    },
-    {
-        "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\vi_motorcycle.png",
-        "source": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\drawable\\vi_motorcycle.png"
     },
     {
         "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
