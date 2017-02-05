@@ -30,6 +30,7 @@ public class VehicleDetailActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //TODO: launch Vehicle Detail in edit mode
                 Snackbar.make(view, "Replace with your own detail action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
