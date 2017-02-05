@@ -17,4 +17,11 @@
     <string name="model">Model:</string>
     <string name="make">Make:</string>
     <string name="vehicle_view">Vehicle View</string>
+    <string name="choose_model_year">Choose model year</string>
+    <string name="enter_the_make">Enter the make</string>
+    <string name="enter_the_model">Enter the model</string>
+    <string name="enter_the_vin">Enter the VIN</string>
+    <string name="enter_the_license_plate">Enter the license plate</string>
+    <string name="choose_license_renewal_date">Choose license renewal date</string>
+    <string name="enter_notes_here">Enter notes here</string>
 </resources>

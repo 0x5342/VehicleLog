@@ -1,8 +1,6 @@
 package com.diversedistractions.vehiclelog;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.res.AssetManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -65,7 +63,7 @@ public class VehicleDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.vehicle_detail, container, false);
+        View rootView = inflater.inflate(R.layout.vehicle_detail_view, container, false);
 
         // Show the dummy content
         if (mItem != null) {
