@@ -33,6 +33,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.diversedistractions.vehiclelog.VehicleListActivity" />
         </activity>
+        <activity
+            android:name="com.diversedistractions.vehiclelog.MainSettingsActivity"
+            android:parentActivityName="com.diversedistractions.vehiclelog.VehicleListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.diversedistractions.vehiclelog.VehicleListActivity" />
+        </activity>
     </application>
 
 </manifest>

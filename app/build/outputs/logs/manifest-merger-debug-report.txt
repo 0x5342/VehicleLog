@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml:2:1-32:12
+ADDED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml:2:1-39:12
 	package
 		ADDED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml:3:5-49
 		INJECTED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml
@@ -14,7 +14,7 @@ ADDED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml:2:1-32:1
 		INJECTED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml
 application
-ADDED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml:5:5-30:19
+ADDED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml:5:5-37:19
 MERGED from [com.android.support:design:25.1.1] D:\Data\Projects\VehicleLog\app\build\intermediates\exploded-aar\com.android.support\design\25.1.1\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:appcompat-v7:25.1.1] D:\Data\Projects\VehicleLog\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.1\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:animated-vector-drawable:25.1.1] D:\Data\Projects\VehicleLog\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.1\AndroidManifest.xml:22:5-20
@@ -70,6 +70,12 @@ ADDED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml:26:13-28
 		ADDED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml:28:17-87
 	android:name
 		ADDED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml:27:17-63
+activity#com.diversedistractions.vehiclelog.MainSettingsActivity
+ADDED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml:30:9-36:20
+	android:parentActivityName
+		ADDED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml:32:13-62
+	android:name
+		ADDED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml:31:13-49
 uses-sdk
 INJECTED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:design:25.1.1] D:\Data\Projects\VehicleLog\app\build\intermediates\exploded-aar\com.android.support\design\25.1.1\AndroidManifest.xml:21:5-23:62

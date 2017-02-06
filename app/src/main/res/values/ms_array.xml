@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="language_array">
+        <item>English</item>
+    </string-array>
+
+    <string-array name="distance_measure_array">
+        <item>Miles</item>
+        <item>Kilometers</item>
+    </string-array>
+
+    <string-array name="fluid_measure_array">
+        <item>Gallons</item>
+        <item>Litres</item>
+    </string-array>
+</resources>

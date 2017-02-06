@@ -1,7 +1,12 @@
 <resources>
+    <!-- Main Settings Keys -->
+    <string name="ms_key_language">language</string>
+    <string name="ms_key_distance_units">distance_units</string>
+    <string name="ms_key_fluid_units">fluid_units</string>
+    <!-- Main Settings Keys -->
+
     <string name="app_name">Vehicle Log</string>
     <string name="title_vehicle_detail">Vehicle Detail</string>
-    <string name="temp_text">Temp Text to Delete</string>
     <string name="no_notes_to_display">No notes to display</string>
     <string name="no_fuel_economy_to_display">No fuel economy to display</string>
     <string name="no_renewal_date_to_display">No renewal date to display</string>
@@ -26,4 +31,8 @@
     <string name="enter_the_license_plate">Enter the license plate</string>
     <string name="choose_license_renewal_date">Choose license renewal date</string>
     <string name="enter_notes_here">Enter notes here</string>
+    <string name="settings">Settings</string>
+    <string name="language">Language</string>
+    <string name="distance_units">Distance units</string>
+    <string name="fluid_units">Fluid units</string>
 </resources>
