@@ -36,12 +36,12 @@
         "source": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\layout\\abc_popup_menu_header_item_layout.xml"
     },
     {
-        "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
-        "source": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\layout\\notification_template_part_time.xml"
-    },
-    {
         "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\layout\\vehicle_list_item.xml",
         "source": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\layout\\vehicle_list_item.xml"
+    },
+    {
+        "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
+        "source": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\layout\\notification_template_part_time.xml"
     },
     {
         "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
@@ -110,10 +110,6 @@
     {
         "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu_item.xml",
         "source": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.1.1\\res\\layout\\design_navigation_menu_item.xml"
-    },
-    {
-        "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\layout\\vehicle_detail.xml",
-        "source": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\layout\\vehicle_detail.xml"
     },
     {
         "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
@@ -188,8 +184,16 @@
         "source": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.1.1\\res\\layout\\design_navigation_item_header.xml"
     },
     {
+        "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\layout\\vehicle_detail_view.xml",
+        "source": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\layout\\vehicle_detail_view.xml"
+    },
+    {
         "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
         "source": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\layout\\vehicle_detail_edit.xml",
+        "source": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\layout\\vehicle_detail_edit.xml"
     },
     {
         "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
