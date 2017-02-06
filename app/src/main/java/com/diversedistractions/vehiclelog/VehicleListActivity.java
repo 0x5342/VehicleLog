@@ -111,13 +111,19 @@ public class VehicleListActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
+            /*
+             *When an item in the vehicle list is clicked on:
+             *If in two pane mode, i.e. tablet in landscape mode, pass the vehicle as a parcelable
+             *into a fragment for the second pane. If in single pane mode, i.e. phone in either
+             *orientation or tablet in portrait mode, pass the vehicle as a parcelable into an
+             * intent to launch the new activity.
+             */
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String itemId = vehicleItem.getVehicleId();
                     if (mTwoPane) {
                         Bundle arguments = new Bundle();
-                        arguments.putString(VehicleDetailFragment.ARG_ITEM_ID, itemId);
+                        arguments.putParcelable(VehicleDetailFragment.ARG_ITEM, vehicleItem);
                         VehicleDetailFragment fragment = new VehicleDetailFragment();
                         fragment.setArguments(arguments);
                         getSupportFragmentManager().beginTransaction()
@@ -126,7 +132,7 @@ public class VehicleListActivity extends AppCompatActivity {
                     } else {
                         Context context = v.getContext();
                         Intent intent = new Intent(context, VehicleDetailActivity.class);
-                        intent.putExtra(VehicleDetailFragment.ARG_ITEM_ID, itemId);
+                        intent.putExtra(VehicleDetailFragment.ARG_ITEM, vehicleItem);
 
                         context.startActivity(intent);
                     }

@@ -15,7 +15,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a495257-0394-4129-aee2-256212cd8f9b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/color.json" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
@@ -23,16 +22,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v21.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v21.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/layout.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/layout.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAndroidTestResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAndroidTestResources/compile-file-map.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values-v21/values-v21.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values-v21/values-v21.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleDetailActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleDetailActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleDetailFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleDetailFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleListActivity.java" />
     </list>
     <ignored path="Vehicle Log.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,8 +62,8 @@
       <file leaf-file-name="VehicleListActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleListActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="128" column="78" selection-start-line="128" selection-start-column="78" selection-end-line="128" selection-end-column="78" />
+            <state relative-caret-position="1672">
+              <caret line="114" column="61" selection-start-line="114" selection-start-column="61" selection-end-line="114" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -103,8 +97,8 @@
       <file leaf-file-name="VehicleDetailFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleDetailFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
+            <state relative-caret-position="694">
+              <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -113,8 +107,8 @@
       <file leaf-file-name="VehicleDetailActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleDetailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+            <state relative-caret-position="295">
+              <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -1850,8 +1844,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/database/VehiclesTable.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/vehicle_list_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_vehicle_detail.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleListActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleDetailFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/DateConversionHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/vehicle_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
@@ -1860,6 +1852,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/vehicle_detail_view.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/vehicle_detail_edit.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleDetailActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleDetailFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleListActivity.java" />
       </list>
     </option>
   </component>
@@ -2278,7 +2272,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlPreviewForm.SHOW" value="false" />
     <property name="prop_add_unversioned_files" value="true" />
-    <property name="device.picker.selection" value="10_1_WXGA_Tablet" />
+    <property name="device.picker.selection" value="Nexus_6_API_23" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlEditorPanel.WIDTH" value="179" />
   </component>
   <component name="RecentsManager">
@@ -2689,7 +2683,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486386834061</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Tweaking come comment blocks">
+      <created>1486393201238</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1486393201238</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2785,7 +2786,8 @@
     <MESSAGE value="Adding border to Notes text on the VehicleDetail screen." />
     <MESSAGE value="Renaming vehicle_detail.xml to vehicle_detail_view.xml and adding vehicle_detail_edit.xml" />
     <MESSAGE value="Cleaning up vehicle_detail_view.xml and vehicle_detail_edit.xml and changing notes text border to primary color." />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaning up vehicle_detail_view.xml and vehicle_detail_edit.xml and changing notes text border to primary color." />
+    <MESSAGE value="Tweaking come comment blocks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tweaking come comment blocks" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3195,24 +3197,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleDetailActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+        <state relative-caret-position="295">
+          <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleDetailFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
+        <state relative-caret-position="694">
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="128" column="78" selection-start-line="128" selection-start-column="78" selection-end-line="128" selection-end-column="78" />
+        <state relative-caret-position="1672">
+          <caret line="114" column="61" selection-start-line="114" selection-start-column="61" selection-end-line="114" selection-end-column="61" />
           <folding />
         </state>
       </provider>

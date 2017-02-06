@@ -55,8 +55,10 @@ public class VehicleDetailActivity extends AppCompatActivity {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putString(VehicleDetailFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(VehicleDetailFragment.ARG_ITEM_ID));
+            arguments.putParcelable(VehicleDetailFragment.ARG_ITEM, getIntent()
+                    .getParcelableExtra(VehicleDetailFragment.ARG_ITEM));
+//            arguments.putString(VehicleDetailFragment.ARG_ITEM_ID,
+//                    getIntent().getStringExtra(VehicleDetailFragment.ARG_ITEM_ID));
             VehicleDetailFragment fragment = new VehicleDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
