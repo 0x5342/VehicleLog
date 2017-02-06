@@ -25,14 +25,14 @@ import java.io.InputStream;
  */
 public class VehicleDetailFragment extends Fragment {
     /**
-     * The fragment argument representing the item ID that this fragment
+     * The fragment argument representing the item that this fragment
      * represents.
      */
     public static final String ARG_ITEM_ID = "item_id";
     public static final String ARG_ITEM = "vehicle_item";
 
     /**
-     * The dummy content this fragment is presenting.
+     * The vehicle this fragment is presenting.
      */
     private VehicleItem mItem;
 
@@ -52,7 +52,6 @@ public class VehicleDetailFragment extends Fragment {
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
             mItem = getArguments().getParcelable(ARG_ITEM);
-//            mItem = DummyContentProvider.vehicleItemMap.get(getArguments().getString(ARG_ITEM_ID));
 
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
