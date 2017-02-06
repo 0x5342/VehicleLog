@@ -13,7 +13,7 @@ import android.view.MenuItem;
 
 /**
  * An activity representing a single Vehicle detail screen. This
- * activity is only used narrow width devices. On tablet-size devices,
+ * activity is only used on narrow width devices. On tablet-size devices,
  * item details are presented side-by-side with a list of items
  * in a {@link VehicleListActivity}.
  */
@@ -30,7 +30,7 @@ public class VehicleDetailActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: launch Vehicle Detail in edit mode
+                //TODO: Replace Vehicle Detail edit fragment with Vehicle Detail Edit
                 Snackbar.make(view, "Replace with your own detail action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
