@@ -27,6 +27,7 @@ import android.widget.Toast;
 
 import com.diversedistractions.vehiclelog.dummy.DummyContentProvider;
 import com.diversedistractions.vehiclelog.models.VehicleItem;
+import com.diversedistractions.vehiclelog.utilities.JSONHelper;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -57,6 +58,8 @@ public class VehicleListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vehicle_list);
+
+        checkPermissions();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -105,7 +108,12 @@ public class VehicleListActivity extends AppCompatActivity {
                     checkPermissions();
                     return false;
                 }
-                //TODO: add the code to export data to a JSON
+                boolean result = JSONHelper.exportToJSON(this,vehicleItemList);
+                if (result) {
+                    Toast.makeText(this, "Data exported", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "Export failed", Toast.LENGTH_SHORT).show();
+                }
                 return true;
             case R.id.action_import:
                 if (!permissionGranted) {
