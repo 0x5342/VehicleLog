@@ -35,4 +35,6 @@
     <string name="language">Language</string>
     <string name="distance_units">Distance units</string>
     <string name="fluid_units">Fluid units</string>
+    <string name="export_data">Export Data</string>
+    <string name="import_data">Import Data</string>
 </resources>

@@ -611,8 +611,10 @@
     <string name="enter_the_make">Enter the make</string>
     <string name="enter_the_model">Enter the model</string>
     <string name="enter_the_vin">Enter the VIN</string>
+    <string name="export_data">Export Data</string>
     <string name="fluid_units">Fluid units</string>
     <string name="fuel_economy">Fuel economy:</string>
+    <string name="import_data">Import Data</string>
     <string name="language">Language</string>
     <string name="license_plate">License plate:</string>
     <string name="lp_renew_date">LP renew date:</string>

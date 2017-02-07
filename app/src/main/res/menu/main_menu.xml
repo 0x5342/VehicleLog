@@ -4,6 +4,11 @@
 
     <item
         android:id="@+id/action_settings"
-        android:title="@string/settings"
-        app:showAsAction="ifRoom" />
+        android:title="@string/settings" />
+    <item
+        android:id="@+id/action_export"
+        android:title="@string/export_data" />
+    <item
+        android:id="@+id/action_import"
+        android:title="@string/import_data" />
 </menu>
