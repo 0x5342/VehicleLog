@@ -15,6 +15,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -44,6 +45,7 @@ import java.util.List;
 public class VehicleListActivity extends AppCompatActivity {
 
     private static final int REQUEST_PERMISSION_WRITE = 1001;
+    private static final String TAG = "vehicleLogImport";
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -102,12 +104,6 @@ public class VehicleListActivity extends AppCompatActivity {
                 startActivity(settingsIntent);
                 return true;
             case R.id.action_export:
-                // Check that permission to write to external storage is granted.
-                // If not, ask for permission.
-                if (!permissionGranted) {
-                    checkPermissions();
-                    return false;
-                }
                 boolean result = JSONHelper.exportToJSON(this,vehicleItemList);
                 if (result) {
                     Toast.makeText(this, "Data exported", Toast.LENGTH_SHORT).show();
@@ -116,11 +112,12 @@ public class VehicleListActivity extends AppCompatActivity {
                 }
                 return true;
             case R.id.action_import:
-                if (!permissionGranted) {
-                    checkPermissions();
-                    return false;
+                List<VehicleItem> vehicleItems = JSONHelper.importFromJSON(this);
+                if (vehicleItems != null) {
+                    for (VehicleItem vehicleItem: vehicleItems) {
+                        Log.i(TAG, "onOptionsItemSelected: " + vehicleItem.getVehicleMake());
+                    }
                 }
-                //TODO: add the code to import data from a JSON
                 return true;
         }
         return super.onOptionsItemSelected(item);
