@@ -20,16 +20,17 @@ public class VehicleItem implements Parcelable {
     private String vehicleLp;
     private int vehicleLpRenewalDate;
     private String vehicleImage;
-    private String vehicleTdMilage;
     private String vehicleNotes;
+    private String vehicleTdEfficiency;
+    private int vehicleModOrder;
 
     public VehicleItem() {
     }
 
     public VehicleItem(String vehicleId, String vehicleType, String vehicleMake,
                        String vehicleModel, int vehicleYear, String vehicleVin, String vehicleLp,
-                       int vehicleLpRenewalDate, String vehicleImage, String vehicleTdMilage,
-                       String vehicleNotes) {
+                       int vehicleLpRenewalDate, String vehicleImage, String vehicleNotes,
+                       String vehicleTdEfficiency, int vehicleModOrder) {
         if (vehicleId == null) {
             vehicleId = UUID.randomUUID().toString();
         }
@@ -43,8 +44,9 @@ public class VehicleItem implements Parcelable {
         this.vehicleLp = vehicleLp;
         this.vehicleLpRenewalDate = vehicleLpRenewalDate;
         this.vehicleImage = vehicleImage;
-        this.vehicleTdMilage = vehicleTdMilage;
+        this.vehicleTdEfficiency = vehicleTdEfficiency;
         this.vehicleNotes = vehicleNotes;
+        this.vehicleModOrder = vehicleModOrder;
     }
 
     public String getVehicleId() {
@@ -119,14 +121,6 @@ public class VehicleItem implements Parcelable {
         this.vehicleImage = vehicleImage;
     }
 
-    public String getVehicleTdMilage() {
-        return vehicleTdMilage;
-    }
-
-    public void setVehicleTdMilage(String vehicleTdMilage) {
-        this.vehicleTdMilage = vehicleTdMilage;
-    }
-
     public String getVehicleNotes() {
         return vehicleNotes;
     }
@@ -135,10 +129,22 @@ public class VehicleItem implements Parcelable {
         this.vehicleNotes = vehicleNotes;
     }
 
+    public String getVehicleTdEfficiency() {
+        return vehicleTdEfficiency;
+    }
+
+    public void setVehicleTdEfficiency(String vehicleTdEfficiency) {
+        this.vehicleTdEfficiency = vehicleTdEfficiency;
+    }
+
+    public int getVehicleModOrder() { return vehicleModOrder; }
+
+    public void setVehicleModOrder(int vehicleModOrder) { this.vehicleModOrder = vehicleModOrder; }
+
     public ContentValues toValues() {
         ContentValues values = new ContentValues();
 
-        values.put(VehiclesTable.COL_VEHICLE_ROW_ID, vehicleId);
+        values.put(VehiclesTable.COL_VEHICLE_ID, vehicleId);
         values.put(VehiclesTable.COL_VEHICLE_TYPE, vehicleType);
         values.put(VehiclesTable.COL_VEHICLE_MAKE, vehicleMake);
         values.put(VehiclesTable.COL_VEHICLE_MODEL, vehicleModel);
@@ -147,8 +153,9 @@ public class VehicleItem implements Parcelable {
         values.put(VehiclesTable.COL_VEHICLE_LP, vehicleLp);
         values.put(VehiclesTable.COL_VEHICLE_REN_DATE, vehicleLpRenewalDate);
         values.put(VehiclesTable.COL_VEHICLE_IMAGE, vehicleImage);
-        values.put(VehiclesTable.COL_VEHICLE_TD_MPG, vehicleTdMilage);
         values.put(VehiclesTable.COL_VEHICLE_NOTE, vehicleNotes);
+        values.put(VehiclesTable.COL_VEHICLE_TD_EFF, vehicleTdEfficiency);
+        values.put(VehiclesTable.COL_VEHICLE_MODIFIED_ORDER, vehicleModOrder);
 
         return values;
     }
@@ -165,8 +172,9 @@ public class VehicleItem implements Parcelable {
                 ", vehicleLp='" + vehicleLp + '\'' +
                 ", vehicleLpRenewalDate=" + vehicleLpRenewalDate +
                 ", vehicleImage='" + vehicleImage + '\'' +
-                ", vehicleTdMilage='" + vehicleTdMilage + '\'' +
                 ", vehicleNotes='" + vehicleNotes + '\'' +
+                ", vehicleTdEfficiency='" + vehicleTdEfficiency + '\'' +
+                ", vehicleModOrder='" + vehicleModOrder + '\'' +
                 '}';
     }
 
@@ -186,8 +194,9 @@ public class VehicleItem implements Parcelable {
         dest.writeString(vehicleLp);
         dest.writeInt(vehicleLpRenewalDate);
         dest.writeString(vehicleImage);
-        dest.writeString(vehicleTdMilage);
         dest.writeString(vehicleNotes);
+        dest.writeString(vehicleTdEfficiency);
+        dest.writeInt(vehicleModOrder);
     }
 
     protected VehicleItem(Parcel in) {
@@ -200,8 +209,9 @@ public class VehicleItem implements Parcelable {
         vehicleLp = in.readString();
         vehicleLpRenewalDate = in.readInt();
         vehicleImage = in.readString();
-        vehicleTdMilage = in.readString();
         vehicleNotes = in.readString();
+        vehicleTdEfficiency = in.readString();
+        vehicleModOrder = in.readInt();
     }
 
     public static final Parcelable.Creator<VehicleItem> CREATOR =

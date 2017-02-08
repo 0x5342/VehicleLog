@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.diversedistractions.vehiclelog.dummy.DummyContentProvider;
 import com.diversedistractions.vehiclelog.models.VehicleItem;
 
 import java.io.IOException;
@@ -85,7 +84,7 @@ public class VehicleDetailFragment extends Fragment {
                     .setText(mItem.getVehicleLp());
             ((TextView) rootView.findViewById(R.id.vehicleLpRenewalDateText))
                     .setText(Integer.toString(mItem.getVehicleLpRenewalDate()));
-            ((TextView) rootView.findViewById(R.id.vehToDateText)).setText(mItem.getVehicleTdMilage());
+            ((TextView) rootView.findViewById(R.id.vehToDateText)).setText(mItem.getVehicleTdEfficiency());
             ((TextView) rootView.findViewById(R.id.vehNotesText)).setText(mItem.getVehicleNotes());
         }
 

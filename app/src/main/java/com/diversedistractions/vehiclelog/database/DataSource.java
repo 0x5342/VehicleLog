@@ -7,7 +7,6 @@ import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 import com.diversedistractions.vehiclelog.models.VehicleItem;
 
@@ -65,8 +64,9 @@ public class DataSource {
         while (cursor.moveToNext()){
             VehicleItem item = new VehicleItem();
             item.setVehicleId(cursor.getString
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_ROW_ID)));
-            item.setVehicleType(cursor.getString(cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_TYPE)));
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_ID)));
+            item.setVehicleType(cursor.getString
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_TYPE)));
             item.setVehicleMake(cursor.getString
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MAKE)));
             item.setVehicleModel(cursor.getString
@@ -81,10 +81,12 @@ public class DataSource {
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_REN_DATE)));
             item.setVehicleImage(cursor.getString
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_IMAGE)));
-            item.setVehicleTdMilage(cursor.getString
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_TD_MPG)));
             item.setVehicleNotes(cursor.getString
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_NOTE)));
+            item.setVehicleTdEfficiency(cursor.getString
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_TD_EFF)));
+            item.setVehicleModOrder(cursor.getInt
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MODIFIED_ORDER)));
         }
         cursor.close();
         return vehicleItems;
