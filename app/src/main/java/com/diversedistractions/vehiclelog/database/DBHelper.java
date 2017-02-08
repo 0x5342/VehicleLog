@@ -23,8 +23,13 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        //TODO: Code to export the data before upgrading
+        // Delete the old database
         db.execSQL(VehiclesTable.VEHICLES_TABLE_DELETE);
         db.execSQL(FuelEntriesTable.FUEL_ENTRY_TABLE_DELETE);
         db.execSQL(ServiceEntriesTable.SERVICE_ENTRY_TABLE_DELETE);
+        // Create the database with the new structure
+        onCreate(db);
+        //TODO: Code to import and alter data to match new db structure
     }
 }

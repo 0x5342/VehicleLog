@@ -1,8 +1,11 @@
 package com.diversedistractions.vehiclelog.models;
 
 
+import android.content.ContentValues;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import com.diversedistractions.vehiclelog.database.VehiclesTable;
 
 import java.util.UUID;
 
@@ -130,6 +133,24 @@ public class VehicleItem implements Parcelable {
 
     public void setVehicleNotes(String vehicleNotes) {
         this.vehicleNotes = vehicleNotes;
+    }
+
+    public ContentValues toValues() {
+        ContentValues values = new ContentValues();
+
+        values.put(VehiclesTable.COL_VEHICLE_ROW_ID, vehicleId);
+        values.put(VehiclesTable.COL_VEHICLE_TYPE, vehicleType);
+        values.put(VehiclesTable.COL_VEHICLE_MAKE, vehicleMake);
+        values.put(VehiclesTable.COL_VEHICLE_MODEL, vehicleModel);
+        values.put(VehiclesTable.COL_VEHICLE_YEAR, vehicleYear);
+        values.put(VehiclesTable.COL_VEHICLE_VIN, vehicleVin);
+        values.put(VehiclesTable.COL_VEHICLE_LP, vehicleLp);
+        values.put(VehiclesTable.COL_VEHICLE_REN_DATE, vehicleLpRenewalDate);
+        values.put(VehiclesTable.COL_VEHICLE_IMAGE, vehicleImage);
+        values.put(VehiclesTable.COL_VEHICLE_TD_MPG, vehicleTdMilage);
+        values.put(VehiclesTable.COL_VEHICLE_NOTE, vehicleNotes);
+
+        return values;
     }
 
     @Override

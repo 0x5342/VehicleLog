@@ -4,6 +4,9 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Environment;
@@ -26,6 +29,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.diversedistractions.vehiclelog.database.DBHelper;
+import com.diversedistractions.vehiclelog.database.DataSource;
 import com.diversedistractions.vehiclelog.dummy.DummyContentProvider;
 import com.diversedistractions.vehiclelog.models.VehicleItem;
 import com.diversedistractions.vehiclelog.utilities.JSONHelper;
@@ -56,11 +61,22 @@ public class VehicleListActivity extends AppCompatActivity {
     List<VehicleItem> vehicleItemList = DummyContentProvider.vehicleItemList;
     private boolean permissionGranted;
 
+    DataSource mDataSource;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vehicle_list);
 
+        mDataSource = new DataSource(this);
+        mDataSource.open();
+        mDataSource.seedDatabase(vehicleItemList);
+
+        List<VehicleItem> vehicleListFromDB = mDataSource.getAllItems();
+
+        VehicleItemAdapter adapter = new VehicleItemAdapter(this, vehicleListFromDB);
+
+        //TODO: I think I want to move this
         checkPermissions();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -87,6 +103,18 @@ public class VehicleListActivity extends AppCompatActivity {
             // activity should be in two-pane mode.
             mTwoPane = true;
         }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mDataSource.close();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mDataSource.open();
     }
 
     @Override

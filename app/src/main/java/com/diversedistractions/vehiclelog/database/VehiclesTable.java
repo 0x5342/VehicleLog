@@ -38,8 +38,8 @@ public class VehiclesTable {
     public static final String COL_VEHICLE_NOTE = "note";
 
     // Convenient string that contains all of the table columns
-    public static final String[] ALL_VEHICLE_COLUMNS = {COL_VEHICLE_ROW_ID, COL_VEHICLE_MAKE,
-            COL_VEHICLE_MODEL, COL_VEHICLE_YEAR, COL_VEHICLE_VIN, COL_VEHICLE_LP,
+    public static final String[] ALL_VEHICLE_COLUMNS = {COL_VEHICLE_ROW_ID, COL_VEHICLE_TYPE,
+            COL_VEHICLE_MAKE, COL_VEHICLE_MODEL, COL_VEHICLE_YEAR, COL_VEHICLE_VIN, COL_VEHICLE_LP,
             COL_VEHICLE_REN_DATE, COL_VEHICLE_IMAGE, COL_VEHICLE_TD_MPG, COL_VEHICLE_NOTE};
 
     /*
@@ -48,12 +48,11 @@ public class VehiclesTable {
     public static final String VEHICLE_TYPE_CAR = "car";
     public static final String VEHICLE_TYPE_MOTORCYCLE = "motorcycle";
     public static final String VEHICLE_TYPE_TRUCK = "truck";
-    public static final String VEHICLE_TYPE_TRACTOR = "tractor";
+    public static final String VEHICLE_TYPE_UTILITY = "utility";
 
     /*
      * Database table creation SQL statement for the vehicles list
      */
-    //TODO: Maybe remove the not null portion?
     //TODO: Decide between integer and string for ID
     public static final String VEHICLES_TABLE_CREATE =
             "create table " + VEHICLE_DATABASE_TABLE + "(" +

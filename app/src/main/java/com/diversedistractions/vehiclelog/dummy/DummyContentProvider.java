@@ -24,23 +24,23 @@ public class DummyContentProvider {
         vehicleItemList = new ArrayList<>();
         vehicleItemMap = new HashMap<>();
 
-        addItem(new VehicleItem("1", VehiclesTable.VEHICLE_TYPE_CAR, "Lincoln", "Continental", 1984,
+        addItem(new VehicleItem(null, VehiclesTable.VEHICLE_TYPE_CAR, "Lincoln", "Continental", 1984,
                 "12345678901234", "123ABC", 123456789, "vi_car.png", "12.5", "message"));
-        addItem(new VehicleItem("2", VehiclesTable.VEHICLE_TYPE_MOTORCYCLE, "BMW", "R1200RT", 2009,
+        addItem(new VehicleItem(null, VehiclesTable.VEHICLE_TYPE_MOTORCYCLE, "BMW", "R1200RT", 2009,
                 "43210987654321", "456DEF", 123456789, "vi_motorcycle.png", "48.7", "Note"));
-        addItem(new VehicleItem("3", VehiclesTable.VEHICLE_TYPE_CAR, "Lamborghini",
+        addItem(new VehicleItem(null, VehiclesTable.VEHICLE_TYPE_CAR, "Lamborghini",
                 "Aventador SV Roadster", 1977, "78901234567890", "789GHI", 123456789, "vi_car.png",
                 "2.2", "Help me, I'm in dept up to my eyeballs!"));
-        addItem(new VehicleItem("4", VehiclesTable.VEHICLE_TYPE_TRUCK, "Ford", "F150", 2010,
+        addItem(new VehicleItem(null, VehiclesTable.VEHICLE_TYPE_TRUCK, "Ford", "F150", 2010,
                 "45678901234567", "012JKL", 123456789, "vi_truck.png", "14.8", "5W-30"));
-        addItem(new VehicleItem("5", VehiclesTable.VEHICLE_TYPE_CAR, "Chevrolet", "Camero Z28", 2017,
+        addItem(new VehicleItem(null, VehiclesTable.VEHICLE_TYPE_CAR, "Chevrolet", "Camero Z28", 2017,
                 "12345678901234", "123ABC", 123456789, "vi_car.png", "12.5", "message"));
-        addItem(new VehicleItem("6", VehiclesTable.VEHICLE_TYPE_TRUCK, "Chevrolet", "Silverado", 1969,
+        addItem(new VehicleItem(null, VehiclesTable.VEHICLE_TYPE_TRUCK, "Chevrolet", "Silverado", 1969,
                 "43210987654321", "456DEF", 123456789, "vi_truck.png", "48.7", "Note"));
-        addItem(new VehicleItem("7", VehiclesTable.VEHICLE_TYPE_CAR, "Ford",
+        addItem(new VehicleItem(null, VehiclesTable.VEHICLE_TYPE_CAR, "Ford",
                 "Thunderbird", 1957, "78901234567890", "789GHI", 123456789, "vi_car.png",
                 "2.2", "Can you push?"));
-        addItem(new VehicleItem("8", VehiclesTable.VEHICLE_TYPE_MOTORCYCLE, "Kawasaki",
+        addItem(new VehicleItem(null, VehiclesTable.VEHICLE_TYPE_MOTORCYCLE, "Kawasaki",
                 "Vulcan 750", 2005, "45678901234567", "012JKL", 123456789, "vi_motorcycle.png",
                 "14.8", "5W-30"));
     }
