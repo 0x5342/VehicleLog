@@ -43,6 +43,7 @@ public class DataSource {
         return DatabaseUtils.queryNumEntries(mDatabase, VehiclesTable.VEHICLE_DATABASE_TABLE);
     }
 
+    //TODO: Remove for final product
     public void seedDatabase(List<VehicleItem> vehicleItemList) {
         long numItems = getVehicleDataItemsCount();
         if (numItems == 0) {
@@ -58,8 +59,10 @@ public class DataSource {
 
     public List<VehicleItem> getAllVehicles() {
         List<VehicleItem> vehicleItems = new ArrayList<>();
+        //TODO: Make the "sort by" a variable that is set in preferences
         Cursor cursor = mDatabase.query(VehiclesTable.VEHICLE_DATABASE_TABLE,
-                VehiclesTable.ALL_VEHICLE_COLUMNS, null, null, null, null, VehiclesTable.COL_VEHICLE_YEAR);
+                VehiclesTable.ALL_VEHICLE_COLUMNS, null, null, null, null,
+                VehiclesTable.COL_VEHICLE_MODIFIED_ORDER);
 
         while (cursor.moveToNext()){
             VehicleItem item = new VehicleItem();

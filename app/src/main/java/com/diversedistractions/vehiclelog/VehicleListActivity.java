@@ -8,14 +8,13 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,7 +23,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import com.diversedistractions.vehiclelog.database.DataSource;
 import com.diversedistractions.vehiclelog.dummy.DummyContentProvider;
@@ -36,6 +34,7 @@ import java.io.InputStream;
 import java.util.List;
 
 /**
+ * This is the main activity.
  * An activity representing a list of Vehicles. This activity
  * has different presentations for handset and tablet-size devices. On
  * handsets, the activity presents a list of items, which when touched,
@@ -54,9 +53,12 @@ public class VehicleListActivity extends AppCompatActivity {
      */
     private boolean mTwoPane;
 
-    List<VehicleItem> vehicleItemList = DummyContentProvider.vehicleItemList;
-    List<VehicleItem> vehicleListFromDB;
     private boolean permissionGranted;
+
+    //TODO: Remove for final product
+    List<VehicleItem> vehicleItemList = DummyContentProvider.vehicleItemList;
+
+    List<VehicleItem> vehicleListFromDB;
 
     DataSource mDataSource;
 
@@ -67,11 +69,10 @@ public class VehicleListActivity extends AppCompatActivity {
 
         mDataSource = new DataSource(this);
         mDataSource.open();
+        //TODO: Remove for final product
         mDataSource.seedDatabase(vehicleItemList);
 
         vehicleListFromDB = mDataSource.getAllVehicles();
-
-//        VehicleItemAdapter adapter = new VehicleItemAdapter(this, vehicleListFromDB);
 
         //TODO: I think I want to move this
         checkPermissions();
@@ -140,7 +141,7 @@ public class VehicleListActivity extends AppCompatActivity {
                 List<VehicleItem> vehicleItems = JSONHelper.importFromJSON(this);
                 if (vehicleItems != null) {
                     for (VehicleItem vehicleItem: vehicleItems) {
-                        Log.i(TAG, "onOptionsItemSelected: " + vehicleItem.getVehicleMake());
+                        //TODO: code to verify data format and import into the database
                     }
                 }
                 return true;
@@ -257,11 +258,10 @@ public class VehicleListActivity extends AppCompatActivity {
     }
 
     // Initiate request for permissions.
-    //TODO: Change this to note that import / export will not work without this permission
     private boolean checkPermissions() {
 
         if (!isExternalStorageReadable() || !isExternalStorageWritable()) {
-            Toast.makeText(this, "This app only works on devices with usable external storage",
+            Toast.makeText(this, "Import/Export only works on devices with usable external storage",
                     Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -291,7 +291,8 @@ public class VehicleListActivity extends AppCompatActivity {
                     Toast.makeText(this, "External storage permission granted",
                             Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(this, "You must grant permission!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "You must grant permission to import or export data!",
+                            Toast.LENGTH_SHORT).show();
                 }
                 break;
         }

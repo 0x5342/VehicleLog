@@ -56,7 +56,6 @@ public class VehiclesTable {
     /*
      * Database table creation SQL statement for the vehicles list
      */
-    //TODO: Decide between integer and string for ID
     public static final String VEHICLES_TABLE_CREATE =
             "create table " + VEHICLE_DATABASE_TABLE + "(" +
                     COL_VEHICLE_ID + " text primary key," +
