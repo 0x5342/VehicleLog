@@ -56,10 +56,10 @@ public class DataSource {
         }
     }
 
-    public List<VehicleItem> getAllItems() {
+    public List<VehicleItem> getAllVehicles() {
         List<VehicleItem> vehicleItems = new ArrayList<>();
         Cursor cursor = mDatabase.query(VehiclesTable.VEHICLE_DATABASE_TABLE,
-                VehiclesTable.ALL_VEHICLE_COLUMNS, null, null, null, null, null);
+                VehiclesTable.ALL_VEHICLE_COLUMNS, null, null, null, null, VehiclesTable.COL_VEHICLE_YEAR);
 
         while (cursor.moveToNext()){
             VehicleItem item = new VehicleItem();
@@ -87,6 +87,7 @@ public class DataSource {
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_TD_EFF)));
             item.setVehicleModOrder(cursor.getInt
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MODIFIED_ORDER)));
+            vehicleItems.add(item);
         }
         cursor.close();
         return vehicleItems;

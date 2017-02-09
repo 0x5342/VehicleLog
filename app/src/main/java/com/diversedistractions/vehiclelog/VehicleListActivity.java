@@ -4,9 +4,6 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Environment;
@@ -29,7 +26,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.diversedistractions.vehiclelog.database.DBHelper;
 import com.diversedistractions.vehiclelog.database.DataSource;
 import com.diversedistractions.vehiclelog.dummy.DummyContentProvider;
 import com.diversedistractions.vehiclelog.models.VehicleItem;
@@ -59,6 +55,7 @@ public class VehicleListActivity extends AppCompatActivity {
     private boolean mTwoPane;
 
     List<VehicleItem> vehicleItemList = DummyContentProvider.vehicleItemList;
+    List<VehicleItem> vehicleListFromDB;
     private boolean permissionGranted;
 
     DataSource mDataSource;
@@ -72,9 +69,9 @@ public class VehicleListActivity extends AppCompatActivity {
         mDataSource.open();
         mDataSource.seedDatabase(vehicleItemList);
 
-        List<VehicleItem> vehicleListFromDB = mDataSource.getAllItems();
+        vehicleListFromDB = mDataSource.getAllVehicles();
 
-        VehicleItemAdapter adapter = new VehicleItemAdapter(this, vehicleListFromDB);
+//        VehicleItemAdapter adapter = new VehicleItemAdapter(this, vehicleListFromDB);
 
         //TODO: I think I want to move this
         checkPermissions();
@@ -152,7 +149,7 @@ public class VehicleListActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new VehicleItemAdapter(this, vehicleItemList));
+        recyclerView.setAdapter(new VehicleItemAdapter(this, vehicleListFromDB));
     }
 
     public class VehicleItemAdapter extends RecyclerView.Adapter<VehicleItemAdapter.ViewHolder>{
