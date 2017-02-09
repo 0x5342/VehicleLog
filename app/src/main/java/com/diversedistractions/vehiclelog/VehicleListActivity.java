@@ -3,10 +3,12 @@ package com.diversedistractions.vehiclelog;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -72,7 +74,10 @@ public class VehicleListActivity extends AppCompatActivity {
         //TODO: Remove for final product
         mDataSource.seedDatabase(vehicleItemList);
 
-        vehicleListFromDB = mDataSource.getAllVehicles();
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+        String sortBy = settings.getString(getString(R.string.ms_key_vehicle_sortby), null);
+
+        vehicleListFromDB = mDataSource.getAllVehicles(sortBy);
 
         //TODO: I think I want to move this
         checkPermissions();

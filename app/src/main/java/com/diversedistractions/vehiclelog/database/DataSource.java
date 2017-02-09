@@ -2,12 +2,16 @@ package com.diversedistractions.vehiclelog.database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.preference.PreferenceManager;
 
+import com.diversedistractions.vehiclelog.R;
 import com.diversedistractions.vehiclelog.models.VehicleItem;
 
 import java.util.ArrayList;
@@ -57,12 +61,23 @@ public class DataSource {
         }
     }
 
-    public List<VehicleItem> getAllVehicles() {
+    public List<VehicleItem> getAllVehicles(String sortBy) {
         List<VehicleItem> vehicleItems = new ArrayList<>();
-        //TODO: Make the "sort by" a variable that is set in preferences
+
+        //TODO: This may need to change for different languages
+        String sortByField = null;
+        if (sortBy.equals(mContext.getString(R.string.most_recently_used))) {
+            sortByField = VehiclesTable.COL_VEHICLE_MODIFIED_ORDER;
+        } else if (sortBy.equals(mContext.getString(R.string.year))) {
+            sortByField = VehiclesTable.COL_VEHICLE_YEAR;
+        } else if (sortBy.equals(mContext.getString(R.string.make))) {
+                sortByField = VehiclesTable.COL_VEHICLE_MAKE;
+        } else if (sortBy.equals(mContext.getString(R.string.model))) {
+                sortByField = VehiclesTable.COL_VEHICLE_MODEL;
+        }
+
         Cursor cursor = mDatabase.query(VehiclesTable.VEHICLE_DATABASE_TABLE,
-                VehiclesTable.ALL_VEHICLE_COLUMNS, null, null, null, null,
-                VehiclesTable.COL_VEHICLE_MODIFIED_ORDER);
+                VehiclesTable.ALL_VEHICLE_COLUMNS, null, null, null, null, sortByField);
 
         while (cursor.moveToNext()){
             VehicleItem item = new VehicleItem();

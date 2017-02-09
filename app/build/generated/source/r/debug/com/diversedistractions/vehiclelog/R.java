@@ -33,6 +33,7 @@ public final class R {
         public static final int distance_measure_array=0x7f0e0000;
         public static final int fluid_measure_array=0x7f0e0001;
         public static final int language_array=0x7f0e0002;
+        public static final int vehicle_display_array=0x7f0e0003;
     }
     public static final class attr {
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -2987,6 +2988,7 @@ containing a value of this type.
         public static final int choose_license_renewal_date=0x7f080015;
         public static final int choose_model_year=0x7f080016;
         public static final int distance_units=0x7f080017;
+        public static final int english=0x7f080046;
         public static final int enter_notes_here=0x7f080018;
         public static final int enter_the_license_plate=0x7f080019;
         public static final int enter_the_make=0x7f08001a;
@@ -2994,17 +2996,25 @@ containing a value of this type.
         public static final int enter_the_vin=0x7f08001c;
         public static final int export_data=0x7f08001d;
         public static final int fluid_units=0x7f08001e;
-        public static final int fuel_economy=0x7f08001f;
+        public static final int fuel_economy_label=0x7f08001f;
+        public static final int gallons=0x7f080047;
         public static final int import_data=0x7f080020;
+        public static final int kilometers=0x7f080048;
         public static final int language=0x7f080021;
-        public static final int license_plate=0x7f080022;
-        public static final int lp_renew_date=0x7f080023;
-        public static final int make=0x7f080024;
-        public static final int model=0x7f080025;
+        public static final int license_plate_label=0x7f080022;
+        public static final int liters=0x7f080049;
+        public static final int lp_renew_date_label=0x7f080023;
+        public static final int make=0x7f08004a;
+        public static final int make_label=0x7f080024;
+        public static final int miles=0x7f08004b;
+        public static final int model=0x7f08004c;
+        public static final int model_label=0x7f080025;
         public static final int model_year=0x7f080026;
+        public static final int most_recently_used=0x7f08004d;
         public static final int ms_key_distance_units=0x7f080027;
         public static final int ms_key_fluid_units=0x7f080028;
         public static final int ms_key_language=0x7f080029;
+        public static final int ms_key_vehicle_sortby=0x7f08004e;
         public static final int no_fuel_economy_to_display=0x7f08002a;
         public static final int no_license_plate_to_display=0x7f08002b;
         public static final int no_notes_to_display=0x7f08002c;
@@ -3013,18 +3023,20 @@ containing a value of this type.
         public static final int no_vehicle_model_to_display=0x7f08002f;
         public static final int no_vehicle_year_to_display=0x7f080030;
         public static final int no_vin_to_display=0x7f080031;
-        public static final int notes=0x7f080032;
-        public static final int password_toggle_content_description=0x7f080046;
-        public static final int path_password_eye=0x7f080047;
-        public static final int path_password_eye_mask_strike_through=0x7f080048;
-        public static final int path_password_eye_mask_visible=0x7f080049;
-        public static final int path_password_strike_through=0x7f08004a;
+        public static final int none=0x7f08004f;
+        public static final int notes_label=0x7f080032;
+        public static final int password_toggle_content_description=0x7f080050;
+        public static final int path_password_eye=0x7f080051;
+        public static final int path_password_eye_mask_strike_through=0x7f080052;
+        public static final int path_password_eye_mask_visible=0x7f080053;
+        public static final int path_password_strike_through=0x7f080054;
         public static final int search_menu_title=0x7f080013;
         public static final int settings=0x7f080033;
         public static final int status_bar_notification_info_overflow=0x7f080014;
-        public static final int title_vehicle_detail=0x7f08004b;
+        public static final int title_vehicle_detail=0x7f080055;
         public static final int vehicle_view=0x7f080034;
-        public static final int vin=0x7f080035;
+        public static final int vin_label=0x7f080035;
+        public static final int year=0x7f080056;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f0a00a2;

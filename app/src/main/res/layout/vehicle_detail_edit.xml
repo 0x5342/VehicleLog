@@ -61,7 +61,7 @@
             android:layout_marginRight="5dp"
             android:layout_weight="2"
             android:gravity="end"
-            android:text="@string/make" />
+            android:text="@string/make_label" />
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/makeEditText"
@@ -88,7 +88,7 @@
             android:layout_marginRight="5dp"
             android:layout_weight="2"
             android:gravity="end"
-            android:text="@string/model" />
+            android:text="@string/model_label" />
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/modelEditText"
@@ -115,7 +115,7 @@
             android:layout_marginRight="5dp"
             android:layout_weight="2"
             android:gravity="end"
-            android:text="@string/vin" />
+            android:text="@string/vin_label" />
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/vehicleVinEditText"
@@ -142,7 +142,7 @@
             android:layout_marginRight="5dp"
             android:layout_weight="2"
             android:gravity="end"
-            android:text="@string/license_plate" />
+            android:text="@string/license_plate_label" />
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/vehicleLicensePlateEditText"
@@ -168,7 +168,7 @@
             android:layout_marginRight="5dp"
             android:layout_weight="2"
             android:gravity="end"
-            android:text="@string/lp_renew_date" />
+            android:text="@string/lp_renew_date_label" />
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/vehicleLpRenewalDateEditText"
@@ -186,7 +186,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="@string/notes" />
+        android:text="@string/notes_label" />
 
     <android.support.v7.widget.AppCompatEditText
         android:id="@+id/vehNotesText"

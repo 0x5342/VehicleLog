@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="language_array">
-        <item>English</item>
+        <item>@string/english</item>
     </string-array>
 
     <string-array name="distance_measure_array">
-        <item>Miles</item>
-        <item>Kilometers</item>
+        <item>@string/miles</item>
+        <item>@string/kilometers</item>
     </string-array>
 
     <string-array name="fluid_measure_array">
-        <item>Gallons</item>
-        <item>Litres</item>
+        <item>@string/gallons</item>
+        <item>@string/liters</item>
+    </string-array>
+
+    <string-array name="vehicle_display_array">
+        <item>@string/none</item>
+        <item>@string/most_recently_used</item>
+        <item>@string/year</item>
+        <item>@string/make</item>
+        <item>@string/model</item>
     </string-array>
 </resources>

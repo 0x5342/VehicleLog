@@ -22,4 +22,11 @@
         android:entryValues="@array/fluid_measure_array"
         android:key="@string/ms_key_fluid_units"
         android:summary="%s"/>
+    <ListPreference
+        android:defaultValue="1"
+        android:title="Sort vehicle list by"
+        android:entries="@array/vehicle_display_array"
+        android:entryValues="@array/vehicle_display_array"
+        android:key="@string/ms_key_vehicle_sortby"
+        android:summary="%s"/>
 </PreferenceScreen>
