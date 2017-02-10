@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="15"
+        android:minSdkVersion="16"
         android:targetSdkVersion="25" />
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -43,6 +43,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.diversedistractions.vehiclelog.VehicleListActivity" />
         </activity>
+
+        <provider
+            android:name="com.diversedistractions.vehiclelog.database.VehicleLogContentProvider"
+            android:authorities="com.diversedistractions.vehiclelog.vehiclelogcontentprovider"
+            android:exported="false" />
     </application>
 
 </manifest>

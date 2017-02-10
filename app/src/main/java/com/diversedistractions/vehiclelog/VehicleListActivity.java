@@ -1,11 +1,15 @@
 package com.diversedistractions.vehiclelog;
 
 import android.Manifest;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteException;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
@@ -14,9 +18,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.CursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,6 +33,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.diversedistractions.vehiclelog.database.DataSource;
+import com.diversedistractions.vehiclelog.database.VehicleLogContentProvider;
+import com.diversedistractions.vehiclelog.database.VehiclesTable;
 import com.diversedistractions.vehiclelog.dummy.DummyContentProvider;
 import com.diversedistractions.vehiclelog.models.VehicleItem;
 import com.diversedistractions.vehiclelog.utilities.JSONHelper;
@@ -47,7 +55,6 @@ import java.util.List;
 public class VehicleListActivity extends AppCompatActivity {
 
     private static final int REQUEST_PERMISSION_WRITE = 1001;
-    private static final String TAG = "vehicleLogImport";
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -60,24 +67,21 @@ public class VehicleListActivity extends AppCompatActivity {
     //TODO: Remove for final product
     List<VehicleItem> vehicleItemList = DummyContentProvider.vehicleItemList;
 
-    List<VehicleItem> vehicleListFromDB;
-
-    DataSource mDataSource;
+    Cursor cursor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vehicle_list);
 
-        mDataSource = new DataSource(this);
-        mDataSource.open();
-        //TODO: Remove for final product
-        mDataSource.seedDatabase(vehicleItemList);
+        // Call to insert a new vehicle into the database
+//        insertVehicle(vehicleItem);
 
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
         String sortBy = settings.getString(getString(R.string.ms_key_vehicle_sortby), null);
 
-        vehicleListFromDB = mDataSource.getAllVehicles(sortBy);
+        cursor = getContentResolver().query(VehicleLogContentProvider.VEHICLE_CONTENT_URI,
+                VehiclesTable.ALL_VEHICLE_COLUMNS, null, null, null, null);
 
         //TODO: I think I want to move this
         checkPermissions();
@@ -108,16 +112,22 @@ public class VehicleListActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mDataSource.close();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mDataSource.open();
+    private void insertVehicle(VehicleItem vehicleItem) {
+        ContentValues values = new ContentValues();
+        values.put(VehiclesTable.COL_VEHICLE_TYPE, vehicleItem.getVehicleType());
+        values.put(VehiclesTable.COL_VEHICLE_MAKE, vehicleItem.getVehicleMake());
+        values.put(VehiclesTable.COL_VEHICLE_MODEL, vehicleItem.getVehicleModel());
+        values.put(VehiclesTable.COL_VEHICLE_YEAR, vehicleItem.getVehicleYear());
+        values.put(VehiclesTable.COL_VEHICLE_VIN, vehicleItem.getVehicleVin());
+        values.put(VehiclesTable.COL_VEHICLE_LP, vehicleItem.getVehicleLp());
+        values.put(VehiclesTable.COL_VEHICLE_REN_DATE, vehicleItem.getVehicleLpRenewalDate());
+        values.put(VehiclesTable.COL_VEHICLE_IMAGE, vehicleItem.getVehicleImage());
+        values.put(VehiclesTable.COL_VEHICLE_TD_EFF, vehicleItem.getVehicleTdEfficiency());
+        values.put(VehiclesTable.COL_VEHICLE_NOTE, vehicleItem.getVehicleNotes());
+        values.put(VehiclesTable.COL_VEHICLE_MODIFIED_ORDER, vehicleItem.getVehicleModOrder());
+        Uri vehicleUri = getContentResolver()
+                .insert(VehicleLogContentProvider.VEHICLE_CONTENT_URI, values);
+        Log.d("VehicleListActivity", "Inserted vehicle " + vehicleUri.getLastPathSegment());
     }
 
     @Override
@@ -155,41 +165,76 @@ public class VehicleListActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new VehicleItemAdapter(this, vehicleListFromDB));
+        recyclerView.setAdapter(new VehicleItemAdapter(this, cursor));
     }
 
     public class VehicleItemAdapter extends RecyclerView.Adapter<VehicleItemAdapter.ViewHolder>{
 
-        private final List<VehicleItem> mItems;
+        // Because RecyclerView.Adapter in its current form doesn't natively
+        // support cursors, we wrap a CursorAdapter that will do all the job
+        // for us.
+        CursorAdapter mCursorAdapter;
+
         private Context mContext;
 
-        public VehicleItemAdapter(Context context, List<VehicleItem> items) {
-            mItems = items;
+        public VehicleItemAdapter(Context context, Cursor cursor) {
+
             mContext = context;
+
+            mCursorAdapter = new CursorAdapter(mContext, cursor, 0) {
+
+                @Override
+                public View newView(Context context, Cursor cursor, ViewGroup parent) {
+                    LayoutInflater inflater = (LayoutInflater) context
+                            .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    return inflater.inflate(R.layout.vehicle_list_item, parent, false);
+                }
+
+                @Override
+                public void bindView(View view, Context context, Cursor cursor) {
+                    String year = Integer.toString(cursor.getInt(cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_YEAR)));
+                    String make = cursor.getString(cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MAKE));
+                    String model = cursor.getString(cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MODEL));
+                    String imageFile = cursor.getString(cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_IMAGE));
+
+                    ((TextView) view.findViewById(R.id.vehicleYear)).setText(year);
+                    ((TextView) view.findViewById(R.id.makeText)).setText(make);
+                    ((TextView) view.findViewById(R.id.modelText)).setText(model);
+                    try {
+                        InputStream inputStream = context.getAssets().open(imageFile);
+                        Drawable drawable = Drawable.createFromStream(inputStream, null);
+                        ((ImageView) view.findViewById(R.id.vehicleImage)).setImageDrawable(drawable);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            };
+        }
+
+        public void reQuery(Cursor c) {
+            if (mCursorAdapter != null) {
+                mCursorAdapter.changeCursor(c);
+                mCursorAdapter.notifyDataSetChanged();
+            }
+        }
+
+        @Override
+        public int getItemCount() {
+            return mCursorAdapter.getCount();
         }
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View vehicleItemView = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.vehicle_list_item, parent, false);
-            return new ViewHolder(vehicleItemView);
+            // Passing the inflater job to the cursor adapter
+            View v = mCursorAdapter.newView(mContext, mCursorAdapter.getCursor(), parent);
+            return new ViewHolder(v);
         }
 
         @Override
-        public void onBindViewHolder(final ViewHolder holder, int position) {
-            final VehicleItem vehicleItem = mItems.get(position);
-
-            try {
-                holder.vYear.setText(Integer.toString(vehicleItem.getVehicleYear()));
-                holder.vMake.setText(vehicleItem.getVehicleMake());
-                holder.vModel.setText(vehicleItem.getVehicleModel());
-                String vehicleImageFile = vehicleItem.getVehicleImage();
-                InputStream inputStream = mContext.getAssets().open(vehicleImageFile);
-                Drawable drawable = Drawable.createFromStream(inputStream, null);
-                holder.vImage.setImageDrawable(drawable);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        public void onBindViewHolder(ViewHolder holder, int position) {
+            // Passing the binding operation to cursor loader
+            mCursorAdapter.getCursor().moveToPosition(position);
+            mCursorAdapter.bindView(holder.view, mContext, mCursorAdapter.getCursor());
 
             /*
              *When an item in the vehicle list is clicked on:
@@ -198,54 +243,36 @@ public class VehicleListActivity extends AppCompatActivity {
              *orientation or tablet in portrait mode, pass the vehicle as a parcelable into an
              * intent to launch the new activity.
              */
-            holder.mView.setOnClickListener(new View.OnClickListener() {
+            holder.view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (mTwoPane) {
-                        Bundle arguments = new Bundle();
-                        arguments.putParcelable(VehicleDetailFragment.ARG_ITEM, vehicleItem);
-                        VehicleDetailFragment fragment = new VehicleDetailFragment();
-                        fragment.setArguments(arguments);
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.vehicle_detail_container, fragment)
-                                .commit();
+                        Toast.makeText(mContext, "You clicked on a vehicle", Toast.LENGTH_SHORT).show();
+//                        Bundle arguments = new Bundle();
+//                        arguments.putParcelable(VehicleDetailFragment.ARG_ITEM, vehicleItem);
+//                        VehicleDetailFragment fragment = new VehicleDetailFragment();
+//                        fragment.setArguments(arguments);
+//                        getSupportFragmentManager().beginTransaction()
+//                                .replace(R.id.vehicle_detail_container, fragment)
+//                                .commit();
                     } else {
-                        Context context = v.getContext();
-                        Intent intent = new Intent(context, VehicleDetailActivity.class);
-                        intent.putExtra(VehicleDetailFragment.ARG_ITEM, vehicleItem);
-
-                        context.startActivity(intent);
+                        Toast.makeText(mContext, "You clicked on a vehicle", Toast.LENGTH_SHORT).show();
+//                        Context context = v.getContext();
+//                        Intent intent = new Intent(context, VehicleDetailActivity.class);
+//                        intent.putExtra(VehicleDetailFragment.ARG_ITEM, vehicleItem);
+//
+//                        context.startActivity(intent);
                     }
                 }
             });
         }
 
-        @Override
-        public int getItemCount() {
-            return mItems.size();
-        }
-
         public class ViewHolder extends RecyclerView.ViewHolder {
-            public TextView vYear;
-            public TextView vMake;
-            public TextView vModel;
-            public ImageView vImage;
-            public View mView;
-//            public DummyContentProvider.DummyItem mItem;
-
-            public ViewHolder(View vehicleItemView) {
-                super(vehicleItemView);
-                vYear = (TextView) vehicleItemView.findViewById(R.id.vehicleYear);
-                vMake = (TextView) vehicleItemView.findViewById(R.id.makeText);
-                vModel = (TextView) vehicleItemView.findViewById(R.id.modelText);
-                vImage = (ImageView) vehicleItemView.findViewById(R.id.vehicleImage);
-                mView = vehicleItemView;
+            View view;
+            public ViewHolder(View itemView) {
+                super(itemView);
+                view = itemView.findViewById(R.id.vehicle_list_item);
             }
-
-//            @Override
-//            public String toString() {
-//                return super.toString() + " '" + mContentView.getText() + "'";
-//            }
         }
     }
 

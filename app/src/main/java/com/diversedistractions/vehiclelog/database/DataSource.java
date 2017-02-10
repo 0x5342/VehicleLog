@@ -2,14 +2,11 @@ package com.diversedistractions.vehiclelog.database;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.preference.PreferenceManager;
 
 import com.diversedistractions.vehiclelog.R;
 import com.diversedistractions.vehiclelog.models.VehicleItem;
@@ -25,7 +22,7 @@ public class DataSource {
 
     public DataSource(Context context) {
         this.mContext = context;
-        mDbHelper = new DBHelper(mContext);
+        mDbHelper = new DBOpenHelper(mContext);
         mDatabase = mDbHelper.getWritableDatabase();
     }
 

@@ -776,7 +776,7 @@ public final class R {
 		public static final int line3 = 0x7f0f009b;
 		public static final int listMode = 0x7f0f000f;
 		public static final int list_item = 0x7f0f0048;
-		public static final int masked = 0x7f0f00ba;
+		public static final int masked = 0x7f0f00bb;
 		public static final int media_actions = 0x7f0f008d;
 		public static final int middle = 0x7f0f0039;
 		public static final int mini = 0x7f0f0037;
@@ -785,7 +785,7 @@ public final class R {
 		public static final int never = 0x7f0f003d;
 		public static final int none = 0x7f0f0014;
 		public static final int normal = 0x7f0f0010;
-		public static final int notification_background = 0x7f0f0096;
+		public static final int notification_background = 0x7f0f0095;
 		public static final int notification_main_column = 0x7f0f0090;
 		public static final int notification_main_column_container = 0x7f0f008f;
 		public static final int parallax = 0x7f0f0030;
@@ -795,7 +795,7 @@ public final class R {
 		public static final int progress_horizontal = 0x7f0f0007;
 		public static final int radio = 0x7f0f005d;
 		public static final int right = 0x7f0f002d;
-		public static final int right_icon = 0x7f0f0095;
+		public static final int right_icon = 0x7f0f0096;
 		public static final int right_side = 0x7f0f0091;
 		public static final int screen = 0x7f0f0020;
 		public static final int scroll = 0x7f0f001c;
@@ -851,7 +851,7 @@ public final class R {
 		public static final int up = 0x7f0f000d;
 		public static final int useLogo = 0x7f0f0018;
 		public static final int view_offset_helper = 0x7f0f000e;
-		public static final int visible = 0x7f0f00b9;
+		public static final int visible = 0x7f0f00ba;
 		public static final int withText = 0x7f0f003e;
 		public static final int wrap_content = 0x7f0f0024;
 	}
