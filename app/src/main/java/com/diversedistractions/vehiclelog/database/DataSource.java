@@ -66,14 +66,17 @@ public class DataSource {
 
         //TODO: This may need to change for different languages
         String sortByField = null;
-        if (sortBy.equals(mContext.getString(R.string.most_recently_used))) {
-            sortByField = VehiclesTable.COL_VEHICLE_MODIFIED_ORDER;
-        } else if (sortBy.equals(mContext.getString(R.string.year))) {
-            sortByField = VehiclesTable.COL_VEHICLE_YEAR;
-        } else if (sortBy.equals(mContext.getString(R.string.make))) {
-                sortByField = VehiclesTable.COL_VEHICLE_MAKE;
-        } else if (sortBy.equals(mContext.getString(R.string.model))) {
-                sortByField = VehiclesTable.COL_VEHICLE_MODEL;
+
+        if (sortBy != null) {
+            if (sortBy.equals(mContext.getString(R.string.most_recently_used))) {
+                sortByField = VehiclesTable.COL_VEHICLE_MODIFIED_ORDER;
+            } else if (sortBy.equals(mContext.getString(R.string.year))) {
+                sortByField = VehiclesTable.COL_VEHICLE_YEAR;
+            } else if (sortBy.equals(mContext.getString(R.string.make))) {
+                    sortByField = VehiclesTable.COL_VEHICLE_MAKE;
+            } else if (sortBy.equals(mContext.getString(R.string.model))) {
+                    sortByField = VehiclesTable.COL_VEHICLE_MODEL;
+            }
         }
 
         Cursor cursor = mDatabase.query(VehiclesTable.VEHICLE_DATABASE_TABLE,

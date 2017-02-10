@@ -47,13 +47,15 @@ public class VehicleDetailFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments().containsKey(ARG_ITEM)) {
+            //TODO: Change to a content provider
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
             mItem = getArguments().getParcelable(ARG_ITEM);
 
             Activity activity = this.getActivity();
-            CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
+            CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.
+                    findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
                 appBarLayout.setTitle(getString(R.string.vehicle_view));
             }
@@ -84,7 +86,8 @@ public class VehicleDetailFragment extends Fragment {
                     .setText(mItem.getVehicleLp());
             ((TextView) rootView.findViewById(R.id.vehicleLpRenewalDateText))
                     .setText(Integer.toString(mItem.getVehicleLpRenewalDate()));
-            ((TextView) rootView.findViewById(R.id.vehToDateText)).setText(mItem.getVehicleTdEfficiency());
+            ((TextView) rootView.findViewById(R.id.vehToDateText))
+                    .setText(mItem.getVehicleTdEfficiency());
             ((TextView) rootView.findViewById(R.id.vehNotesText)).setText(mItem.getVehicleNotes());
         }
 
