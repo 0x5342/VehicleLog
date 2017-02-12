@@ -26,15 +26,22 @@ public class VehicleDetailActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
 
+        //TODO: Only show this button if in view mode
+        Intent intent = getIntent();
+        int mMode = intent.getIntExtra(VehicleDetailFragment.DETAIL_MODE, 0);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //TODO: Replace Vehicle Detail edit fragment with Vehicle Detail Edit
-                Snackbar.make(view, "Replace with your own detail action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        if (mMode == VehicleDetailFragment.DETAIL_IN_VIEW_MODE) {
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //TODO: Replace Vehicle Detail fragment with Vehicle Detail Edit
+                    Snackbar.make(view, "Replace with your own detail action", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+            });
+        } else {
+            fab.setVisibility(View.INVISIBLE);
+        }
 
         // Show the Up button in the action bar.
         ActionBar actionBar = getSupportActionBar();

@@ -36,4 +36,6 @@
     <string name="fluid_units">Fluid units</string>
     <string name="export_data">Export Data</string>
     <string name="import_data">Import Data</string>
+    <string name="new_vehicle">New Vehicle</string>
+    <string name="edit_vehicle">Edit Vehicle</string>
 </resources>

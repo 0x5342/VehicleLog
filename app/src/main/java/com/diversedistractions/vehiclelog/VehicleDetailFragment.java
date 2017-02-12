@@ -11,6 +11,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -70,48 +71,100 @@ public class VehicleDetailFragment extends Fragment {
 
         mContext = this.getActivity();
 
+        // If arguments contains a URI, retrieve it & assign to mVehicleUri.
+        // Else set mVehicleUri to null.
         if (getArguments().containsKey(ARG_ITEM_URI)) {
             mVehicleUri = getArguments().getParcelable(ARG_ITEM_URI);
+        } else {
+            mVehicleUri = null;
         }
 
-        getVehicleData(mVehicleUri);
-            Activity activity = this.getActivity();
-            CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.
-                    findViewById(R.id.toolbar_layout);
-            if (appBarLayout != null) {
-                appBarLayout.setTitle(getString(R.string.vehicle_view));
+        // If arguments contains what the mode should be, assign it to mMode.
+        // Else assume should be in create mode.
+        if (getArguments().containsKey(DETAIL_MODE)) {
+            mMode = getArguments().getInt(DETAIL_MODE);
+        } else {
+            mMode = DETAIL_IN_CREATE_MODE;
+        }
+
+        // If there is a vehicle URI then we are in edit or view mode, so retrieve existing data.
+        if (mVehicleUri != null) {
+            getVehicleData(mVehicleUri);
+        }
+
+        Activity activity = this.getActivity();
+        CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.
+                findViewById(R.id.toolbar_layout);
+        // Set the title in the appBar (if active) to match whether creating, viewing, or editing.
+        if (appBarLayout != null) {
+            switch (mMode){
+                case 0:
+                    appBarLayout.setTitle(getString(R.string.new_vehicle));
+                    break;
+                case 1:
+                    appBarLayout.setTitle(getString(R.string.vehicle_view));
+                    break;
+                case 2:
+                    appBarLayout.setTitle(getString(R.string.edit_vehicle));
             }
+        }
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.vehicle_detail_view, container, false);
+        View rootView = null;
 
-        // Show the vehicle's content
-        if (mVehicleUri != null) {
-            ((TextView) rootView.findViewById(R.id.vehicleYearText))
-                    .setText(Integer.toString(vehicleYear));
-            ((TextView) rootView.findViewById(R.id.makeText)).setText(vehicleMake);
-            ((TextView) rootView.findViewById(R.id.modelText)).setText(vehicleModel);
-            try {
-                InputStream inputStream = getContext().getAssets().open(vehicleImage);
-                Drawable drawable = Drawable.createFromStream(inputStream, null);
-                ((ImageView) rootView.findViewById(R.id.vehicleImage)).setImageDrawable(drawable);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            ((TextView) rootView.findViewById(R.id.vehicleVinText)).setText(vehicleVin);
-            ((TextView) rootView.findViewById(R.id.vehicleLicensePlateText))
-                    .setText(vehicleLp);
-            ((TextView) rootView.findViewById(R.id.vehicleLpRenewalDateText))
-                    .setText(Integer.toString(vehicleLpRenewalDate));
-            ((TextView) rootView.findViewById(R.id.vehToDateText))
-                    .setText(vehicleTdEfficiency);
-            ((TextView) rootView.findViewById(R.id.vehNotesText)).setText(vehicleNotes);
+        switch (mMode) {
+            case DETAIL_IN_CREATE_MODE:
+                rootView = inflater.inflate(R.layout.vehicle_detail_edit, container, false);
+                break;
+            case DETAIL_IN_EDIT_MODE:
+                rootView = inflater.inflate(R.layout.vehicle_detail_edit, container, false);
+                // Show the vehicle's content in edit mode
+                ((EditText) rootView.findViewById(R.id.vehicleYearEditText))
+                        .setText(Integer.toString(vehicleYear));
+                ((EditText) rootView.findViewById(R.id.makeEditText)).setText(vehicleMake);
+                ((EditText) rootView.findViewById(R.id.modelEditText)).setText(vehicleModel);
+                try {
+                    InputStream inputStream = getContext().getAssets().open(vehicleImage);
+                    Drawable drawable = Drawable.createFromStream(inputStream, null);
+                    ((ImageView) rootView.findViewById(R.id.vehicleImage)).setImageDrawable(drawable);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                ((EditText) rootView.findViewById(R.id.vehicleVinEditText)).setText(vehicleVin);
+                ((EditText) rootView.findViewById(R.id.vehicleLicensePlateEditText))
+                        .setText(vehicleLp);
+                ((EditText) rootView.findViewById(R.id.vehicleLpRenewalDateEditText))
+                        .setText(Integer.toString(vehicleLpRenewalDate));
+                ((EditText) rootView.findViewById(R.id.vehNotesEditText)).setText(vehicleNotes);
+                break;
+            case DETAIL_IN_VIEW_MODE:
+                rootView = inflater.inflate(R.layout.vehicle_detail_view, container, false);
+                // Show the vehicle's content
+                ((TextView) rootView.findViewById(R.id.vehicleYearText))
+                        .setText(Integer.toString(vehicleYear));
+                ((TextView) rootView.findViewById(R.id.makeText)).setText(vehicleMake);
+                ((TextView) rootView.findViewById(R.id.modelText)).setText(vehicleModel);
+                try {
+                    InputStream inputStream = getContext().getAssets().open(vehicleImage);
+                    Drawable drawable = Drawable.createFromStream(inputStream, null);
+                    ((ImageView) rootView.findViewById(R.id.vehicleImage)).setImageDrawable(drawable);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                ((TextView) rootView.findViewById(R.id.vehicleVinText)).setText(vehicleVin);
+                ((TextView) rootView.findViewById(R.id.vehicleLicensePlateText))
+                        .setText(vehicleLp);
+                ((TextView) rootView.findViewById(R.id.vehicleLpRenewalDateText))
+                        .setText(Integer.toString(vehicleLpRenewalDate));
+                ((TextView) rootView.findViewById(R.id.vehToDateText))
+                        .setText(vehicleTdEfficiency);
+                ((TextView) rootView.findViewById(R.id.vehNotesText)).setText(vehicleNotes);
+                break;
         }
-
         return rootView;
     }
 

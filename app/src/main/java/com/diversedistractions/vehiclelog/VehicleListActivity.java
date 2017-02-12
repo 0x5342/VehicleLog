@@ -105,6 +105,23 @@ public class VehicleListActivity extends AppCompatActivity
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                if (mTwoPane) {
+                    Bundle arguments = new Bundle();
+                    arguments.putInt(VehicleDetailFragment.DETAIL_MODE,
+                            VehicleDetailFragment.DETAIL_IN_CREATE_MODE);
+                    VehicleDetailFragment fragment = new VehicleDetailFragment();
+                    fragment.setArguments(arguments);
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.vehicle_detail_container, fragment)
+                            .commit();
+                } else {
+                    Context context = view.getContext();
+                    Intent intent = new Intent(context, VehicleDetailActivity.class);
+                    intent.putExtra(VehicleDetailFragment.DETAIL_MODE,
+                            VehicleDetailFragment.DETAIL_IN_CREATE_MODE);
+
+                    context.startActivity(intent);
+                }
             }
         });
 

@@ -48,4 +48,6 @@
     <string name="year">Year</string>
     <string name="make">Make</string>
     <string name="model">Model</string>
+    <string name="new_vehicle">New Vehicle</string>
+    <string name="edit_vehicle">Edit Vehicle</string>
 </resources>
