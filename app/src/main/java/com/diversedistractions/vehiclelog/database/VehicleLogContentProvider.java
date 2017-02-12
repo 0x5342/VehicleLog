@@ -20,13 +20,13 @@ public class VehicleLogContentProvider extends ContentProvider{
 
     // Constants to identify the requested operation
     public static final int VEHICLES = 1;
-    public static final int VEHICLE_ID = 2;
+    public static final int VEHICLES_ID = 2;
 
     private static final UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
     static {
         uriMatcher.addURI(AUTHORITY, BASE_PATH_VEHICLES, VEHICLES);
-        uriMatcher.addURI(AUTHORITY, BASE_PATH_VEHICLES + "/#", VEHICLE_ID);
+        uriMatcher.addURI(AUTHORITY, BASE_PATH_VEHICLES + "/#", VEHICLES_ID);
     }
 
     private SQLiteDatabase database;
@@ -43,9 +43,14 @@ public class VehicleLogContentProvider extends ContentProvider{
     @Override
     public Cursor query(Uri uri, String[] projection, String selection,
                         String[] selectionArgs, String sortOrder) {
+
+        if (uriMatcher.match(uri) == VEHICLES_ID) {
+            selection = VehiclesTable.COL_VEHICLE_ID + "=" + uri.getLastPathSegment();
+        }
+
         return database.query(VehiclesTable.VEHICLE_DATABASE_TABLE,
                 VehiclesTable.ALL_VEHICLE_COLUMNS, selection, null, null, null,
-                VehiclesTable.COL_VEHICLE_ID);
+                sortOrder);
     }
 
     @Nullable
@@ -58,7 +63,7 @@ public class VehicleLogContentProvider extends ContentProvider{
     @Override
     public Uri insert(Uri uri, ContentValues values) {
         long id = database.insert(VehiclesTable.VEHICLE_DATABASE_TABLE, null, values);
-        return Uri.parse(BASE_PATH_VEHICLES + "/" + id);
+        return Uri.parse(VEHICLE_CONTENT_URI + "/" + id);
     }
 
     @Override

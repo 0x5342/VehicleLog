@@ -54,11 +54,17 @@ public class VehicleDetailActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
+            // ARG_ITEM_URI will be null when creating a new vehicle or will contain the uri of a
+            // particular vehicle when viewing or editing.
+            // DETAIL_MODE will contain either DETAIL_IN_VIEW_MODE, DETAIL_IN_EDIT_MODE, or
+            // default to DETAIL_IN_CREATE_MODE to tell the fragment which layout to use and
+            // whether the fields start blank or filled in edit/create mode.
             Bundle arguments = new Bundle();
-            arguments.putParcelable(VehicleDetailFragment.ARG_ITEM, getIntent()
-                    .getParcelableExtra(VehicleDetailFragment.ARG_ITEM));
-//            arguments.putString(VehicleDetailFragment.ARG_ITEM_ID,
-//                    getIntent().getStringExtra(VehicleDetailFragment.ARG_ITEM_ID));
+            arguments.putParcelable(VehicleDetailFragment.ARG_ITEM_URI,
+                    getIntent().getParcelableExtra(VehicleDetailFragment.ARG_ITEM_URI));
+            arguments.putInt(VehicleDetailFragment.DETAIL_MODE,
+                    getIntent().getIntExtra(VehicleDetailFragment.DETAIL_MODE,
+                            VehicleDetailFragment.DETAIL_IN_CREATE_MODE));
             VehicleDetailFragment fragment = new VehicleDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()

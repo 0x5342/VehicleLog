@@ -31,9 +31,6 @@ public class VehicleItem implements Parcelable {
                        String vehicleModel, int vehicleYear, String vehicleVin, String vehicleLp,
                        int vehicleLpRenewalDate, String vehicleImage, String vehicleNotes,
                        String vehicleTdEfficiency, int vehicleModOrder) {
-        if (vehicleId == null) {
-            vehicleId = UUID.randomUUID().toString();
-        }
 
         this.vehicleId = vehicleId;
         this.vehicleType = vehicleType;
