@@ -4,7 +4,15 @@
     <string name="ms_key_language">language</string>
     <string name="ms_key_distance_units">distance_units</string>
     <string name="ms_key_fluid_units">fluid_units</string>
+    <string name="ms_key_vehicle_sortby">vehicle_sort</string>
     <!-- Main Settings Keys -->
+    <string name="vehicle_type_prompt">Choose vehicle type</string>
+    <string-array name="vehicle_type_array">
+        <item name="car">Car</item>
+        <item name="motorcycle">Motorcycle</item>
+        <item name="truck">Truck</item>
+        <item name="utility">Utility</item>
+    </string-array>
 
     <string name="no_notes_to_display">No notes to display</string>
     <string name="no_fuel_economy_to_display">No fuel economy to display</string>
@@ -38,4 +46,5 @@
     <string name="import_data">Import Data</string>
     <string name="new_vehicle">New Vehicle</string>
     <string name="edit_vehicle">Edit Vehicle</string>
+    <string name="vehicle_type">Vehicle type:</string>
 </resources>

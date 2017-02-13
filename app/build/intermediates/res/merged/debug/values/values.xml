@@ -18,6 +18,12 @@
         <item>@string/make</item>
         <item>@string/model</item>
     </string-array>
+    <string-array name="vehicle_type_array">
+        <item name="car">Car</item>
+        <item name="motorcycle">Motorcycle</item>
+        <item name="truck">Truck</item>
+        <item name="utility">Utility</item>
+    </string-array>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
@@ -661,6 +667,8 @@
     <string name="settings">Settings</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="title_vehicle_detail">Vehicle Detail</string>
+    <string name="vehicle_type">Vehicle type:</string>
+    <string name="vehicle_type_prompt">Choose vehicle type</string>
     <string name="vehicle_view">Vehicle View</string>
     <string name="vin_label">VIN:</string>
     <string name="year">Year</string>

@@ -30,7 +30,6 @@ public class VehicleDetailActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
 
-        //TODO: Only show this button if in view mode
         Intent intent = getIntent();
         mVehicleUri = intent.getParcelableExtra(VehicleDetailFragment.ARG_ITEM_URI);
         mMode = intent.getIntExtra(VehicleDetailFragment.DETAIL_MODE, 0);

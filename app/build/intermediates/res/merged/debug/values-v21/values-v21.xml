@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="vehicle_type_array">
+        <item name="car">Car</item>
+        <item name="motorcycle">Motorcycle</item>
+        <item name="truck">Truck</item>
+        <item name="utility">Utility</item>
+    </string-array>
     <color name="notification_action_color_filter">@color/secondary_text_default_material_light</color>
     <dimen name="notification_content_margin_start">0dp</dimen>
     <dimen name="notification_main_column_padding_top">0dp</dimen>
@@ -26,6 +32,7 @@
     <string name="ms_key_distance_units">distance_units</string>
     <string name="ms_key_fluid_units">fluid_units</string>
     <string name="ms_key_language">language</string>
+    <string name="ms_key_vehicle_sortby">vehicle_sort</string>
     <string name="new_vehicle">New Vehicle</string>
     <string name="no_fuel_economy_to_display">No fuel economy to display</string>
     <string name="no_license_plate_to_display">No license plate to display</string>
@@ -37,6 +44,8 @@
     <string name="no_vin_to_display">No VIN to display</string>
     <string name="notes_label">Notes:</string>
     <string name="settings">Settings</string>
+    <string name="vehicle_type">Vehicle type:</string>
+    <string name="vehicle_type_prompt">Choose vehicle type</string>
     <string name="vehicle_view">Vehicle View</string>
     <string name="vin_label">VIN:</string>
     <style name="AppTheme.NoActionBar">
