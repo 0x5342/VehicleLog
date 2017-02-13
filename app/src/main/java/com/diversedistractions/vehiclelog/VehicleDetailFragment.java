@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -108,7 +109,6 @@ public class VehicleDetailFragment extends Fragment {
                     appBarLayout.setTitle(getString(R.string.edit_vehicle));
             }
         }
-
     }
 
     @Override
@@ -130,7 +130,8 @@ public class VehicleDetailFragment extends Fragment {
                 try {
                     InputStream inputStream = getContext().getAssets().open(vehicleImage);
                     Drawable drawable = Drawable.createFromStream(inputStream, null);
-                    ((ImageView) rootView.findViewById(R.id.vehicleImage)).setImageDrawable(drawable);
+                    ((ImageButton) rootView.findViewById(R.id.vehicleImageButton))
+                            .setImageDrawable(drawable);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -151,7 +152,8 @@ public class VehicleDetailFragment extends Fragment {
                 try {
                     InputStream inputStream = getContext().getAssets().open(vehicleImage);
                     Drawable drawable = Drawable.createFromStream(inputStream, null);
-                    ((ImageView) rootView.findViewById(R.id.vehicleImage)).setImageDrawable(drawable);
+                    ((ImageView) rootView.findViewById(R.id.vehicleImage))
+                            .setImageDrawable(drawable);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

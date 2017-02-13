@@ -1,6 +1,7 @@
 package com.diversedistractions.vehiclelog;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,6 +20,9 @@ import android.view.MenuItem;
  */
 public class VehicleDetailActivity extends AppCompatActivity {
 
+    private Uri mVehicleUri;
+    private int mMode;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,15 +32,23 @@ public class VehicleDetailActivity extends AppCompatActivity {
 
         //TODO: Only show this button if in view mode
         Intent intent = getIntent();
-        int mMode = intent.getIntExtra(VehicleDetailFragment.DETAIL_MODE, 0);
+        mVehicleUri = intent.getParcelableExtra(VehicleDetailFragment.ARG_ITEM_URI);
+        mMode = intent.getIntExtra(VehicleDetailFragment.DETAIL_MODE, 0);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         if (mMode == VehicleDetailFragment.DETAIL_IN_VIEW_MODE) {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //TODO: Replace Vehicle Detail fragment with Vehicle Detail Edit
-                    Snackbar.make(view, "Replace with your own detail action", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
+                    // Replace the VehicleDetailFragment in view mode with it in edit mode.
+                    Bundle arguments = new Bundle();
+                    arguments.putParcelable(VehicleDetailFragment.ARG_ITEM_URI, mVehicleUri);
+                    arguments.putInt(VehicleDetailFragment.DETAIL_MODE,
+                            VehicleDetailFragment.DETAIL_IN_EDIT_MODE);
+                    VehicleDetailFragment fragment = new VehicleDetailFragment();
+                    fragment.setArguments(arguments);
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.vehicle_detail_container, fragment)
+                            .commit();
                 }
             });
         } else {
