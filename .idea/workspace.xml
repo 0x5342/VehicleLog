@@ -21,12 +21,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleDetailActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleDetailActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleDetailFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleDetailFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/vehicle_detail_edit.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/vehicle_detail_edit.xml" />
     </list>
     <ignored path="Vehicle Log.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,8 +71,8 @@
       <file leaf-file-name="VehicleDetailActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleDetailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="41" column="91" selection-start-line="41" selection-start-column="91" selection-end-line="41" selection-end-column="91" />
+            <state relative-caret-position="649">
+              <caret line="56" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
               <folding>
                 <element signature="e#1542#2380#0" expanded="true" />
                 <element signature="e#2379#2380#0" expanded="true" />
@@ -88,13 +84,13 @@
       <file leaf-file-name="VehicleDetailFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleDetailFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="741">
-              <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+            <state relative-caret-position="627">
+              <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3537#3568#0" expanded="true" />
-                <element signature="e#3664#3696#0" expanded="true" />
-                <element signature="e#3792#3824#0" expanded="true" />
+                <element signature="e#4004#4035#0" expanded="true" />
+                <element signature="e#4131#4163#0" expanded="true" />
+                <element signature="e#4259#4291#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2767,7 +2763,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486942736589</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Adding code to edit button to replace fragment in view mode with it in edit mode.">
+      <created>1486944443458</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1486944443458</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2854,7 +2857,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial commit" />
     <MESSAGE value="Adding .gitignore" />
     <MESSAGE value="Adding gradle files" />
     <MESSAGE value="Adding .gitignore change" />
@@ -2879,7 +2881,8 @@
     <MESSAGE value="Switching to a content provider and creating a cursor adapter to allow recyclerView to use a cursor" />
     <MESSAGE value="Adding the ability to pull a particular vehicle from the content provider when selected." />
     <MESSAGE value="Making the edit floating action button only show on vehicle detail when in view mode." />
-    <option name="LAST_COMMIT_MESSAGE" value="Making the edit floating action button only show on vehicle detail when in view mode." />
+    <MESSAGE value="Adding code to edit button to replace fragment in view mode with it in edit mode." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding code to edit button to replace fragment in view mode with it in edit mode." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3237,17 +3240,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleDetailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="41" column="91" selection-start-line="41" selection-start-column="91" selection-end-line="41" selection-end-column="91" />
-          <folding>
-            <element signature="e#1542#2380#0" expanded="true" />
-            <element signature="e#2379#2380#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/vehicle_list_item.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -3281,15 +3273,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="649">
+          <caret line="56" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding>
+            <element signature="e#1542#2380#0" expanded="true" />
+            <element signature="e#2379#2380#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/diversedistractions/vehiclelog/VehicleDetailFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
-          <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+        <state relative-caret-position="627">
+          <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3537#3568#0" expanded="true" />
-            <element signature="e#3664#3696#0" expanded="true" />
-            <element signature="e#3792#3824#0" expanded="true" />
+            <element signature="e#4004#4035#0" expanded="true" />
+            <element signature="e#4131#4163#0" expanded="true" />
+            <element signature="e#4259#4291#0" expanded="true" />
           </folding>
         </state>
       </provider>

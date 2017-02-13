@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -96,6 +97,14 @@ public class VehicleDetailFragment extends Fragment {
         Activity activity = this.getActivity();
         CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.
                 findViewById(R.id.toolbar_layout);
+
+        // When the fragment is not launched by an intent, and therefore VehicleDetailActivity won't
+        // hide this button in all but view mode, this will allow the button to be hidden.
+        FloatingActionButton fab = (FloatingActionButton) activity.findViewById(R.id.fab);
+        if (mMode != VehicleDetailFragment.DETAIL_IN_VIEW_MODE) {
+            fab.setVisibility(View.INVISIBLE);
+        }
+
         // Set the title in the appBar (if active) to match whether creating, viewing, or editing.
         if (appBarLayout != null) {
             switch (mMode){
