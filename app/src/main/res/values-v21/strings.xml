@@ -8,10 +8,8 @@
     <!-- Main Settings Keys -->
     <string name="vehicle_type_prompt">Choose vehicle type</string>
     <string-array name="vehicle_type_array">
-        <item name="car">Car</item>
-        <item name="motorcycle">Motorcycle</item>
-        <item name="truck">Truck</item>
-        <item name="utility">Utility</item>
+        <item name="car_truck_motorcycle">Car-Truck-Motorcycle</item>
+        <item name="utility">Utility-Tractor-Mower</item>
     </string-array>
 
     <string name="no_notes_to_display">No notes to display</string>

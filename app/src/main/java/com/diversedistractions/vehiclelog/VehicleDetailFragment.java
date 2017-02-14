@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.diversedistractions.vehiclelog.database.VehiclesTable;
@@ -43,22 +44,21 @@ public class VehicleDetailFragment extends Fragment {
     /**
      * The vehicle this fragment is presenting.
      */
-    private VehicleItem vehicleItem;
-    private int mPosition;
     private Uri mVehicleUri;
     private Context mContext;
-    private String vehicleType;
-    private String vehicleMake;
-    private String vehicleModel;
-    private int vehicleYear;
-    private String vehicleVin;
-    private String vehicleLp;
-    private int vehicleLpRenewalDate;
-    private String vehicleImage;
-    private String vehicleNotes;
-    private String vehicleTdEfficiency;
-    private int vehicleModOrder;
+    private int mVehicleTypePosition = 0;
+    private String mVehicleMake;
+    private String mVehicleModel;
+    private int mVehicleYear;
+    private String mVehicleVin;
+    private String mVehicleLp;
+    private int mVehicleLpRenewalDate;
+    private String mVehicleImage;
+    private String mVehicleNotes;
+    private String mVehicleTdEfficiency;
+    private int mVehicleModOrder;
     private int mMode;
+
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -132,48 +132,50 @@ public class VehicleDetailFragment extends Fragment {
             case DETAIL_IN_EDIT_MODE:
                 rootView = inflater.inflate(R.layout.vehicle_detail_edit, container, false);
                 // Show the vehicle's content in edit mode
+                ((Spinner) rootView.findViewById(R.id.vehicleTypeSpinner))
+                        .setSelection(mVehicleTypePosition);
                 ((EditText) rootView.findViewById(R.id.vehicleYearEditText))
-                        .setText(Integer.toString(vehicleYear));
-                ((EditText) rootView.findViewById(R.id.makeEditText)).setText(vehicleMake);
-                ((EditText) rootView.findViewById(R.id.modelEditText)).setText(vehicleModel);
+                        .setText(Integer.toString(mVehicleYear));
+                ((EditText) rootView.findViewById(R.id.makeEditText)).setText(mVehicleMake);
+                ((EditText) rootView.findViewById(R.id.modelEditText)).setText(mVehicleModel);
                 try {
-                    InputStream inputStream = getContext().getAssets().open(vehicleImage);
+                    InputStream inputStream = getContext().getAssets().open(mVehicleImage);
                     Drawable drawable = Drawable.createFromStream(inputStream, null);
                     ((ImageButton) rootView.findViewById(R.id.vehicleImageButton))
                             .setImageDrawable(drawable);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                ((EditText) rootView.findViewById(R.id.vehicleVinEditText)).setText(vehicleVin);
+                ((EditText) rootView.findViewById(R.id.vehicleVinEditText)).setText(mVehicleVin);
                 ((EditText) rootView.findViewById(R.id.vehicleLicensePlateEditText))
-                        .setText(vehicleLp);
+                        .setText(mVehicleLp);
                 ((EditText) rootView.findViewById(R.id.vehicleLpRenewalDateEditText))
-                        .setText(Integer.toString(vehicleLpRenewalDate));
-                ((EditText) rootView.findViewById(R.id.vehNotesEditText)).setText(vehicleNotes);
+                        .setText(Integer.toString(mVehicleLpRenewalDate));
+                ((EditText) rootView.findViewById(R.id.vehNotesEditText)).setText(mVehicleNotes);
                 break;
             case DETAIL_IN_VIEW_MODE:
                 rootView = inflater.inflate(R.layout.vehicle_detail_view, container, false);
                 // Show the vehicle's content
                 ((TextView) rootView.findViewById(R.id.vehicleYearText))
-                        .setText(Integer.toString(vehicleYear));
-                ((TextView) rootView.findViewById(R.id.makeText)).setText(vehicleMake);
-                ((TextView) rootView.findViewById(R.id.modelText)).setText(vehicleModel);
+                        .setText(Integer.toString(mVehicleYear));
+                ((TextView) rootView.findViewById(R.id.makeText)).setText(mVehicleMake);
+                ((TextView) rootView.findViewById(R.id.modelText)).setText(mVehicleModel);
                 try {
-                    InputStream inputStream = getContext().getAssets().open(vehicleImage);
+                    InputStream inputStream = getContext().getAssets().open(mVehicleImage);
                     Drawable drawable = Drawable.createFromStream(inputStream, null);
                     ((ImageView) rootView.findViewById(R.id.vehicleImage))
                             .setImageDrawable(drawable);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                ((TextView) rootView.findViewById(R.id.vehicleVinText)).setText(vehicleVin);
+                ((TextView) rootView.findViewById(R.id.vehicleVinText)).setText(mVehicleVin);
                 ((TextView) rootView.findViewById(R.id.vehicleLicensePlateText))
-                        .setText(vehicleLp);
+                        .setText(mVehicleLp);
                 ((TextView) rootView.findViewById(R.id.vehicleLpRenewalDateText))
-                        .setText(Integer.toString(vehicleLpRenewalDate));
+                        .setText(Integer.toString(mVehicleLpRenewalDate));
                 ((TextView) rootView.findViewById(R.id.vehToDateText))
-                        .setText(vehicleTdEfficiency);
-                ((TextView) rootView.findViewById(R.id.vehNotesText)).setText(vehicleNotes);
+                        .setText(mVehicleTdEfficiency);
+                ((TextView) rootView.findViewById(R.id.vehNotesText)).setText(mVehicleNotes);
                 break;
         }
         return rootView;
@@ -185,27 +187,27 @@ public class VehicleDetailFragment extends Fragment {
         if (cursor != null) {
             cursor.moveToFirst();
 
-            vehicleType = cursor.getString
+            mVehicleTypePosition = cursor.getInt
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_TYPE));
-            vehicleMake = cursor.getString
+            mVehicleMake = cursor.getString
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MAKE));
-            vehicleModel = cursor.getString
+            mVehicleModel = cursor.getString
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MODEL));
-            vehicleYear = cursor.getInt
+            mVehicleYear = cursor.getInt
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_YEAR));
-            vehicleVin = cursor.getString
+            mVehicleVin = cursor.getString
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_VIN));
-            vehicleLp = cursor.getString
+            mVehicleLp = cursor.getString
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_LP));
-            vehicleLpRenewalDate = cursor.getInt
+            mVehicleLpRenewalDate = cursor.getInt
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_REN_DATE));
-            vehicleImage = cursor.getString
+            mVehicleImage = cursor.getString
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_IMAGE));
-            vehicleTdEfficiency = cursor.getString
+            mVehicleTdEfficiency = cursor.getString
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_TD_EFF));
-            vehicleNotes = cursor.getString
+            mVehicleNotes = cursor.getString
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_NOTE));
-            vehicleModOrder = cursor.getInt
+            mVehicleModOrder = cursor.getInt
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MODIFIED_ORDER));
             cursor.close();
         }

@@ -1,9 +1,12 @@
 package com.diversedistractions.vehiclelog;
 
 import android.Manifest;
+import android.app.LoaderManager;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.CursorLoader;
 import android.content.Intent;
+import android.content.Loader;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -16,10 +19,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.app.LoaderManager;
 import android.support.v4.content.ContextCompat;
-import android.content.CursorLoader;
-import android.content.Loader;
 import android.support.v4.widget.CursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -36,7 +36,6 @@ import android.widget.Toast;
 
 import com.diversedistractions.vehiclelog.database.VehicleLogContentProvider;
 import com.diversedistractions.vehiclelog.database.VehiclesTable;
-import com.diversedistractions.vehiclelog.dummy.DummyContentProvider;
 import com.diversedistractions.vehiclelog.models.VehicleItem;
 import com.diversedistractions.vehiclelog.utilities.JSONHelper;
 
@@ -65,9 +64,6 @@ public class VehicleListActivity extends AppCompatActivity
     private boolean mTwoPane;
 
     private boolean permissionGranted;
-
-    //TODO: Remove for final product
-    List<VehicleItem> vehicleItemList = DummyContentProvider.vehicleItemList;
 
     private CursorAdapter mCursorAdapter;
     private String sortByField;
@@ -173,20 +169,22 @@ public class VehicleListActivity extends AppCompatActivity
                 startActivity(settingsIntent);
                 return true;
             case R.id.action_export:
-                boolean result = JSONHelper.exportToJSON(this,vehicleItemList);
-                if (result) {
-                    Toast.makeText(this, "Data exported", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(this, "Export failed", Toast.LENGTH_SHORT).show();
-                }
+                //TODO: Correct this code to use the content provider
+//                boolean result = JSONHelper.exportToJSON(this,vehicleItemList);
+//                if (result) {
+//                    Toast.makeText(this, "Data exported", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    Toast.makeText(this, "Export failed", Toast.LENGTH_SHORT).show();
+//                }
                 return true;
             case R.id.action_import:
-                List<VehicleItem> vehicleItems = JSONHelper.importFromJSON(this);
-                if (vehicleItems != null) {
-                    for (VehicleItem vehicleItem: vehicleItems) {
-                        //TODO: code to verify data format and import into the database
-                    }
-                }
+                //TODO: Correct this code to use the content provider
+//                List<VehicleItem> vehicleItems = JSONHelper.importFromJSON(this);
+//                if (vehicleItems != null) {
+//                    for (VehicleItem vehicleItem: vehicleItems) {
+//                        //TODO: code to verify data format and import into the database
+//                    }
+//                }
                 return true;
         }
         return super.onOptionsItemSelected(item);

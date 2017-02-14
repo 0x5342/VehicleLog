@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="vehicle_type_array">
-        <item name="car">Car</item>
-        <item name="motorcycle">Motorcycle</item>
-        <item name="truck">Truck</item>
-        <item name="utility">Utility</item>
+        <item name="car_truck_motorcycle">Car-Truck-Motorcycle</item>
+        <item name="utility">Utility-Tractor-Mower</item>
     </string-array>
     <color name="notification_action_color_filter">@color/secondary_text_default_material_light</color>
     <dimen name="notification_content_margin_start">0dp</dimen>

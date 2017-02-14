@@ -46,20 +46,12 @@ public class VehiclesTable {
             COL_VEHICLE_MODIFIED_ORDER};
 
     /*
-     * Constants for vehicle types
-     */
-    public static final String VEHICLE_TYPE_CAR = "car";
-    public static final String VEHICLE_TYPE_MOTORCYCLE = "motorcycle";
-    public static final String VEHICLE_TYPE_TRUCK = "truck";
-    public static final String VEHICLE_TYPE_UTILITY = "utility";
-
-    /*
      * Database table creation SQL statement for the vehicles list
      */
     public static final String VEHICLES_TABLE_CREATE =
             "CREATE TABLE " + VEHICLE_DATABASE_TABLE + "(" +
                     COL_VEHICLE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    COL_VEHICLE_TYPE + " TEXT," +
+                    COL_VEHICLE_TYPE + " INTEGER," +
                     COL_VEHICLE_MAKE + " TEXT," +
                     COL_VEHICLE_MODEL + " TEXT," +
                     COL_VEHICLE_YEAR + " INTEGER," +
