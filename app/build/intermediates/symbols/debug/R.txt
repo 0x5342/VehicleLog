@@ -1053,7 +1053,7 @@ int string status_bar_notification_info_overflow 0x7f080014
 int string title_vehicle_detail 0x7f080059
 int string vehicle_type 0x7f080037
 int string vehicle_type_prompt 0x7f080038
-int string vehicle_view 0x7f080039
+int string view_vehicle 0x7f080039
 int string vin_label 0x7f08003a
 int string year 0x7f08005a
 int style AlertDialog_AppCompat 0x7f0a00a2

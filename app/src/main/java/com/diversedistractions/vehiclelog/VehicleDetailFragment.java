@@ -19,7 +19,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.diversedistractions.vehiclelog.database.VehiclesTable;
-import com.diversedistractions.vehiclelog.models.VehicleItem;
+import com.diversedistractions.vehiclelog.utilities.DateConversionHelper;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -49,15 +49,16 @@ public class VehicleDetailFragment extends Fragment {
     private int mVehicleTypePosition = 0;
     private String mVehicleMake;
     private String mVehicleModel;
-    private int mVehicleYear;
+    private String mVehicleYear;
     private String mVehicleVin;
     private String mVehicleLp;
-    private int mVehicleLpRenewalDate;
+    private String mVehicleLpRenewalDate;
     private String mVehicleImage;
     private String mVehicleNotes;
     private String mVehicleTdEfficiency;
     private int mVehicleModOrder;
     private int mMode;
+    DateConversionHelper dateConversionHelper;
 
 
     /**
@@ -72,6 +73,7 @@ public class VehicleDetailFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         mContext = this.getActivity();
+        dateConversionHelper = new DateConversionHelper();
 
         // If arguments contains a URI, retrieve it & assign to mVehicleUri.
         // Else set mVehicleUri to null.
@@ -112,7 +114,7 @@ public class VehicleDetailFragment extends Fragment {
                     appBarLayout.setTitle(getString(R.string.new_vehicle));
                     break;
                 case 1:
-                    appBarLayout.setTitle(getString(R.string.vehicle_view));
+                    appBarLayout.setTitle(getString(R.string.view_vehicle));
                     break;
                 case 2:
                     appBarLayout.setTitle(getString(R.string.edit_vehicle));
@@ -135,7 +137,7 @@ public class VehicleDetailFragment extends Fragment {
                 ((Spinner) rootView.findViewById(R.id.vehicleTypeSpinner))
                         .setSelection(mVehicleTypePosition);
                 ((EditText) rootView.findViewById(R.id.vehicleYearEditText))
-                        .setText(Integer.toString(mVehicleYear));
+                        .setText(mVehicleYear);
                 ((EditText) rootView.findViewById(R.id.makeEditText)).setText(mVehicleMake);
                 ((EditText) rootView.findViewById(R.id.modelEditText)).setText(mVehicleModel);
                 try {
@@ -147,17 +149,21 @@ public class VehicleDetailFragment extends Fragment {
                     e.printStackTrace();
                 }
                 ((EditText) rootView.findViewById(R.id.vehicleVinEditText)).setText(mVehicleVin);
-                ((EditText) rootView.findViewById(R.id.vehicleLicensePlateEditText))
-                        .setText(mVehicleLp);
-                ((EditText) rootView.findViewById(R.id.vehicleLpRenewalDateEditText))
-                        .setText(Integer.toString(mVehicleLpRenewalDate));
-                ((EditText) rootView.findViewById(R.id.vehNotesEditText)).setText(mVehicleNotes);
+                if (mVehicleTypePosition==0) {
+                    ((EditText) rootView.findViewById(R.id.vehicleLicensePlateEditText))
+                            .setText(mVehicleLp);
+                    ((EditText) rootView.findViewById(R.id.vehicleLpRenewalDateEditText))
+                            .setText(mVehicleLpRenewalDate);
+                }
+                if (mVehicleNotes != null && mVehicleNotes.length() > 0) {
+                    ((EditText) rootView.findViewById(R.id.vehNotesEditText)).setText(mVehicleNotes);
+                }
                 break;
             case DETAIL_IN_VIEW_MODE:
                 rootView = inflater.inflate(R.layout.vehicle_detail_view, container, false);
                 // Show the vehicle's content
                 ((TextView) rootView.findViewById(R.id.vehicleYearText))
-                        .setText(Integer.toString(mVehicleYear));
+                        .setText(mVehicleYear);
                 ((TextView) rootView.findViewById(R.id.makeText)).setText(mVehicleMake);
                 ((TextView) rootView.findViewById(R.id.modelText)).setText(mVehicleModel);
                 try {
@@ -169,14 +175,20 @@ public class VehicleDetailFragment extends Fragment {
                     e.printStackTrace();
                 }
                 ((TextView) rootView.findViewById(R.id.vehicleVinText)).setText(mVehicleVin);
-                ((TextView) rootView.findViewById(R.id.vehicleLicensePlateText))
-                        .setText(mVehicleLp);
-                ((TextView) rootView.findViewById(R.id.vehicleLpRenewalDateText))
-                        .setText(Integer.toString(mVehicleLpRenewalDate));
-                ((TextView) rootView.findViewById(R.id.vehToDateText))
-                        .setText(mVehicleTdEfficiency);
-                ((TextView) rootView.findViewById(R.id.vehNotesText)).setText(mVehicleNotes);
-                break;
+                if (mVehicleTypePosition==0) {
+                    ((TextView) rootView.findViewById(R.id.vehicleLicensePlateText))
+                            .setText(mVehicleLp);
+                    ((TextView) rootView.findViewById(R.id.vehicleLpRenewalDateText))
+                            .setText(mVehicleLpRenewalDate);
+                }
+                if (mVehicleTdEfficiency != null) {
+                    ((TextView) rootView.findViewById(R.id.vehToDateText))
+                            .setText(mVehicleTdEfficiency);
+                }
+                if (mVehicleNotes != null && mVehicleNotes.length() > 0) {
+                    ((TextView) rootView.findViewById(R.id.vehNotesText)).setText(mVehicleNotes);
+                    break;
+                }
         }
         return rootView;
     }
@@ -193,14 +205,14 @@ public class VehicleDetailFragment extends Fragment {
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MAKE));
             mVehicleModel = cursor.getString
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MODEL));
-            mVehicleYear = cursor.getInt
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_YEAR));
+            mVehicleYear = dateConversionHelper.getYearAsString
+                    (cursor.getLong(cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_YEAR)));
             mVehicleVin = cursor.getString
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_VIN));
             mVehicleLp = cursor.getString
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_LP));
-            mVehicleLpRenewalDate = cursor.getInt
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_REN_DATE));
+            mVehicleLpRenewalDate = dateConversionHelper.getYearMonthAsString(cursor.getLong
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_REN_DATE)));
             mVehicleImage = cursor.getString
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_IMAGE));
             mVehicleTdEfficiency = cursor.getString

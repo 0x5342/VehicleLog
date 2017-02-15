@@ -3043,7 +3043,7 @@ containing a value of this type.
         public static final int title_vehicle_detail=0x7f080059;
         public static final int vehicle_type=0x7f080037;
         public static final int vehicle_type_prompt=0x7f080038;
-        public static final int vehicle_view=0x7f080039;
+        public static final int view_vehicle=0x7f080039;
         public static final int vin_label=0x7f08003a;
         public static final int year=0x7f08005a;
     }

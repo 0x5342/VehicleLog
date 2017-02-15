@@ -37,6 +37,7 @@ import android.widget.Toast;
 import com.diversedistractions.vehiclelog.database.VehicleLogContentProvider;
 import com.diversedistractions.vehiclelog.database.VehiclesTable;
 import com.diversedistractions.vehiclelog.models.VehicleItem;
+import com.diversedistractions.vehiclelog.utilities.DateConversionHelper;
 import com.diversedistractions.vehiclelog.utilities.JSONHelper;
 
 import java.io.IOException;
@@ -67,11 +68,15 @@ public class VehicleListActivity extends AppCompatActivity
 
     private CursorAdapter mCursorAdapter;
     private String sortByField;
+    DateConversionHelper dateConversionHelper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vehicle_list);
+
+        dateConversionHelper = new DateConversionHelper();
 
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
         // This will retrieve the preferred sort order and set the sort by field accordingly
@@ -99,8 +104,6 @@ public class VehicleListActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
                 if (mTwoPane) {
                     Bundle arguments = new Bundle();
                     arguments.putInt(VehicleDetailFragment.DETAIL_MODE,
@@ -233,8 +236,8 @@ public class VehicleListActivity extends AppCompatActivity
                 public void bindView(View view, Context context, Cursor cursor) {
                     // Set a tag in order to get the ID of the item clicked on
                     view.setTag(cursor.getInt(cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_ID)));
-                    String year = Integer.toString
-                            (cursor.getInt(cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_YEAR)));
+                    String year = dateConversionHelper.getYearAsString
+                            (cursor.getLong(cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_YEAR)));
                     String make = cursor.getString
                             (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MAKE));
                     String model = cursor.getString
