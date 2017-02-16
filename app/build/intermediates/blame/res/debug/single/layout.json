@@ -88,6 +88,10 @@
         "source": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\layout\\abc_list_menu_item_icon.xml"
     },
     {
+        "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_preferences.xml",
+        "source": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\layout\\activity_preferences.xml"
+    },
+    {
         "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
         "source": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\layout\\select_dialog_singlechoice_material.xml"
     },
@@ -206,10 +210,6 @@
     {
         "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_vehicle_detail.xml",
         "source": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\layout\\activity_vehicle_detail.xml"
-    },
-    {
-        "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main_settings.xml",
-        "source": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\layout\\activity_main_settings.xml"
     },
     {
         "merged": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_text_input_password_icon.xml",

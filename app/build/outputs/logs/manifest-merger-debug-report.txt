@@ -78,12 +78,12 @@ ADDED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml:29:13-31
 		ADDED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml:31:17-87
 	android:name
 		ADDED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml:30:17-63
-activity#com.diversedistractions.vehiclelog.MainSettingsActivity
+activity#com.diversedistractions.vehiclelog.PreferencesActivity
 ADDED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml:33:9-39:20
 	android:parentActivityName
 		ADDED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml:35:13-62
 	android:name
-		ADDED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml:34:13-49
+		ADDED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml:34:13-48
 provider#com.diversedistractions.vehiclelog.database.VehicleLogContentProvider
 ADDED from D:\Data\Projects\VehicleLog\app\src\main\AndroidManifest.xml:41:9-44:40
 	android:authorities

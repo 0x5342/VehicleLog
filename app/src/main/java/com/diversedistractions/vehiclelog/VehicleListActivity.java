@@ -17,7 +17,6 @@ import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.CursorAdapter;
@@ -38,11 +37,9 @@ import com.diversedistractions.vehiclelog.database.VehicleLogContentProvider;
 import com.diversedistractions.vehiclelog.database.VehiclesTable;
 import com.diversedistractions.vehiclelog.models.VehicleItem;
 import com.diversedistractions.vehiclelog.utilities.DateConversionHelper;
-import com.diversedistractions.vehiclelog.utilities.JSONHelper;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 
 /**
  * This is the main activity.
@@ -80,7 +77,7 @@ public class VehicleListActivity extends AppCompatActivity
 
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
         // This will retrieve the preferred sort order and set the sort by field accordingly
-        String sortBy = settings.getString(getString(R.string.ms_key_vehicle_sortby), null);
+        String sortBy = settings.getString(getString(R.string.preferences_key_vehicle_sortby), null);
         if (sortBy != null) {
             if (sortBy.equals(getString(R.string.most_recently_used))) {
                 sortByField = VehiclesTable.COL_VEHICLE_MODIFIED_ORDER;
@@ -168,7 +165,7 @@ public class VehicleListActivity extends AppCompatActivity
         switch (item.getItemId()) {
             case R.id.action_settings:
                 // Show the settings screen
-                Intent settingsIntent = new Intent(this, MainSettingsActivity.class);
+                Intent settingsIntent = new Intent(this, PreferencesActivity.class);
                 startActivity(settingsIntent);
                 return true;
             case R.id.action_export:

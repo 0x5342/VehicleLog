@@ -31,19 +31,13 @@ import java.io.InputStream;
  * on handsets.
  */
 public class VehicleDetailFragment extends Fragment {
-    /**
-     * The fragment argument representing the item that this fragment
-     * represents.
-     */
+
     public static final String ARG_ITEM_URI = "item_uri";
     public static final String DETAIL_MODE = "detail_mode";
     public static final int DETAIL_IN_CREATE_MODE = 0;
     public static final int DETAIL_IN_VIEW_MODE = 1;
     public static final int DETAIL_IN_EDIT_MODE = 2;
 
-    /**
-     * The vehicle this fragment is presenting.
-     */
     private Uri mVehicleUri;
     private Context mContext;
     private int mVehicleTypePosition = 0;

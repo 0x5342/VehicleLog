@@ -6,27 +6,27 @@
         android:title="@string/language"
         android:entries="@array/language_array"
         android:entryValues="@array/language_array"
-        android:key="@string/ms_key_language"
+        android:key="@string/preferences_key_language"
         android:summary="%s"/>
     <ListPreference
         android:defaultValue="1"
         android:title="@string/distance_units"
         android:entries="@array/distance_measure_array"
         android:entryValues="@array/distance_measure_array"
-        android:key="@string/ms_key_distance_units"
+        android:key="@string/preferences_key_distance_units"
         android:summary="%s"/>
     <ListPreference
         android:defaultValue="1"
         android:title="@string/fluid_units"
         android:entries="@array/fluid_measure_array"
         android:entryValues="@array/fluid_measure_array"
-        android:key="@string/ms_key_fluid_units"
+        android:key="@string/preferences_key_fluid_units"
         android:summary="%s"/>
     <ListPreference
         android:defaultValue="1"
         android:title="Sort vehicle list by"
         android:entries="@array/vehicle_display_array"
         android:entryValues="@array/vehicle_display_array"
-        android:key="@string/ms_key_vehicle_sortby"
+        android:key="@string/preferences_key_vehicle_sortby"
         android:summary="%s"/>
 </PreferenceScreen>

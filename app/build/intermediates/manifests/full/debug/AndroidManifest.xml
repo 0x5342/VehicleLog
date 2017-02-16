@@ -37,7 +37,7 @@
                 android:value="com.diversedistractions.vehiclelog.VehicleListActivity" />
         </activity>
         <activity
-            android:name="com.diversedistractions.vehiclelog.MainSettingsActivity"
+            android:name="com.diversedistractions.vehiclelog.PreferencesActivity"
             android:parentActivityName="com.diversedistractions.vehiclelog.VehicleListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
