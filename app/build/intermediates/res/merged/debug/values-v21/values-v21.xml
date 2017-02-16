@@ -11,6 +11,20 @@
     <string-array name="language_array">
         <item>@string/english</item>
     </string-array>
+    <string-array name="month_array">
+        <item name="January">January</item>
+        <item name="February">February</item>
+        <item name="March">March</item>
+        <item name="April">April</item>
+        <item name="May">May</item>
+        <item name="June">June</item>
+        <item name="July">July</item>
+        <item name="August">August</item>
+        <item name="September">September</item>
+        <item name="October">October</item>
+        <item name="November">November</item>
+        <item name="December">December</item>
+    </string-array>
     <string-array name="vehicle_display_array">
         <item>@string/none</item>
         <item>@string/most_recently_used</item>
@@ -27,8 +41,6 @@
     <dimen name="notification_main_column_padding_top">0dp</dimen>
     <dimen name="notification_media_narrow_margin">12dp</dimen>
     <string name="app_name">Vehicle Log</string>
-    <string name="choose_license_renewal_date">Choose license renewal date</string>
-    <string name="choose_model_year">Choose model year</string>
     <string name="distance_units">Distance units</string>
     <string name="edit_vehicle">Edit Vehicle</string>
     <string name="english">English</string>
@@ -36,7 +48,9 @@
     <string name="enter_the_license_plate">Enter the license plate</string>
     <string name="enter_the_make">Enter the make</string>
     <string name="enter_the_model">Enter the model</string>
+    <string name="enter_the_model_year">Enter the model year</string>
     <string name="enter_the_vin">Enter the VIN</string>
+    <string name="enter_year">Enter year</string>
     <string name="export_data">Export Data</string>
     <string name="fluid_units">Fluid units</string>
     <string name="fuel_economy_label">Fuel economy:</string>
@@ -69,6 +83,7 @@
     <string name="preferences_key_fluid_units">fluid_units</string>
     <string name="preferences_key_language">language</string>
     <string name="preferences_key_vehicle_sortby">vehicle_sort</string>
+    <string name="select_month_prompt">Select the month</string>
     <string name="settings">Settings</string>
     <string name="title_vehicle_detail">Vehicle Detail</string>
     <string name="vehicle_type">Vehicle type:</string>
