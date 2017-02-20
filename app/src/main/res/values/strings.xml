@@ -89,4 +89,6 @@
     <string name="edit_vehicle">Edit Vehicle</string>
     <string name="vehicle_type">Vehicle type:</string>
     <string name="enter_the_model_year">Enter the model year</string>
+    <string name="enter">ENTER</string>
+    <string name="cancel">CANCEL</string>
 </resources>

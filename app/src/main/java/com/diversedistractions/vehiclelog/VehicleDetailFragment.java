@@ -12,6 +12,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -19,6 +21,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.diversedistractions.vehiclelog.database.VehiclesTable;
+import com.diversedistractions.vehiclelog.models.VehicleItem;
+import com.diversedistractions.vehiclelog.utilities.CustomDatePickerDialogFragment;
 import com.diversedistractions.vehiclelog.utilities.DateConversionHelper;
 
 import java.io.IOException;
@@ -38,22 +42,24 @@ public class VehicleDetailFragment extends Fragment {
     public static final int DETAIL_IN_VIEW_MODE = 1;
     public static final int DETAIL_IN_EDIT_MODE = 2;
 
-    private Uri mVehicleUri;
     private Context mContext;
     private int mVehicleTypePosition = 0;
     private String mVehicleMake;
     private String mVehicleModel;
-    private String mVehicleYear;
+    private long mVehicleYearLong;
     private String mVehicleVin;
     private String mVehicleLp;
-    private String mVehicleLpRenewalDate;
+    private long mVehicleLpRenewalDateLong;
     private String mVehicleImage;
     private String mVehicleNotes;
     private String mVehicleTdEfficiency;
     private int mVehicleModOrder;
     private int mMode;
     DateConversionHelper dateConversionHelper;
+    View rootView = null;
+    private DatePicker customDatePicker;
 
+    VehicleItem vehicleItem = new VehicleItem();
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -71,6 +77,7 @@ public class VehicleDetailFragment extends Fragment {
 
         // If arguments contains a URI, retrieve it & assign to mVehicleUri.
         // Else set mVehicleUri to null.
+        Uri mVehicleUri;
         if (getArguments().containsKey(ARG_ITEM_URI)) {
             mVehicleUri = getArguments().getParcelable(ARG_ITEM_URI);
         } else {
@@ -116,106 +123,202 @@ public class VehicleDetailFragment extends Fragment {
         }
     }
 
+    /**
+     * //TODO: description of class
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = null;
 
+        /*
+         * Alter the layout and population of fields depending on whether a vehicle is just being
+         * viewed, is in edit mode, or is being created from scratch.
+         */
         switch (mMode) {
+
             case DETAIL_IN_CREATE_MODE:
                 rootView = inflater.inflate(R.layout.vehicle_detail_edit, container, false);
+                Button btnSetVehicleYearCreate = (Button) rootView
+                        .findViewById(R.id.vehicleYearButton);
+                btnSetVehicleYearCreate.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showCustomDatePicker(VehiclesTable.COL_VEHICLE_YEAR);
+                    }
+                });
+                Button btnSetLpRenewalDateCreate = (Button) rootView
+                        .findViewById(R.id.vehicleLpRenewalDateButton);
+                btnSetLpRenewalDateCreate.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showCustomDatePicker(VehiclesTable.COL_VEHICLE_REN_DATE);
+                    }
+                });
                 break;
+
             case DETAIL_IN_EDIT_MODE:
-                rootView = inflater.inflate(R.layout.vehicle_detail_edit, container, false);
                 // Show the vehicle's content in edit mode
+                rootView = inflater.inflate(R.layout.vehicle_detail_edit, container, false);
                 ((Spinner) rootView.findViewById(R.id.vehicleTypeSpinner))
-                        .setSelection(mVehicleTypePosition);
-                ((EditText) rootView.findViewById(R.id.vehicleYearEditText))
-                        .setText(mVehicleYear);
-                ((EditText) rootView.findViewById(R.id.makeEditText)).setText(mVehicleMake);
-                ((EditText) rootView.findViewById(R.id.modelEditText)).setText(mVehicleModel);
+                        .setSelection(vehicleItem.getVehicleType());
+                Button btnSetVehicleYearEdit = (Button) rootView
+                        .findViewById(R.id.vehicleYearButton);
+                btnSetVehicleYearEdit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showCustomDatePicker(VehiclesTable.COL_VEHICLE_YEAR);
+                    }
+                });
+                btnSetVehicleYearEdit.setText(dateConversionHelper
+                        .getYearAsString(vehicleItem.getVehicleYear()));
+                ((EditText) rootView.findViewById(R.id.makeEditText))
+                        .setText(vehicleItem.getVehicleMake());
+                ((EditText) rootView.findViewById(R.id.modelEditText))
+                        .setText(vehicleItem.getVehicleModel());
                 try {
-                    InputStream inputStream = getContext().getAssets().open(mVehicleImage);
+                    InputStream inputStream = getContext().getAssets()
+                            .open(vehicleItem.getVehicleImage());
                     Drawable drawable = Drawable.createFromStream(inputStream, null);
                     ((ImageButton) rootView.findViewById(R.id.vehicleImageButton))
                             .setImageDrawable(drawable);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                ((EditText) rootView.findViewById(R.id.vehicleVinEditText)).setText(mVehicleVin);
-                if (mVehicleTypePosition==0) {
+                ((EditText) rootView.findViewById(R.id.vehicleVinEditText))
+                        .setText(vehicleItem.getVehicleVin());
+                /*
+                 * If the vehicle is a car, truck, motorcycle, etc., there will be a license plate
+                 * and a license plate renewal date to put data into. If the vehicle is a utility
+                 * vehicle, we need to hide the license plate and license plate renewal date fields.
+                 */
+                if (vehicleItem.getVehicleType()==0) {
                     ((EditText) rootView.findViewById(R.id.vehicleLicensePlateEditText))
-                            .setText(mVehicleLp);
-                    ((EditText) rootView.findViewById(R.id.vehicleLpRenewalDateEditText))
-                            .setText(mVehicleLpRenewalDate);
+                            .setText(vehicleItem.getVehicleLp());
+                    Button btnSetLpRenewalDateEdit = (Button) rootView
+                            .findViewById(R.id.vehicleLpRenewalDateButton);
+                    btnSetLpRenewalDateEdit.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            showCustomDatePicker(VehiclesTable.COL_VEHICLE_REN_DATE);
+                        }
+                    });
+                    btnSetLpRenewalDateEdit.setText(dateConversionHelper
+                            .getYearMonthAsString(vehicleItem.getVehicleLpRenewalDate()));
+                } else {
+                    (rootView.findViewById(R.id.lpRenewalDateEditContainer)).setVisibility(View.GONE);
+                    (rootView.findViewById(R.id.lpEditContainer)).setVisibility(View.GONE);
                 }
+                // Don't set the text if there isn't any saved text
                 if (mVehicleNotes != null && mVehicleNotes.length() > 0) {
-                    ((EditText) rootView.findViewById(R.id.vehNotesEditText)).setText(mVehicleNotes);
+                    ((EditText) rootView.findViewById(R.id.vehNotesEditText))
+                            .setText(vehicleItem.getVehicleNotes());
                 }
                 break;
+
             case DETAIL_IN_VIEW_MODE:
-                rootView = inflater.inflate(R.layout.vehicle_detail_view, container, false);
                 // Show the vehicle's content
+                rootView = inflater.inflate(R.layout.vehicle_detail_view, container, false);
                 ((TextView) rootView.findViewById(R.id.vehicleYearText))
-                        .setText(mVehicleYear);
-                ((TextView) rootView.findViewById(R.id.makeText)).setText(mVehicleMake);
-                ((TextView) rootView.findViewById(R.id.modelText)).setText(mVehicleModel);
+                        .setText(dateConversionHelper.getYearAsString
+                                (vehicleItem.getVehicleYear()));
+                ((TextView) rootView.findViewById(R.id.makeText))
+                        .setText(vehicleItem.getVehicleMake());
+                ((TextView) rootView.findViewById(R.id.modelText))
+                        .setText(vehicleItem.getVehicleModel());
                 try {
-                    InputStream inputStream = getContext().getAssets().open(mVehicleImage);
+                    InputStream inputStream = getContext().getAssets().
+                            open(vehicleItem.getVehicleImage());
                     Drawable drawable = Drawable.createFromStream(inputStream, null);
                     ((ImageView) rootView.findViewById(R.id.vehicleImage))
                             .setImageDrawable(drawable);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                ((TextView) rootView.findViewById(R.id.vehicleVinText)).setText(mVehicleVin);
-                if (mVehicleTypePosition==0) {
+                ((TextView) rootView.findViewById(R.id.vehicleVinText))
+                        .setText(vehicleItem.getVehicleVin());
+                /*
+                 * If the vehicle is a car, truck, motorcycle, etc., there will be a license plate
+                 * and a license plate renewal date to put data into. If the vehicle is a utility
+                 * vehicle, we need to hide the license plate and license plate renewal date fields.
+                 */
+                if (vehicleItem.getVehicleType()==0) {
                     ((TextView) rootView.findViewById(R.id.vehicleLicensePlateText))
-                            .setText(mVehicleLp);
+                            .setText(vehicleItem.getVehicleLp());
                     ((TextView) rootView.findViewById(R.id.vehicleLpRenewalDateText))
-                            .setText(mVehicleLpRenewalDate);
+                            .setText(dateConversionHelper.getYearMonthAsString
+                                    (vehicleItem.getVehicleLpRenewalDate()));
+                } else {
+                    (rootView.findViewById(R.id.lpRenewalDateViewContainer)).setVisibility(View.GONE);
+                    (rootView.findViewById(R.id.lpViewContainer)).setVisibility(View.GONE);
                 }
-                if (mVehicleTdEfficiency != null) {
+                // Don't set the text if there isn't any saved text
+                if (vehicleItem.getVehicleTdEfficiency() != null) {
                     ((TextView) rootView.findViewById(R.id.vehToDateText))
-                            .setText(mVehicleTdEfficiency);
+                            .setText(vehicleItem.getVehicleTdEfficiency());
                 }
-                if (mVehicleNotes != null && mVehicleNotes.length() > 0) {
-                    ((TextView) rootView.findViewById(R.id.vehNotesText)).setText(mVehicleNotes);
+                // Don't set the text if there isn't any saved text
+                if (vehicleItem.getVehicleNotes() != null &&
+                        vehicleItem.getVehicleNotes().length() > 0) {
+                    ((TextView) rootView.findViewById(R.id.vehNotesText))
+                            .setText(vehicleItem.getVehicleNotes());
                     break;
                 }
         }
         return rootView;
     }
 
+    /**
+     * Access the content provider, retrieve the data for the vehicle represented by the URI as a
+     * cursor, and assign the data in the fields to aptly named variables that will be used to
+     * populate layout fields.
+     * @param uri is the URI for the individual vehicle that will provide data for the layout
+     */
     private void getVehicleData (Uri uri) {
+
         Cursor cursor = mContext.getContentResolver().query
                 (uri, null, null, null, null, null);
+
         if (cursor != null) {
             cursor.moveToFirst();
 
-            mVehicleTypePosition = cursor.getInt
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_TYPE));
-            mVehicleMake = cursor.getString
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MAKE));
-            mVehicleModel = cursor.getString
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MODEL));
-            mVehicleYear = dateConversionHelper.getYearAsString
-                    (cursor.getLong(cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_YEAR)));
-            mVehicleVin = cursor.getString
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_VIN));
-            mVehicleLp = cursor.getString
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_LP));
-            mVehicleLpRenewalDate = dateConversionHelper.getYearMonthAsString(cursor.getLong
+            vehicleItem.setVehicleId(cursor.getInt
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_ID)));
+            vehicleItem.setVehicleType(cursor.getInt
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_TYPE)));
+            vehicleItem.setVehicleMake(cursor.getString
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MAKE)));
+            vehicleItem.setVehicleModel(cursor.getString
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MODEL)));
+            vehicleItem.setVehicleYear(cursor.getLong
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_YEAR)));
+            vehicleItem.setVehicleVin(cursor.getString
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_VIN)));
+            vehicleItem.setVehicleLp(cursor.getString
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_LP)));
+            vehicleItem.setVehicleLpRenewalDate(cursor.getLong
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_REN_DATE)));
-            mVehicleImage = cursor.getString
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_IMAGE));
-            mVehicleTdEfficiency = cursor.getString
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_TD_EFF));
-            mVehicleNotes = cursor.getString
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_NOTE));
-            mVehicleModOrder = cursor.getInt
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MODIFIED_ORDER));
+            vehicleItem.setVehicleImage(cursor.getString
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_IMAGE)));
+            vehicleItem.setVehicleTdEfficiency(cursor.getString
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_TD_EFF)));
+            vehicleItem.setVehicleNotes(cursor.getString
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_NOTE)));
+            vehicleItem.setVehicleModOrder(cursor.getInt
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MODIFIED_ORDER)));
+
             cursor.close();
         }
+    }
+
+    private void showCustomDatePicker(String dateField){
+
+        CustomDatePickerDialogFragment customDatePickerDialogFragment =
+                CustomDatePickerDialogFragment.newInstance(vehicleItem, dateField);
+
+        customDatePickerDialogFragment.show(getFragmentManager(), "Custom Date Picker");
     }
 }

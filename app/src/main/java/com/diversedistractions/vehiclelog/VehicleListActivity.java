@@ -136,6 +136,10 @@ public class VehicleListActivity extends AppCompatActivity
         getLoaderManager().initLoader(0, null, this);
     }
 
+    /**
+     * Class that will receive a vehicle and add it to the database through the content provider
+     * @param vehicleItem the parcelable vehicle item
+     */
     private void insertVehicle(VehicleItem vehicleItem) {
         ContentValues values = new ContentValues();
         values.put(VehiclesTable.COL_VEHICLE_TYPE, vehicleItem.getVehicleType());
@@ -154,12 +158,23 @@ public class VehicleListActivity extends AppCompatActivity
         Log.d("VehicleListActivity", "Inserted vehicle " + vehicleUri.getLastPathSegment());
     }
 
+    /**
+     * Create the menu
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
+    /**
+     * When an item is selected from the menu, act accordingly.
+     * //:TODO describe each action
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -190,38 +205,72 @@ public class VehicleListActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * //TODO: description
+     * @param recyclerView
+     */
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
         recyclerView.setAdapter(new VehicleItemAdapter(this, null));
     }
 
+    /**
+     * //TODO: description
+     * @param id
+     * @param args
+     * @return
+     */
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         return new CursorLoader(this, VehicleLogContentProvider.VEHICLE_CONTENT_URI,
                 null, null, null, sortByField );
     }
 
+    /**
+     * //TODO: description
+     * @param loader
+     * @param data
+     */
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         mCursorAdapter.swapCursor(data);
     }
 
+    /**
+     * //TODO: description
+     * @param loader
+     */
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         mCursorAdapter.swapCursor(null);
     }
 
+    /**
+     * //TODO: description
+     */
     public class VehicleItemAdapter extends RecyclerView.Adapter<VehicleItemAdapter.ViewHolder>{
 
         // Because RecyclerView.Adapter in its current form doesn't natively
         // support cursors, wrap a CursorAdapter that will do it.
         private Context mContext;
 
+        /**
+         * //TODO: description
+         * @param context
+         * @param cursor
+         */
         public VehicleItemAdapter(Context context, Cursor cursor) {
 
             mContext = context;
 
             mCursorAdapter = new CursorAdapter(mContext, cursor, 0) {
 
+                /**
+                 * //TODO: description
+                 * @param context
+                 * @param cursor
+                 * @param parent
+                 * @return
+                 */
                 @Override
                 public View newView(Context context, Cursor cursor, ViewGroup parent) {
                     LayoutInflater inflater = (LayoutInflater) context
@@ -229,6 +278,12 @@ public class VehicleListActivity extends AppCompatActivity
                     return inflater.inflate(R.layout.vehicle_list_item, parent, false);
                 }
 
+                /**
+                 * //TODO: description
+                 * @param view
+                 * @param context
+                 * @param cursor
+                 */
                 @Override
                 public void bindView(View view, Context context, Cursor cursor) {
                     // Set a tag in order to get the ID of the item clicked on
@@ -258,6 +313,10 @@ public class VehicleListActivity extends AppCompatActivity
             };
         }
 
+        /**
+         * //TODO: description
+         * @param c
+         */
         public void reQuery(Cursor c) {
             if (mCursorAdapter != null) {
                 mCursorAdapter.changeCursor(c);
@@ -265,11 +324,21 @@ public class VehicleListActivity extends AppCompatActivity
             }
         }
 
+        /**
+         * //TODO: description
+         * @return
+         */
         @Override
         public int getItemCount() {
             return mCursorAdapter.getCount();
         }
 
+        /**
+         * //TODO: description
+         * @param parent
+         * @param viewType
+         * @return
+         */
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             // Passing the inflater job to the cursor adapter
@@ -277,6 +346,11 @@ public class VehicleListActivity extends AppCompatActivity
             return new ViewHolder(v);
         }
 
+        /**
+         * //TODO: description
+         * @param holder
+         * @param position
+         */
         @Override
         public void onBindViewHolder(final ViewHolder holder, final int position) {
             // Passing the binding operation to cursor loader
@@ -323,6 +397,9 @@ public class VehicleListActivity extends AppCompatActivity
             });
         }
 
+        /**
+         * //TODO: description
+         */
         public class ViewHolder extends RecyclerView.ViewHolder {
             View view;
             public ViewHolder(View itemView) {
@@ -332,20 +409,29 @@ public class VehicleListActivity extends AppCompatActivity
         }
     }
 
-    /* Checks if external storage is available for read and write */
+    /**
+     * Checks if external storage is available for read and write
+     * @return
+     */
     public boolean isExternalStorageWritable() {
         String state = Environment.getExternalStorageState();
         return Environment.MEDIA_MOUNTED.equals(state);
     }
 
-    /* Checks if external storage is available to at least read */
+    /**
+     * Checks if external storage is available to at least read
+     * @return
+     */
     public boolean isExternalStorageReadable() {
         String state = Environment.getExternalStorageState();
         return (Environment.MEDIA_MOUNTED.equals(state) ||
                 Environment.MEDIA_MOUNTED_READ_ONLY.equals(state));
     }
 
-    // Initiate request for permissions.
+    /**
+     * Initiate request for permissions.
+     * @return
+     */
     private boolean checkPermissions() {
 
         if (!isExternalStorageReadable() || !isExternalStorageWritable()) {
@@ -366,7 +452,12 @@ public class VehicleListActivity extends AppCompatActivity
         }
     }
 
-    // Handle permissions result
+   /**
+     * Handle permissions result
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String permissions[],

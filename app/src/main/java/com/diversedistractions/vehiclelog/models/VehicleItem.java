@@ -11,14 +11,14 @@ import java.util.UUID;
 
 public class VehicleItem implements Parcelable {
 
-    private String vehicleId;
-    private String vehicleType;
+    private int vehicleId;
+    private int vehicleType;
     private String vehicleMake;
     private String vehicleModel;
-    private int vehicleYear;
+    private long vehicleYear;
     private String vehicleVin;
     private String vehicleLp;
-    private int vehicleLpRenewalDate;
+    private long vehicleLpRenewalDate;
     private String vehicleImage;
     private String vehicleNotes;
     private String vehicleTdEfficiency;
@@ -27,9 +27,9 @@ public class VehicleItem implements Parcelable {
     public VehicleItem() {
     }
 
-    public VehicleItem(String vehicleId, String vehicleType, String vehicleMake,
-                       String vehicleModel, int vehicleYear, String vehicleVin, String vehicleLp,
-                       int vehicleLpRenewalDate, String vehicleImage, String vehicleNotes,
+    public VehicleItem(int vehicleId, int vehicleType, String vehicleMake,
+                       String vehicleModel, long vehicleYear, String vehicleVin, String vehicleLp,
+                       long vehicleLpRenewalDate, String vehicleImage, String vehicleNotes,
                        String vehicleTdEfficiency, int vehicleModOrder) {
 
         this.vehicleId = vehicleId;
@@ -46,19 +46,19 @@ public class VehicleItem implements Parcelable {
         this.vehicleModOrder = vehicleModOrder;
     }
 
-    public String getVehicleId() {
+    public int getVehicleId() {
         return vehicleId;
     }
 
-    public void setVehicleId(String vehicleId) {
+    public void setVehicleId(int vehicleId) {
         this.vehicleId = vehicleId;
     }
 
-    public String getVehicleType() {
+    public int getVehicleType() {
         return vehicleType;
     }
 
-    public void setVehicleType(String vehicleType) {
+    public void setVehicleType(int vehicleType) {
         this.vehicleType = vehicleType;
     }
 
@@ -78,11 +78,11 @@ public class VehicleItem implements Parcelable {
         this.vehicleModel = vehicleModel;
     }
 
-    public int getVehicleYear() {
+    public long getVehicleYear() {
         return vehicleYear;
     }
 
-    public void setVehicleYear(int vehicleYear) {
+    public void setVehicleYear(long vehicleYear) {
         this.vehicleYear = vehicleYear;
     }
 
@@ -102,11 +102,11 @@ public class VehicleItem implements Parcelable {
         this.vehicleLp = vehicleLp;
     }
 
-    public int getVehicleLpRenewalDate() {
+    public long getVehicleLpRenewalDate() {
         return vehicleLpRenewalDate;
     }
 
-    public void setVehicleLpRenewalDate(int vehicleLpRenewalDate) {
+    public void setVehicleLpRenewalDate(long vehicleLpRenewalDate) {
         this.vehicleLpRenewalDate = vehicleLpRenewalDate;
     }
 
@@ -182,14 +182,14 @@ public class VehicleItem implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(vehicleId);
-        dest.writeString(vehicleType);
+        dest.writeInt(vehicleId);
+        dest.writeInt(vehicleType);
         dest.writeString(vehicleMake);
         dest.writeString(vehicleModel);
-        dest.writeInt(vehicleYear);
+        dest.writeLong(vehicleYear);
         dest.writeString(vehicleVin);
         dest.writeString(vehicleLp);
-        dest.writeInt(vehicleLpRenewalDate);
+        dest.writeLong(vehicleLpRenewalDate);
         dest.writeString(vehicleImage);
         dest.writeString(vehicleNotes);
         dest.writeString(vehicleTdEfficiency);
@@ -197,14 +197,14 @@ public class VehicleItem implements Parcelable {
     }
 
     protected VehicleItem(Parcel in) {
-        vehicleId = in.readString();
-        vehicleType = in.readString();
+        vehicleId = in.readInt();
+        vehicleType = in.readInt();
         vehicleMake = in.readString();
         vehicleModel = in.readString();
-        vehicleYear = in.readInt();
+        vehicleYear = in.readLong();
         vehicleVin = in.readString();
         vehicleLp = in.readString();
-        vehicleLpRenewalDate = in.readInt();
+        vehicleLpRenewalDate = in.readLong();
         vehicleImage = in.readString();
         vehicleNotes = in.readString();
         vehicleTdEfficiency = in.readString();

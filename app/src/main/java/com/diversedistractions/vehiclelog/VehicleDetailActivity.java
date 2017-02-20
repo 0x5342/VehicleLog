@@ -91,6 +91,12 @@ public class VehicleDetailActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * When an option is selected from the menu, act on it accordingly.
+     * //TODO: explain what each item that can be selected will do
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();

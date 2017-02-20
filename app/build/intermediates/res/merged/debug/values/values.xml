@@ -499,6 +499,7 @@
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
     <dimen name="app_bar_height">200dp</dimen>
+    <dimen name="custom_datepicker_margin">20dp</dimen>
     <dimen name="design_appbar_elevation">4dp</dimen>
     <dimen name="design_bottom_navigation_active_item_max_width">168dp</dimen>
     <dimen name="design_bottom_navigation_active_text_size">14sp</dimen>
@@ -627,10 +628,12 @@
     <string name="app_name">Vehicle Log</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
+    <string name="cancel">CANCEL</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
     <string name="distance_units">Distance units</string>
     <string name="edit_vehicle">Edit Vehicle</string>
     <string name="english">English</string>
+    <string name="enter">ENTER</string>
     <string name="enter_notes_here">Enter notes here</string>
     <string name="enter_the_license_plate">Enter the license plate</string>
     <string name="enter_the_make">Enter the make</string>

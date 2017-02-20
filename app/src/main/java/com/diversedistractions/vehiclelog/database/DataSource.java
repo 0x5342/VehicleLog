@@ -81,21 +81,21 @@ public class DataSource {
 
         while (cursor.moveToNext()){
             VehicleItem item = new VehicleItem();
-            item.setVehicleId(cursor.getString
+            item.setVehicleId(cursor.getInt
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_ID)));
-            item.setVehicleType(cursor.getString
+            item.setVehicleType(cursor.getInt
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_TYPE)));
             item.setVehicleMake(cursor.getString
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MAKE)));
             item.setVehicleModel(cursor.getString
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MODEL)));
-            item.setVehicleYear(cursor.getInt
+            item.setVehicleYear(cursor.getLong
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_YEAR)));
             item.setVehicleVin(cursor.getString
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_VIN)));
             item.setVehicleLp(cursor.getString
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_LP)));
-            item.setVehicleLpRenewalDate(cursor.getInt
+            item.setVehicleLpRenewalDate(cursor.getLong
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_REN_DATE)));
             item.setVehicleImage(cursor.getString
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_IMAGE)));
