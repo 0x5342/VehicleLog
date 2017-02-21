@@ -12,7 +12,15 @@
                     "endOffset": 194
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 470,
+                        "endLine": 13,
+                        "endColumn": 19,
+                        "endOffset": 612
+                    }
                 }
             },
             {
@@ -25,7 +33,15 @@
                     "endOffset": 333
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 618,
+                        "endLine": 17,
+                        "endColumn": 19,
+                        "endOffset": 755
+                    }
                 }
             },
             {
@@ -38,7 +54,15 @@
                     "endOffset": 431
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 369,
+                        "endLine": 9,
+                        "endColumn": 19,
+                        "endOffset": 464
+                    }
                 }
             },
             {
@@ -51,7 +75,15 @@
                     "endOffset": 997
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 33,
+                        "startColumn": 4,
+                        "startOffset": 1412,
+                        "endLine": 46,
+                        "endColumn": 19,
+                        "endOffset": 1986
+                    }
                 }
             },
             {
@@ -64,7 +96,15 @@
                     "endOffset": 1250
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 761,
+                        "endLine": 24,
+                        "endColumn": 19,
+                        "endOffset": 1015
+                    }
                 }
             },
             {
@@ -77,7 +117,15 @@
                     "endOffset": 1443
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 4,
+                        "startOffset": 1123,
+                        "endLine": 30,
+                        "endColumn": 19,
+                        "endOffset": 1314
+                    }
                 }
             },
             {
@@ -89,7 +137,14 @@
                     "endOffset": 1547
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 103,
+                        "endOffset": 154
+                    }
                 }
             },
             {
@@ -120,7 +175,14 @@
                     "endOffset": 1667
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 159,
+                        "endColumn": 63,
+                        "endOffset": 218
+                    }
                 }
             },
             {
@@ -132,7 +194,14 @@
                     "endOffset": 1734
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 223,
+                        "endColumn": 66,
+                        "endOffset": 285
+                    }
                 }
             },
             {
@@ -144,7 +213,14 @@
                     "endOffset": 1798
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 290,
+                        "endColumn": 63,
+                        "endOffset": 349
+                    }
                 }
             },
             {
@@ -156,7 +232,14 @@
                     "endOffset": 1847
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 47,
+                        "startColumn": 4,
+                        "startOffset": 1992,
+                        "endColumn": 48,
+                        "endOffset": 2036
+                    }
                 }
             },
             {
@@ -187,7 +270,14 @@
                     "endOffset": 1947
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 74,
+                        "startColumn": 4,
+                        "startOffset": 3688,
+                        "endColumn": 57,
+                        "endOffset": 3741
+                    }
                 }
             },
             {
@@ -199,7 +289,14 @@
                     "endOffset": 2001
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 89,
+                        "startColumn": 4,
+                        "startOffset": 4409,
+                        "endColumn": 53,
+                        "endOffset": 4458
+                    }
                 }
             },
             {
@@ -211,7 +308,14 @@
                     "endOffset": 2045
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 78,
+                        "startColumn": 4,
+                        "startOffset": 3906,
+                        "endColumn": 43,
+                        "endOffset": 3945
+                    }
                 }
             },
             {
@@ -242,7 +346,14 @@
                     "endOffset": 2147
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 71,
+                        "startColumn": 4,
+                        "startOffset": 3531,
+                        "endColumn": 61,
+                        "endOffset": 3588
+                    }
                 }
             },
             {
@@ -254,7 +365,14 @@
                     "endOffset": 2223
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 69,
+                        "startColumn": 4,
+                        "startOffset": 3403,
+                        "endColumn": 75,
+                        "endOffset": 3474
+                    }
                 }
             },
             {
@@ -266,7 +384,14 @@
                     "endOffset": 2281
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 66,
+                        "startColumn": 4,
+                        "startOffset": 3226,
+                        "endColumn": 57,
+                        "endOffset": 3279
+                    }
                 }
             },
             {
@@ -278,7 +403,14 @@
                     "endOffset": 2341
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 67,
+                        "startColumn": 4,
+                        "startOffset": 3285,
+                        "endColumn": 59,
+                        "endOffset": 3340
+                    }
                 }
             },
             {
@@ -290,7 +422,14 @@
                     "endOffset": 2411
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 91,
+                        "startColumn": 4,
+                        "startOffset": 4520,
+                        "endColumn": 69,
+                        "endOffset": 4585
+                    }
                 }
             },
             {
@@ -302,7 +441,14 @@
                     "endOffset": 2467
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 68,
+                        "startColumn": 4,
+                        "startOffset": 3346,
+                        "endColumn": 55,
+                        "endOffset": 3397
+                    }
                 }
             },
             {
@@ -314,7 +460,14 @@
                     "endOffset": 2517
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 70,
+                        "startColumn": 4,
+                        "startOffset": 3480,
+                        "endColumn": 49,
+                        "endOffset": 3525
+                    }
                 }
             },
             {
@@ -326,7 +479,14 @@
                     "endOffset": 2569
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 76,
+                        "startColumn": 4,
+                        "startOffset": 3800,
+                        "endColumn": 51,
+                        "endOffset": 3847
+                    }
                 }
             },
             {
@@ -338,7 +498,14 @@
                     "endOffset": 2621
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 75,
+                        "startColumn": 4,
+                        "startOffset": 3747,
+                        "endColumn": 51,
+                        "endOffset": 3794
+                    }
                 }
             },
             {
@@ -350,7 +517,14 @@
                     "endOffset": 2682
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 58,
+                        "startColumn": 4,
+                        "startOffset": 2791,
+                        "endColumn": 60,
+                        "endOffset": 2847
+                    }
                 }
             },
             {
@@ -362,7 +536,14 @@
                     "endOffset": 2726
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 81,
+                        "startColumn": 4,
+                        "startOffset": 4043,
+                        "endColumn": 43,
+                        "endOffset": 4082
+                    }
                 }
             },
             {
@@ -374,7 +555,14 @@
                     "endOffset": 2778
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 77,
+                        "startColumn": 4,
+                        "startOffset": 3853,
+                        "endColumn": 51,
+                        "endOffset": 3900
+                    }
                 }
             },
             {
@@ -386,7 +574,14 @@
                     "endOffset": 2828
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 80,
+                        "startColumn": 4,
+                        "startOffset": 3992,
+                        "endColumn": 49,
+                        "endOffset": 4037
+                    }
                 }
             },
             {
@@ -398,7 +593,14 @@
                     "endOffset": 2874
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 73,
+                        "startColumn": 4,
+                        "startOffset": 3641,
+                        "endColumn": 45,
+                        "endOffset": 3682
+                    }
                 }
             },
             {
@@ -410,7 +612,14 @@
                     "endOffset": 2937
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 60,
+                        "startColumn": 4,
+                        "startOffset": 2917,
+                        "endColumn": 62,
+                        "endOffset": 2975
+                    }
                 }
             },
             {
@@ -422,7 +631,14 @@
                     "endOffset": 2979
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 82,
+                        "startColumn": 4,
+                        "startOffset": 4088,
+                        "endColumn": 41,
+                        "endOffset": 4125
+                    }
                 }
             },
             {
@@ -434,7 +650,14 @@
                     "endOffset": 3042
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 59,
+                        "startColumn": 4,
+                        "startOffset": 2853,
+                        "endColumn": 62,
+                        "endOffset": 2911
+                    }
                 }
             },
             {
@@ -446,7 +669,14 @@
                     "endOffset": 3080
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 86,
+                        "startColumn": 4,
+                        "startOffset": 4276,
+                        "endColumn": 37,
+                        "endOffset": 4309
+                    }
                 }
             },
             {
@@ -458,7 +688,14 @@
                     "endOffset": 3125
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 64,
+                        "startColumn": 4,
+                        "startOffset": 3125,
+                        "endColumn": 44,
+                        "endOffset": 3165
+                    }
                 }
             },
             {
@@ -470,7 +707,14 @@
                     "endOffset": 3165
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 79,
+                        "startColumn": 4,
+                        "startOffset": 3951,
+                        "endColumn": 39,
+                        "endOffset": 3986
+                    }
                 }
             },
             {
@@ -482,7 +726,14 @@
                     "endOffset": 3205
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 87,
+                        "startColumn": 4,
+                        "startOffset": 4315,
+                        "endColumn": 39,
+                        "endOffset": 4350
+                    }
                 }
             },
             {
@@ -494,7 +745,14 @@
                     "endOffset": 3252
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 63,
+                        "startColumn": 4,
+                        "startOffset": 3077,
+                        "endColumn": 46,
+                        "endOffset": 3119
+                    }
                 }
             },
             {
@@ -506,7 +764,14 @@
                     "endOffset": 3303
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 62,
+                        "startColumn": 4,
+                        "startOffset": 3025,
+                        "endColumn": 50,
+                        "endOffset": 3071
+                    }
                 }
             },
             {
@@ -518,7 +783,14 @@
                     "endOffset": 3369
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 84,
+                        "startColumn": 4,
+                        "startOffset": 4170,
+                        "endColumn": 65,
+                        "endOffset": 4231
+                    }
                 }
             },
             {
@@ -530,7 +802,14 @@
                     "endOffset": 3421
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 88,
+                        "startColumn": 4,
+                        "startOffset": 4356,
+                        "endColumn": 51,
+                        "endOffset": 4403
+                    }
                 }
             },
             {
@@ -542,7 +821,14 @@
                     "endOffset": 3503
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 50,
+                        "startColumn": 4,
+                        "startOffset": 2176,
+                        "endColumn": 81,
+                        "endOffset": 2253
+                    }
                 }
             },
             {
@@ -554,7 +840,14 @@
                     "endOffset": 3587
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 52,
+                        "startColumn": 4,
+                        "startOffset": 2342,
+                        "endColumn": 83,
+                        "endOffset": 2421
+                    }
                 }
             },
             {
@@ -566,7 +859,14 @@
                     "endOffset": 3655
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 49,
+                        "startColumn": 4,
+                        "startOffset": 2107,
+                        "endColumn": 67,
+                        "endOffset": 2170
+                    }
                 }
             },
             {
@@ -578,7 +878,14 @@
                     "endOffset": 3737
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 51,
+                        "startColumn": 4,
+                        "startOffset": 2259,
+                        "endColumn": 81,
+                        "endOffset": 2336
+                    }
                 }
             },
             {
@@ -590,7 +897,14 @@
                     "endOffset": 3819
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 55,
+                        "startColumn": 4,
+                        "startOffset": 2575,
+                        "endColumn": 81,
+                        "endOffset": 2652
+                    }
                 }
             },
             {
@@ -602,7 +916,14 @@
                     "endOffset": 3903
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 56,
+                        "startColumn": 4,
+                        "startOffset": 2658,
+                        "endColumn": 83,
+                        "endOffset": 2737
+                    }
                 }
             },
             {
@@ -614,7 +935,14 @@
                     "endOffset": 3985
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 54,
+                        "startColumn": 4,
+                        "startOffset": 2492,
+                        "endColumn": 81,
+                        "endOffset": 2569
+                    }
                 }
             },
             {
@@ -626,7 +954,14 @@
                     "endOffset": 4049
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 53,
+                        "startColumn": 4,
+                        "startOffset": 2427,
+                        "endColumn": 63,
+                        "endOffset": 2486
+                    }
                 }
             },
             {
@@ -638,7 +973,14 @@
                     "endOffset": 4087
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 83,
+                        "startColumn": 4,
+                        "startOffset": 4131,
+                        "endColumn": 37,
+                        "endOffset": 4164
+                    }
                 }
             },
             {
@@ -650,7 +992,14 @@
                     "endOffset": 4134
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 57,
+                        "startColumn": 4,
+                        "startOffset": 2743,
+                        "endColumn": 46,
+                        "endOffset": 2785
+                    }
                 }
             },
             {
@@ -662,7 +1011,14 @@
                     "endOffset": 4208
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 152,
+                        "endColumn": 73,
+                        "endOffset": 221
+                    }
                 }
             },
             {
@@ -674,7 +1030,14 @@
                     "endOffset": 4276
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 227,
+                        "endColumn": 67,
+                        "endOffset": 290
+                    }
                 }
             },
             {
@@ -686,7 +1049,14 @@
                     "endOffset": 4338
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 89,
+                        "endColumn": 61,
+                        "endOffset": 146
+                    }
                 }
             },
             {
@@ -698,7 +1068,14 @@
                     "endOffset": 4410
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 296,
+                        "endColumn": 71,
+                        "endOffset": 363
+                    }
                 }
             },
             {
@@ -710,7 +1087,14 @@
                     "endOffset": 4475
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 32,
+                        "startColumn": 4,
+                        "startOffset": 1346,
+                        "endColumn": 64,
+                        "endOffset": 1406
+                    }
                 }
             },
             {
@@ -722,7 +1106,14 @@
                     "endOffset": 4521
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 72,
+                        "startColumn": 4,
+                        "startOffset": 3594,
+                        "endColumn": 45,
+                        "endOffset": 3635
+                    }
                 }
             },
             {
@@ -734,7 +1125,14 @@
                     "endOffset": 4585
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 48,
+                        "startColumn": 4,
+                        "startOffset": 2042,
+                        "endColumn": 63,
+                        "endOffset": 2101
+                    }
                 }
             },
             {
@@ -746,7 +1144,14 @@
                     "endOffset": 4640
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 90,
+                        "startColumn": 4,
+                        "startOffset": 4464,
+                        "endColumn": 54,
+                        "endOffset": 4514
+                    }
                 }
             },
             {
@@ -758,7 +1163,14 @@
                     "endOffset": 4708
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 1054,
+                        "endColumn": 67,
+                        "endOffset": 1117
+                    }
                 }
             },
             {
@@ -770,7 +1182,14 @@
                     "endOffset": 4762
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 65,
+                        "startColumn": 4,
+                        "startOffset": 3171,
+                        "endColumn": 53,
+                        "endOffset": 3220
+                    }
                 }
             },
             {
@@ -782,7 +1201,14 @@
                     "endOffset": 4805
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 61,
+                        "startColumn": 4,
+                        "startOffset": 2981,
+                        "endColumn": 42,
+                        "endOffset": 3019
+                    }
                 }
             },
             {
@@ -794,7 +1220,14 @@
                     "endOffset": 4843
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "position": {
+                        "startLine": 85,
+                        "startColumn": 4,
+                        "startOffset": 4237,
+                        "endColumn": 37,
+                        "endOffset": 4270
+                    }
                 }
             },
             {
@@ -807,7 +1240,15 @@
                     "endOffset": 5144
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\styles.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\src\\main\\res\\values-v21\\styles.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 19,
+                        "endLine": 7,
+                        "endColumn": 12,
+                        "endOffset": 320
+                    }
                 }
             },
             {
@@ -819,7 +1260,14 @@
                     "endOffset": 5235
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 354,
+                        "endColumn": 90,
+                        "endOffset": 440
+                    }
                 }
             },
             {
@@ -831,7 +1279,14 @@
                     "endOffset": 5338
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 445,
+                        "endColumn": 102,
+                        "endOffset": 543
+                    }
                 }
             },
             {
@@ -843,7 +1298,14 @@
                     "endOffset": 5441
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 548,
+                        "endColumn": 102,
+                        "endOffset": 646
+                    }
                 }
             },
             {
@@ -855,7 +1317,14 @@
                     "endOffset": 5546
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 651,
+                        "endColumn": 104,
+                        "endOffset": 751
+                    }
                 }
             },
             {
@@ -867,7 +1336,14 @@
                     "endOffset": 5653
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 756,
+                        "endColumn": 106,
+                        "endOffset": 858
+                    }
                 }
             },
             {
@@ -879,7 +1355,14 @@
                     "endOffset": 5762
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 863,
+                        "endColumn": 108,
+                        "endOffset": 967
+                    }
                 }
             },
             {
@@ -891,7 +1374,14 @@
                     "endOffset": 5871
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 972,
+                        "endColumn": 108,
+                        "endOffset": 1076
+                    }
                 }
             },
             {
@@ -903,7 +1393,14 @@
                     "endOffset": 5980
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 1081,
+                        "endColumn": 108,
+                        "endOffset": 1185
+                    }
                 }
             },
             {
@@ -915,7 +1412,14 @@
                     "endOffset": 6089
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1190,
+                        "endColumn": 108,
+                        "endOffset": 1294
+                    }
                 }
             },
             {
@@ -927,7 +1431,14 @@
                     "endOffset": 6198
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 1299,
+                        "endColumn": 108,
+                        "endOffset": 1403
+                    }
                 }
             },
             {
@@ -939,7 +1450,14 @@
                     "endOffset": 6305
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1408,
+                        "endColumn": 106,
+                        "endOffset": 1510
+                    }
                 }
             },
             {
@@ -951,7 +1469,14 @@
                     "endOffset": 6408
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1515,
+                        "endColumn": 102,
+                        "endOffset": 1613
+                    }
                 }
             },
             {
@@ -963,7 +1488,14 @@
                     "endOffset": 6527
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1618,
+                        "endColumn": 118,
+                        "endOffset": 1732
+                    }
                 }
             },
             {
@@ -976,7 +1508,15 @@
                     "endOffset": 6682
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1737,
+                        "endLine": 20,
+                        "endColumn": 12,
+                        "endOffset": 1887
+                    }
                 }
             },
             {
@@ -989,7 +1529,15 @@
                     "endOffset": 6837
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 1892,
+                        "endLine": 22,
+                        "endColumn": 12,
+                        "endOffset": 2042
+                    }
                 }
             },
             {
@@ -1001,7 +1549,14 @@
                     "endOffset": 6942
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 2047,
+                        "endColumn": 104,
+                        "endOffset": 2147
+                    }
                 }
             },
             {
@@ -1013,7 +1568,14 @@
                     "endOffset": 7063
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 2152,
+                        "endColumn": 120,
+                        "endOffset": 2268
+                    }
                 }
             },
             {
@@ -1025,7 +1587,14 @@
                     "endOffset": 7164
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 2273,
+                        "endColumn": 100,
+                        "endOffset": 2369
+                    }
                 }
             },
             {
@@ -1038,7 +1607,15 @@
                     "endOffset": 7311
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 2374,
+                        "endLine": 27,
+                        "endColumn": 12,
+                        "endOffset": 2516
+                    }
                 }
             },
             {
@@ -1051,7 +1628,15 @@
                     "endOffset": 7452
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 28,
+                        "startColumn": 4,
+                        "startOffset": 2521,
+                        "endLine": 29,
+                        "endColumn": 12,
+                        "endOffset": 2657
+                    }
                 }
             },
             {
@@ -1063,7 +1648,14 @@
                     "endOffset": 7555
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 30,
+                        "startColumn": 4,
+                        "startOffset": 2662,
+                        "endColumn": 102,
+                        "endOffset": 2760
+                    }
                 }
             },
             {
@@ -1075,7 +1667,14 @@
                     "endOffset": 7674
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 31,
+                        "startColumn": 4,
+                        "startOffset": 2765,
+                        "endColumn": 118,
+                        "endOffset": 2879
+                    }
                 }
             },
             {
@@ -1087,7 +1686,14 @@
                     "endOffset": 7781
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 32,
+                        "startColumn": 4,
+                        "startOffset": 2884,
+                        "endColumn": 106,
+                        "endOffset": 2986
+                    }
                 }
             },
             {
@@ -1099,7 +1705,14 @@
                     "endOffset": 7884
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 33,
+                        "startColumn": 4,
+                        "startOffset": 2991,
+                        "endColumn": 102,
+                        "endOffset": 3089
+                    }
                 }
             },
             {
@@ -1112,7 +1725,15 @@
                     "endOffset": 8039
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 34,
+                        "startColumn": 4,
+                        "startOffset": 3094,
+                        "endLine": 35,
+                        "endColumn": 12,
+                        "endOffset": 3244
+                    }
                 }
             },
             {
@@ -1125,7 +1746,15 @@
                     "endOffset": 8210
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 36,
+                        "startColumn": 4,
+                        "startOffset": 3249,
+                        "endLine": 37,
+                        "endColumn": 12,
+                        "endOffset": 3415
+                    }
                 }
             },
             {
@@ -1138,7 +1767,15 @@
                     "endOffset": 8359
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 38,
+                        "startColumn": 4,
+                        "startOffset": 3420,
+                        "endLine": 39,
+                        "endColumn": 12,
+                        "endOffset": 3564
+                    }
                 }
             },
             {
@@ -1151,7 +1788,15 @@
                     "endOffset": 8524
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 40,
+                        "startColumn": 4,
+                        "startOffset": 3569,
+                        "endLine": 41,
+                        "endColumn": 12,
+                        "endOffset": 3729
+                    }
                 }
             },
             {
@@ -1164,7 +1809,15 @@
                     "endOffset": 8681
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 42,
+                        "startColumn": 4,
+                        "startOffset": 3734,
+                        "endLine": 43,
+                        "endColumn": 12,
+                        "endOffset": 3886
+                    }
                 }
             },
             {
@@ -1177,7 +1830,15 @@
                     "endOffset": 8832
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 44,
+                        "startColumn": 4,
+                        "startOffset": 3891,
+                        "endLine": 45,
+                        "endColumn": 12,
+                        "endOffset": 4037
+                    }
                 }
             },
             {
@@ -1189,7 +1850,14 @@
                     "endOffset": 8951
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 46,
+                        "startColumn": 4,
+                        "startOffset": 4042,
+                        "endColumn": 118,
+                        "endOffset": 4156
+                    }
                 }
             },
             {
@@ -1202,7 +1870,15 @@
                     "endOffset": 9323
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 47,
+                        "startColumn": 4,
+                        "startOffset": 4161,
+                        "endLine": 51,
+                        "endColumn": 12,
+                        "endOffset": 4528
+                    }
                 }
             },
             {
@@ -1215,7 +1891,15 @@
                     "endOffset": 9472
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 52,
+                        "startColumn": 4,
+                        "startOffset": 4533,
+                        "endLine": 53,
+                        "endColumn": 12,
+                        "endOffset": 4677
+                    }
                 }
             },
             {
@@ -1228,7 +1912,15 @@
                     "endOffset": 9621
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 54,
+                        "startColumn": 4,
+                        "startOffset": 4682,
+                        "endLine": 55,
+                        "endColumn": 12,
+                        "endOffset": 4826
+                    }
                 }
             },
             {
@@ -1240,7 +1932,14 @@
                     "endOffset": 9733
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 56,
+                        "startColumn": 4,
+                        "startOffset": 4831,
+                        "endColumn": 111,
+                        "endOffset": 4938
+                    }
                 }
             },
             {
@@ -1252,7 +1951,14 @@
                     "endOffset": 9880
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 57,
+                        "startColumn": 4,
+                        "startOffset": 4943,
+                        "endColumn": 146,
+                        "endOffset": 5085
+                    }
                 }
             },
             {
@@ -1265,7 +1971,15 @@
                     "endOffset": 10033
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 58,
+                        "startColumn": 4,
+                        "startOffset": 5090,
+                        "endLine": 59,
+                        "endColumn": 12,
+                        "endOffset": 5238
+                    }
                 }
             },
             {
@@ -1278,7 +1992,15 @@
                     "endOffset": 10180
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 60,
+                        "startColumn": 4,
+                        "startOffset": 5243,
+                        "endLine": 61,
+                        "endColumn": 12,
+                        "endOffset": 5385
+                    }
                 }
             },
             {
@@ -1290,7 +2012,14 @@
                     "endOffset": 10255
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 62,
+                        "startColumn": 4,
+                        "startOffset": 5390,
+                        "endColumn": 74,
+                        "endOffset": 5460
+                    }
                 }
             },
             {
@@ -1302,7 +2031,14 @@
                     "endOffset": 10344
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 63,
+                        "startColumn": 4,
+                        "startOffset": 5465,
+                        "endColumn": 88,
+                        "endOffset": 5549
+                    }
                 }
             },
             {
@@ -1314,7 +2050,14 @@
                     "endOffset": 10431
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 64,
+                        "startColumn": 4,
+                        "startOffset": 5554,
+                        "endColumn": 86,
+                        "endOffset": 5636
+                    }
                 }
             },
             {
@@ -1326,7 +2069,14 @@
                     "endOffset": 10532
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 65,
+                        "startColumn": 4,
+                        "startOffset": 5641,
+                        "endColumn": 100,
+                        "endOffset": 5737
+                    }
                 }
             },
             {
@@ -1338,7 +2088,14 @@
                     "endOffset": 10635
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 66,
+                        "startColumn": 4,
+                        "startOffset": 5742,
+                        "endColumn": 102,
+                        "endOffset": 5840
+                    }
                 }
             },
             {
@@ -1348,715 +2105,1148 @@
                     "startOffset": 10640,
                     "endLine": 206,
                     "endColumn": 12,
-                    "endOffset": 13487
+                    "endOffset": 13703
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 67,
+                        "startColumn": 4,
+                        "startOffset": 5845,
+                        "endLine": 110,
+                        "endColumn": 12,
+                        "endOffset": 8908
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 207,
                     "startColumn": 4,
-                    "startOffset": 13492,
+                    "startOffset": 13708,
                     "endLine": 209,
                     "endColumn": 12,
-                    "endOffset": 13673
+                    "endOffset": 13889
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 111,
+                        "startColumn": 4,
+                        "startOffset": 8913,
+                        "endLine": 113,
+                        "endColumn": 12,
+                        "endOffset": 9094
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 210,
                     "startColumn": 4,
-                    "startOffset": 13678,
+                    "startOffset": 13894,
                     "endLine": 253,
                     "endColumn": 12,
-                    "endOffset": 16537
+                    "endOffset": 16969
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 114,
+                        "startColumn": 4,
+                        "startOffset": 9099,
+                        "endLine": 157,
+                        "endColumn": 12,
+                        "endOffset": 12174
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 254,
                     "startColumn": 4,
-                    "startOffset": 16542,
+                    "startOffset": 16974,
                     "endLine": 256,
                     "endColumn": 12,
-                    "endOffset": 16735
+                    "endOffset": 17167
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 158,
+                        "startColumn": 4,
+                        "startOffset": 12179,
+                        "endLine": 160,
+                        "endColumn": 12,
+                        "endOffset": 12372
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 257,
                     "startColumn": 4,
-                    "startOffset": 16740,
+                    "startOffset": 17172,
                     "endLine": 259,
                     "endColumn": 12,
-                    "endOffset": 16935
+                    "endOffset": 17367
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 161,
+                        "startColumn": 4,
+                        "startOffset": 12377,
+                        "endLine": 163,
+                        "endColumn": 12,
+                        "endOffset": 12572
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 260,
                     "startColumn": 4,
-                    "startOffset": 16940,
+                    "startOffset": 17372,
                     "endLine": 261,
                     "endColumn": 12,
-                    "endOffset": 17058
+                    "endOffset": 17490
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 164,
+                        "startColumn": 4,
+                        "startOffset": 12577,
+                        "endLine": 165,
+                        "endColumn": 12,
+                        "endOffset": 12695
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 262,
                     "startColumn": 4,
-                    "startOffset": 17063,
+                    "startOffset": 17495,
                     "endLine": 263,
                     "endColumn": 12,
-                    "endOffset": 17181
+                    "endOffset": 17613
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 166,
+                        "startColumn": 4,
+                        "startOffset": 12700,
+                        "endLine": 167,
+                        "endColumn": 12,
+                        "endOffset": 12818
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 264,
                     "startColumn": 4,
-                    "startOffset": 17186,
+                    "startOffset": 17618,
                     "endLine": 265,
                     "endColumn": 12,
-                    "endOffset": 17294
+                    "endOffset": 17726
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 168,
+                        "startColumn": 4,
+                        "startOffset": 12823,
+                        "endLine": 169,
+                        "endColumn": 12,
+                        "endOffset": 12931
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 266,
                     "startColumn": 4,
-                    "startOffset": 17299,
+                    "startOffset": 17731,
                     "endLine": 268,
                     "endColumn": 12,
-                    "endOffset": 17477
+                    "endOffset": 17909
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 170,
+                        "startColumn": 4,
+                        "startOffset": 12936,
+                        "endLine": 172,
+                        "endColumn": 12,
+                        "endOffset": 13114
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 269,
                     "startColumn": 4,
-                    "startOffset": 17482,
+                    "startOffset": 17914,
                     "endLine": 270,
                     "endColumn": 12,
-                    "endOffset": 17608
+                    "endOffset": 18040
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 173,
+                        "startColumn": 4,
+                        "startOffset": 13119,
+                        "endLine": 174,
+                        "endColumn": 12,
+                        "endOffset": 13245
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 271,
                     "startColumn": 4,
-                    "startOffset": 17613,
+                    "startOffset": 18045,
                     "endLine": 273,
                     "endColumn": 12,
-                    "endOffset": 17809
+                    "endOffset": 18241
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 175,
+                        "startColumn": 4,
+                        "startOffset": 13250,
+                        "endLine": 177,
+                        "endColumn": 12,
+                        "endOffset": 13446
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 274,
                     "startColumn": 4,
-                    "startOffset": 17814,
+                    "startOffset": 18246,
                     "endColumn": 88,
-                    "endOffset": 17898
+                    "endOffset": 18330
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 178,
+                        "startColumn": 4,
+                        "startOffset": 13451,
+                        "endColumn": 88,
+                        "endOffset": 13535
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 275,
                     "startColumn": 4,
-                    "startOffset": 17903,
+                    "startOffset": 18335,
                     "endColumn": 110,
-                    "endOffset": 18009
+                    "endOffset": 18441
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 179,
+                        "startColumn": 4,
+                        "startOffset": 13540,
+                        "endColumn": 110,
+                        "endOffset": 13646
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 276,
                     "startColumn": 4,
-                    "startOffset": 18014,
+                    "startOffset": 18446,
                     "endLine": 278,
                     "endColumn": 12,
-                    "endOffset": 18242
+                    "endOffset": 18674
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 180,
+                        "startColumn": 4,
+                        "startOffset": 13651,
+                        "endLine": 182,
+                        "endColumn": 12,
+                        "endOffset": 13879
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 279,
                     "startColumn": 4,
-                    "startOffset": 18247,
+                    "startOffset": 18679,
                     "endColumn": 100,
-                    "endOffset": 18343
+                    "endOffset": 18775
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 183,
+                        "startColumn": 4,
+                        "startOffset": 13884,
+                        "endColumn": 100,
+                        "endOffset": 13980
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 280,
                     "startColumn": 4,
-                    "startOffset": 18348,
+                    "startOffset": 18780,
                     "endColumn": 94,
-                    "endOffset": 18438
+                    "endOffset": 18870
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 184,
+                        "startColumn": 4,
+                        "startOffset": 13985,
+                        "endColumn": 94,
+                        "endOffset": 14075
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 281,
                     "startColumn": 4,
-                    "startOffset": 18443,
+                    "startOffset": 18875,
                     "endColumn": 122,
-                    "endOffset": 18561
+                    "endOffset": 18993
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 185,
+                        "startColumn": 4,
+                        "startOffset": 14080,
+                        "endColumn": 122,
+                        "endOffset": 14198
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 282,
                     "startColumn": 4,
-                    "startOffset": 18566,
+                    "startOffset": 18998,
                     "endColumn": 128,
-                    "endOffset": 18690
+                    "endOffset": 19122
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 186,
+                        "startColumn": 4,
+                        "startOffset": 14203,
+                        "endColumn": 128,
+                        "endOffset": 14327
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 283,
                     "startColumn": 4,
-                    "startOffset": 18695,
+                    "startOffset": 19127,
                     "endColumn": 116,
-                    "endOffset": 18807
+                    "endOffset": 19239
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 187,
+                        "startColumn": 4,
+                        "startOffset": 14332,
+                        "endColumn": 116,
+                        "endOffset": 14444
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 284,
                     "startColumn": 4,
-                    "startOffset": 18812,
+                    "startOffset": 19244,
                     "endLine": 286,
                     "endColumn": 12,
-                    "endOffset": 18984
+                    "endOffset": 19416
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 188,
+                        "startColumn": 4,
+                        "startOffset": 14449,
+                        "endLine": 190,
+                        "endColumn": 12,
+                        "endOffset": 14621
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 287,
                     "startColumn": 4,
-                    "startOffset": 18989,
+                    "startOffset": 19421,
                     "endColumn": 98,
-                    "endOffset": 19083
+                    "endOffset": 19515
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 191,
+                        "startColumn": 4,
+                        "startOffset": 14626,
+                        "endColumn": 98,
+                        "endOffset": 14720
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 288,
                     "startColumn": 4,
-                    "startOffset": 19088,
+                    "startOffset": 19520,
                     "endLine": 289,
                     "endColumn": 12,
-                    "endOffset": 19218
+                    "endOffset": 19650
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 192,
+                        "startColumn": 4,
+                        "startOffset": 14725,
+                        "endLine": 193,
+                        "endColumn": 12,
+                        "endOffset": 14855
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 290,
                     "startColumn": 4,
-                    "startOffset": 19223,
+                    "startOffset": 19655,
                     "endLine": 291,
                     "endColumn": 12,
-                    "endOffset": 19361
+                    "endOffset": 19793
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 194,
+                        "startColumn": 4,
+                        "startOffset": 14860,
+                        "endLine": 195,
+                        "endColumn": 12,
+                        "endOffset": 14998
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 292,
                     "startColumn": 4,
-                    "startOffset": 19366,
+                    "startOffset": 19798,
                     "endLine": 293,
                     "endColumn": 12,
-                    "endOffset": 19496
+                    "endOffset": 19928
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 196,
+                        "startColumn": 4,
+                        "startOffset": 15003,
+                        "endLine": 197,
+                        "endColumn": 12,
+                        "endOffset": 15133
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 294,
                     "startColumn": 4,
-                    "startOffset": 19501,
+                    "startOffset": 19933,
                     "endLine": 295,
                     "endColumn": 12,
-                    "endOffset": 19615
+                    "endOffset": 20047
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 198,
+                        "startColumn": 4,
+                        "startOffset": 15138,
+                        "endLine": 199,
+                        "endColumn": 12,
+                        "endOffset": 15252
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 296,
                     "startColumn": 4,
-                    "startOffset": 19620,
+                    "startOffset": 20052,
                     "endLine": 299,
                     "endColumn": 12,
-                    "endOffset": 19816
+                    "endOffset": 20248
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 200,
+                        "startColumn": 4,
+                        "startOffset": 15257,
+                        "endLine": 203,
+                        "endColumn": 12,
+                        "endOffset": 15453
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 300,
                     "startColumn": 4,
-                    "startOffset": 19821,
+                    "startOffset": 20253,
                     "endLine": 301,
                     "endColumn": 12,
-                    "endOffset": 19935
+                    "endOffset": 20367
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 204,
+                        "startColumn": 4,
+                        "startOffset": 15458,
+                        "endLine": 205,
+                        "endColumn": 12,
+                        "endOffset": 15572
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 302,
                     "startColumn": 4,
-                    "startOffset": 19940,
+                    "startOffset": 20372,
                     "endColumn": 92,
-                    "endOffset": 20028
+                    "endOffset": 20460
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 206,
+                        "startColumn": 4,
+                        "startOffset": 15577,
+                        "endColumn": 92,
+                        "endOffset": 15665
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 303,
                     "startColumn": 4,
-                    "startOffset": 20033,
+                    "startOffset": 20465,
                     "endColumn": 110,
-                    "endOffset": 20139
+                    "endOffset": 20571
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 207,
+                        "startColumn": 4,
+                        "startOffset": 15670,
+                        "endColumn": 110,
+                        "endOffset": 15776
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 304,
                     "startColumn": 4,
-                    "startOffset": 20144,
+                    "startOffset": 20576,
                     "endColumn": 55,
-                    "endOffset": 20195
+                    "endOffset": 20627
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 208,
+                        "startColumn": 4,
+                        "startOffset": 15781,
+                        "endColumn": 55,
+                        "endOffset": 15832
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 305,
                     "startColumn": 4,
-                    "startOffset": 20200,
+                    "startOffset": 20632,
                     "endLine": 306,
                     "endColumn": 12,
-                    "endOffset": 20302
+                    "endOffset": 20734
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 209,
+                        "startColumn": 4,
+                        "startOffset": 15837,
+                        "endLine": 210,
+                        "endColumn": 12,
+                        "endOffset": 15939
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 307,
                     "startColumn": 4,
-                    "startOffset": 20307,
+                    "startOffset": 20739,
                     "endLine": 310,
                     "endColumn": 12,
-                    "endOffset": 20497
+                    "endOffset": 20929
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 211,
+                        "startColumn": 4,
+                        "startOffset": 15944,
+                        "endLine": 214,
+                        "endColumn": 12,
+                        "endOffset": 16134
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 311,
                     "startColumn": 4,
-                    "startOffset": 20502,
+                    "startOffset": 20934,
                     "endLine": 312,
                     "endColumn": 12,
-                    "endOffset": 20608
+                    "endOffset": 21040
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 215,
+                        "startColumn": 4,
+                        "startOffset": 16139,
+                        "endLine": 216,
+                        "endColumn": 12,
+                        "endOffset": 16245
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 313,
                     "startColumn": 4,
-                    "startOffset": 20613,
+                    "startOffset": 21045,
                     "endLine": 314,
                     "endColumn": 12,
-                    "endOffset": 20741
+                    "endOffset": 21173
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 217,
+                        "startColumn": 4,
+                        "startOffset": 16250,
+                        "endLine": 218,
+                        "endColumn": 12,
+                        "endOffset": 16378
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 315,
                     "startColumn": 4,
-                    "startOffset": 20746,
+                    "startOffset": 21178,
                     "endColumn": 94,
-                    "endOffset": 20836
+                    "endOffset": 21268
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 219,
+                        "startColumn": 4,
+                        "startOffset": 16383,
+                        "endColumn": 94,
+                        "endOffset": 16473
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 316,
                     "startColumn": 4,
-                    "startOffset": 20841,
+                    "startOffset": 21273,
                     "endColumn": 90,
-                    "endOffset": 20927
+                    "endOffset": 21359
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 220,
+                        "startColumn": 4,
+                        "startOffset": 16478,
+                        "endColumn": 90,
+                        "endOffset": 16564
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 317,
                     "startColumn": 4,
-                    "startOffset": 20932,
+                    "startOffset": 21364,
                     "endColumn": 90,
-                    "endOffset": 21018
+                    "endOffset": 21450
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 221,
+                        "startColumn": 4,
+                        "startOffset": 16569,
+                        "endColumn": 90,
+                        "endOffset": 16655
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 318,
                     "startColumn": 4,
-                    "startOffset": 21023,
+                    "startOffset": 21455,
                     "endColumn": 116,
-                    "endOffset": 21135
+                    "endOffset": 21567
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 222,
+                        "startColumn": 4,
+                        "startOffset": 16660,
+                        "endColumn": 116,
+                        "endOffset": 16772
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 319,
                     "startColumn": 4,
-                    "startOffset": 21140,
+                    "startOffset": 21572,
                     "endLine": 320,
                     "endColumn": 12,
-                    "endOffset": 21274
+                    "endOffset": 21706
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 223,
+                        "startColumn": 4,
+                        "startOffset": 16777,
+                        "endLine": 224,
+                        "endColumn": 12,
+                        "endOffset": 16911
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 321,
                     "startColumn": 4,
-                    "startOffset": 21279,
+                    "startOffset": 21711,
                     "endColumn": 70,
-                    "endOffset": 21345
+                    "endOffset": 21777
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 225,
+                        "startColumn": 4,
+                        "startOffset": 16916,
+                        "endColumn": 70,
+                        "endOffset": 16982
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 322,
                     "startColumn": 4,
-                    "startOffset": 21350,
+                    "startOffset": 21782,
                     "endColumn": 82,
-                    "endOffset": 21428
+                    "endOffset": 21860
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 226,
+                        "startColumn": 4,
+                        "startOffset": 16987,
+                        "endColumn": 82,
+                        "endOffset": 17065
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 323,
                     "startColumn": 4,
-                    "startOffset": 21433,
+                    "startOffset": 21865,
                     "endLine": 332,
                     "endColumn": 12,
-                    "endOffset": 22051
+                    "endOffset": 22540
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 227,
+                        "startColumn": 4,
+                        "startOffset": 17070,
+                        "endLine": 236,
+                        "endColumn": 12,
+                        "endOffset": 17745
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 333,
                     "startColumn": 4,
-                    "startOffset": 22056,
+                    "startOffset": 22545,
                     "endColumn": 56,
-                    "endOffset": 22108
+                    "endOffset": 22597
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 237,
+                        "startColumn": 4,
+                        "startOffset": 17750,
+                        "endColumn": 56,
+                        "endOffset": 17802
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 334,
                     "startColumn": 4,
-                    "startOffset": 22113,
+                    "startOffset": 22602,
                     "endColumn": 57,
-                    "endOffset": 22166
+                    "endOffset": 22655
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 238,
+                        "startColumn": 4,
+                        "startOffset": 17807,
+                        "endColumn": 57,
+                        "endOffset": 17860
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 335,
                     "startColumn": 4,
-                    "startOffset": 22171,
+                    "startOffset": 22660,
                     "endLine": 346,
                     "endColumn": 12,
-                    "endOffset": 22790
+                    "endOffset": 23349
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 239,
+                        "startColumn": 4,
+                        "startOffset": 17865,
+                        "endLine": 250,
+                        "endColumn": 12,
+                        "endOffset": 18554
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 347,
                     "startColumn": 4,
-                    "startOffset": 22795,
+                    "startOffset": 23354,
                     "endLine": 358,
                     "endColumn": 12,
-                    "endOffset": 23426
+                    "endOffset": 24055
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 251,
+                        "startColumn": 4,
+                        "startOffset": 18559,
+                        "endLine": 262,
+                        "endColumn": 12,
+                        "endOffset": 19260
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 359,
                     "startColumn": 4,
-                    "startOffset": 23431,
+                    "startOffset": 24060,
                     "endColumn": 118,
-                    "endOffset": 23545
+                    "endOffset": 24174
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 263,
+                        "startColumn": 4,
+                        "startOffset": 19265,
+                        "endColumn": 118,
+                        "endOffset": 19379
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 360,
                     "startColumn": 4,
-                    "startOffset": 23550,
+                    "startOffset": 24179,
                     "endColumn": 128,
-                    "endOffset": 23674
+                    "endOffset": 24303
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 264,
+                        "startColumn": 4,
+                        "startOffset": 19384,
+                        "endColumn": 128,
+                        "endOffset": 19508
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 361,
                     "startColumn": 4,
-                    "startOffset": 23679,
+                    "startOffset": 24308,
                     "endLine": 363,
                     "endColumn": 12,
-                    "endOffset": 23845
+                    "endOffset": 24474
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 265,
+                        "startColumn": 4,
+                        "startOffset": 19513,
+                        "endLine": 267,
+                        "endColumn": 12,
+                        "endOffset": 19679
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 364,
                     "startColumn": 4,
-                    "startOffset": 23850,
+                    "startOffset": 24479,
                     "endLine": 366,
                     "endColumn": 12,
-                    "endOffset": 24011
+                    "endOffset": 24640
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 268,
+                        "startColumn": 4,
+                        "startOffset": 19684,
+                        "endLine": 270,
+                        "endColumn": 12,
+                        "endOffset": 19845
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 367,
                     "startColumn": 4,
-                    "startOffset": 24016,
+                    "startOffset": 24645,
                     "endColumn": 128,
-                    "endOffset": 24140
+                    "endOffset": 24769
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 271,
+                        "startColumn": 4,
+                        "startOffset": 19850,
+                        "endColumn": 128,
+                        "endOffset": 19974
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 368,
                     "startColumn": 4,
-                    "startOffset": 24145,
+                    "startOffset": 24774,
                     "endLine": 370,
                     "endColumn": 12,
-                    "endOffset": 24311
+                    "endOffset": 24940
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 272,
+                        "startColumn": 4,
+                        "startOffset": 19979,
+                        "endLine": 274,
+                        "endColumn": 12,
+                        "endOffset": 20145
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 371,
                     "startColumn": 4,
-                    "startOffset": 24316,
+                    "startOffset": 24945,
                     "endColumn": 130,
-                    "endOffset": 24442
+                    "endOffset": 25071
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 275,
+                        "startColumn": 4,
+                        "startOffset": 20150,
+                        "endColumn": 130,
+                        "endOffset": 20276
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 372,
                     "startColumn": 4,
-                    "startOffset": 24447,
+                    "startOffset": 25076,
                     "endLine": 374,
                     "endColumn": 12,
-                    "endOffset": 24612
+                    "endOffset": 25241
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 276,
+                        "startColumn": 4,
+                        "startOffset": 20281,
+                        "endLine": 278,
+                        "endColumn": 12,
+                        "endOffset": 20446
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 375,
                     "startColumn": 4,
-                    "startOffset": 24617,
+                    "startOffset": 25246,
                     "endLine": 377,
                     "endColumn": 12,
-                    "endOffset": 24787
+                    "endOffset": 25416
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 279,
+                        "startColumn": 4,
+                        "startOffset": 20451,
+                        "endLine": 281,
+                        "endColumn": 12,
+                        "endOffset": 20621
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 378,
                     "startColumn": 4,
-                    "startOffset": 24792,
+                    "startOffset": 25421,
                     "endLine": 382,
                     "endColumn": 12,
-                    "endOffset": 25128
+                    "endOffset": 25757
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 282,
+                        "startColumn": 4,
+                        "startOffset": 20626,
+                        "endLine": 286,
+                        "endColumn": 12,
+                        "endOffset": 20962
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 383,
                     "startColumn": 4,
-                    "startOffset": 25133,
+                    "startOffset": 25762,
                     "endLine": 385,
                     "endColumn": 12,
-                    "endOffset": 25326
+                    "endOffset": 25955
                 },
                 "from": {
-                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.1.1\\res\\values-v21\\values-v21.xml"
+                    "file": "D:\\Data\\Projects\\VehicleLog\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.1.1\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endLine": 4,
+                        "endColumn": 12,
+                        "endOffset": 248
+                    }
                 }
             }
         ]

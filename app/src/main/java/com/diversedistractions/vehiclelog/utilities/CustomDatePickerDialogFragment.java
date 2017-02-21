@@ -1,5 +1,7 @@
 package com.diversedistractions.vehiclelog.utilities;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,31 +12,32 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.Switch;
+import android.widget.Toast;
 
 import com.diversedistractions.vehiclelog.R;
 import com.diversedistractions.vehiclelog.database.VehiclesTable;
 import com.diversedistractions.vehiclelog.models.VehicleItem;
 
 import java.lang.reflect.Field;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class CustomDatePickerDialogFragment extends DialogFragment {
 
     public static final String YEAR = "year";
     public static final String MONTH = "month";
     public static final String DAY = "day";
-    public static final String SHOW_DAY = "show_day";
-    public static final String SHOW_MONTH = "show_month";
-    public static final String SHOW_YEAR = "show_year";
     public static final String VEHICLE_KEY = "vehicle_key";
     public static final String DATE_FIELD = "date_field";
-    private int day;
-    private int month;
-    private int year;
     private boolean showDay;
     private boolean showMonth;
     private boolean showYear;
+    private CustomDatePickerListener mListener;
+    private String dateField;
+    private VehicleItem vehicleItem;
+    private DatePicker datePicker;
 
     public static CustomDatePickerDialogFragment newInstance(VehicleItem vehicleItem,
                                                              String dateField){
@@ -47,6 +50,29 @@ public class CustomDatePickerDialogFragment extends DialogFragment {
         return fragment;
     }
 
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1) return;
+        if (activity instanceof CustomDatePickerListener) {
+            mListener = (CustomDatePickerListener) activity;
+        } else {
+            throw new RuntimeException(activity.toString()
+                    + " must implement CustomDatePickerListener");
+        }
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof CustomDatePickerListener) {
+            mListener = (CustomDatePickerListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement CustomDatePickerListener");
+        }
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -55,8 +81,9 @@ public class CustomDatePickerDialogFragment extends DialogFragment {
 
         View rootView = inflater.inflate(R.layout.custom_date_picker, container, false);
 
-        VehicleItem vehicleItem = getArguments().getParcelable(VEHICLE_KEY);
-        String dateField = getArguments().getString(DATE_FIELD);
+
+        vehicleItem = getArguments().getParcelable(VEHICLE_KEY);
+        dateField = getArguments().getString(DATE_FIELD);
 
         // Get an instance of calendar with today's date
         Calendar c = Calendar.getInstance();
@@ -76,14 +103,15 @@ public class CustomDatePickerDialogFragment extends DialogFragment {
                 showYear = true;
                 break;
         }
-        year = c.get(Calendar.YEAR);
-        month = c.get(Calendar.MONTH);
-        day = c.get(Calendar.DAY_OF_MONTH);
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int day = c.get(Calendar.DAY_OF_MONTH);
 
         Button buttonSave = (Button) rootView.findViewById(R.id.btnSave);
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                saveData();
                 dismiss();
             }
         });
@@ -96,12 +124,51 @@ public class CustomDatePickerDialogFragment extends DialogFragment {
             }
         });
 
-        DatePicker datePicker = (DatePicker) rootView.findViewById(R.id.customDatePicker);
-        datePicker.init(year,month,day,null);
+        datePicker = (DatePicker) rootView.findViewById(R.id.customDatePicker);
+        datePicker.init(year, month, day,null);
         // Modify the DatePicker to only show the fields desired
         initCustomDatePicker(datePicker, showDay, showMonth, showYear);
 
         return rootView;
+    }
+
+    private void saveData() {
+
+        DateConversionHelper dateConversionHelper = null;
+        
+        int year = datePicker.getYear();
+        int month = datePicker.getMonth()+1;
+        if (dateField.equalsIgnoreCase(VehiclesTable.COL_VEHICLE_YEAR)) {
+        /*
+         * Pull just the year out of the date and convert to epoch
+         * time format as an integer for the vehicle model year
+         */
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy");
+            Date vy = null;
+            try {
+                vy = simpleDateFormat.parse(Integer.toString(year));
+            } catch (ParseException vye) {
+                // TODO Auto-generated catch block
+                vye.printStackTrace();
+            }
+            vehicleItem.setVehicleYear(vy.getTime());
+        } else {
+        /*
+         * Pull the year and month out of the current date and convert to epoch
+         * time format as an integer for the license plate renewal date
+         */
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM");
+            Date rd = null;
+            try {
+                rd = simpleDateFormat.parse(Integer.toString(year)+ "-" + Integer.toString(month));
+            } catch (ParseException rde) {
+                // TODO Auto-generated catch block
+                rde.printStackTrace();
+            }
+            vehicleItem.setVehicleLpRenewalDate(rd.getTime());
+        }
+
+        mListener.onDatePickComplete(vehicleItem);
     }
 
     /**
@@ -228,5 +295,9 @@ public class CustomDatePickerDialogFragment extends DialogFragment {
                 }
             }
         }
+    }
+
+    public interface CustomDatePickerListener {
+        void onDatePickComplete(VehicleItem vehicleItem);
     }
 }

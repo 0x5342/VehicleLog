@@ -19,6 +19,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.diversedistractions.vehiclelog.database.VehiclesTable;
 import com.diversedistractions.vehiclelog.models.VehicleItem;
@@ -314,11 +315,35 @@ public class VehicleDetailFragment extends Fragment {
         }
     }
 
+    /**
+     * Launches the custom DatePickerDialog and passes in the vehicle data as a parselable
+     * vehicleItem. The dateField is used to tell the DatePicker whether to display just the year
+     * or both the month and year.
+     * @param dateField: DatePicker was call for the vehicle year or the LP renewal date
+     */
     private void showCustomDatePicker(String dateField){
 
         CustomDatePickerDialogFragment customDatePickerDialogFragment =
                 CustomDatePickerDialogFragment.newInstance(vehicleItem, dateField);
 
         customDatePickerDialogFragment.show(getFragmentManager(), "Custom Date Picker");
+    }
+
+    /**
+     * This is used to set the text on the vehicle year button from the activity when the DatePicker
+     * ENTER button is pressed.
+     * @param year: a four character string representing the vehicle year
+     */
+    public void updateVehicleYear(String year){
+        ((Button) rootView.findViewById(R.id.vehicleYearButton)).setText(year);
+    }
+
+    /**
+     * This is used to set the text on the license plate renewal date button from the activity when
+     * the DatePicker ENTER button is pressed.
+     * @param monthYear
+     */
+    public void updateVehicleLpRenewalDate(String monthYear){
+        ((Button) rootView.findViewById(R.id.vehicleLpRenewalDateButton)).setText(monthYear);
     }
 }
