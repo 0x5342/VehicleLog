@@ -180,12 +180,19 @@ public class VehicleDetailFragment extends Fragment {
                         .setText(vehicleItem.getVehicleMake());
                 ((EditText) rootView.findViewById(R.id.modelEditText))
                         .setText(vehicleItem.getVehicleModel());
+                ImageButton btnSetVehicleImageEdit = (ImageButton) rootView
+                        .findViewById(R.id.vehicleImageButton);
+                btnSetVehicleImageEdit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showVehicleImageChoice();
+                    }
+                });
                 try {
                     InputStream inputStream = getContext().getAssets()
                             .open(vehicleItem.getVehicleImage());
                     Drawable drawable = Drawable.createFromStream(inputStream, null);
-                    ((ImageButton) rootView.findViewById(R.id.vehicleImageButton))
-                            .setImageDrawable(drawable);
+                    btnSetVehicleImageEdit.setImageDrawable(drawable);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -345,5 +352,13 @@ public class VehicleDetailFragment extends Fragment {
      */
     public void updateVehicleLpRenewalDate(String monthYear){
         ((Button) rootView.findViewById(R.id.vehicleLpRenewalDateButton)).setText(monthYear);
+    }
+
+    private void showVehicleImageChoice() {
+
+        VehicleImageChoiceFragment vehicleImageChoiceFragment =
+                VehicleImageChoiceFragment.newInstance("string1","string2");
+
+        vehicleImageChoiceFragment.show(getFragmentManager(), "Vehicle Image Choice");
     }
 }

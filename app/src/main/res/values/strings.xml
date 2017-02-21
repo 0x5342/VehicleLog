@@ -76,4 +76,9 @@
     <string name="cancel">CANCEL</string>
     <string name="set_renewal_date">Set Renewal Date</string>
     <string name="set_model_year">Set Model Year</string>
+    <string name="get_vehicle_image_by">Get Vehicle Image By:</string>
+    <string name="choose_app_icon">Choose an app icon</string>
+    <string name="choose_image_on_phone">Choose an image on the phone</string>
+    <string name="take_a_photo">Take a photo</string>
+    <string name="ok">OK</string>
 </resources>

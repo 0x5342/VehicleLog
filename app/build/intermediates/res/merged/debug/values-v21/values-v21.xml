@@ -29,6 +29,8 @@
     <dimen name="notification_media_narrow_margin">12dp</dimen>
     <string name="app_name">Vehicle Log</string>
     <string name="cancel">CANCEL</string>
+    <string name="choose_app_icon">Choose an app icon</string>
+    <string name="choose_image_on_phone">Choose an image on the phone</string>
     <string name="distance_units">Distance units</string>
     <string name="edit_vehicle">Edit Vehicle</string>
     <string name="english">English</string>
@@ -43,6 +45,7 @@
     <string name="fluid_units">Fluid units</string>
     <string name="fuel_economy_label">Fuel economy:</string>
     <string name="gallons">Gallons</string>
+    <string name="get_vehicle_image_by">Get Vehicle Image By:</string>
     <string name="import_data">Import Data</string>
     <string name="kilometers">Kilometers</string>
     <string name="language">Language</string>
@@ -67,6 +70,7 @@
     <string name="no_vin_to_display">No VIN to display</string>
     <string name="none">None</string>
     <string name="notes_label">Notes:</string>
+    <string name="ok">OK</string>
     <string name="preferences_key_distance_units">distance_units</string>
     <string name="preferences_key_fluid_units">fluid_units</string>
     <string name="preferences_key_language">language</string>
@@ -74,6 +78,7 @@
     <string name="set_model_year">Set Model Year</string>
     <string name="set_renewal_date">Set Renewal Date</string>
     <string name="settings">Settings</string>
+    <string name="take_a_photo">Take a photo</string>
     <string name="title_vehicle_detail">Vehicle Detail</string>
     <string name="vehicle_type">Vehicle type:</string>
     <string name="vehicle_type_prompt">Choose vehicle type</string>

@@ -4,15 +4,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.ActionBar;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.Toast;
+import android.view.View;
 
 import com.diversedistractions.vehiclelog.database.VehiclesTable;
 import com.diversedistractions.vehiclelog.models.VehicleItem;
@@ -29,7 +26,8 @@ import java.util.Locale;
  * in a {@link VehicleListActivity}.
  */
 public class VehicleDetailActivity extends AppCompatActivity
-        implements CustomDatePickerDialogFragment.CustomDatePickerListener{
+        implements CustomDatePickerDialogFragment.CustomDatePickerListener
+        ,VehicleImageChoiceFragment.OnVehicleImageChoiceFragmentInteractionListener{
 
     private Uri mVehicleUri;
     private int mMode;
@@ -125,6 +123,7 @@ public class VehicleDetailActivity extends AppCompatActivity
         }
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     public void onDatePickComplete(VehicleItem vehicleItem, String dateField) {
 
@@ -144,6 +143,11 @@ public class VehicleDetailActivity extends AppCompatActivity
             String monthYear = ymSimpleDateFormat.format(vMonthYear);
             vdf_obj.updateVehicleLpRenewalDate(monthYear);
         }
+    }
+
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
 
     }
 }

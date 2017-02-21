@@ -79,7 +79,7 @@ public class CustomDatePickerDialogFragment extends DialogFragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.custom_date_picker, container, false);
+        View rootView = inflater.inflate(R.layout.dialog_custom_date_picker, container, false);
 
 
         vehicleItem = getArguments().getParcelable(VEHICLE_KEY);
