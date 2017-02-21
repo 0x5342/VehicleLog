@@ -29,22 +29,6 @@
         <item name="car_truck_motorcycle">Car-Truck-Motorcycle</item>
         <item name="utility">Utility-Tractor-Mower</item>
     </string-array>
-    <!-- Month Array -->
-    <string name="select_month_prompt">Select the month</string>
-    <string-array name="month_array">
-        <item name="January">January</item>
-        <item name="February">February</item>
-        <item name="March">March</item>
-        <item name="April">April</item>
-        <item name="May">May</item>
-        <item name="June">June</item>
-        <item name="July">July</item>
-        <item name="August">August</item>
-        <item name="September">September</item>
-        <item name="October">October</item>
-        <item name="November">November</item>
-        <item name="December">December</item>
-    </string-array>
     <string name="app_name">Vehicle Log</string>
     <string name="title_vehicle_detail">Vehicle Detail</string>
     <string name="no_notes_to_display">No notes to display</string>
@@ -68,7 +52,6 @@
     <string name="enter_the_model">Enter the model</string>
     <string name="enter_the_vin">Enter the VIN</string>
     <string name="enter_the_license_plate">Enter the license plate</string>
-    <string name="enter_year">Enter year</string>
     <string name="enter_notes_here">Enter notes here</string>
     <string name="settings">Settings</string>
     <string name="language">Language</string>
@@ -92,4 +75,6 @@
     <string name="enter_the_model_year">Enter the model year</string>
     <string name="enter">ENTER</string>
     <string name="cancel">CANCEL</string>
+    <string name="set_renewal_date">Set Renewal Date</string>
+    <string name="set_model_year">Set Model Year</string>
 </resources>

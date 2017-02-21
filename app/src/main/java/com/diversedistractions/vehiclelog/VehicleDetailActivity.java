@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.diversedistractions.vehiclelog.database.VehiclesTable;
 import com.diversedistractions.vehiclelog.models.VehicleItem;
 import com.diversedistractions.vehiclelog.utilities.CustomDatePickerDialogFragment;
 import com.diversedistractions.vehiclelog.utilities.DateConversionHelper;
@@ -125,21 +126,24 @@ public class VehicleDetailActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
     @Override
-    public void onDatePickComplete(VehicleItem vehicleItem) {
+    public void onDatePickComplete(VehicleItem vehicleItem, String dateField) {
 
         // Get a reference to the vehicle detail fragment in order to update the values
         VehicleDetailFragment vdf_obj = (VehicleDetailFragment)getSupportFragmentManager()
                 .findFragmentById(R.id.vehicle_detail_container);
 
-        long vYear = vehicleItem.getVehicleYear();
-        SimpleDateFormat ySimpleDateFormat = new SimpleDateFormat("yyyy", Locale.US);
-        String year = ySimpleDateFormat.format(vYear);
-        vdf_obj.updateVehicleYear(year);
-
-        long vMonthYear = vehicleItem.getVehicleLpRenewalDate();
-        SimpleDateFormat ymSimpleDateFormat = new SimpleDateFormat("MMM-yyyy", Locale.US);
-        String monthYear = ymSimpleDateFormat.format(vMonthYear);
-        vdf_obj.updateVehicleLpRenewalDate(monthYear);
+        // Only update the appropriate date field
+        if (dateField.equalsIgnoreCase(VehiclesTable.COL_VEHICLE_YEAR)) {
+            long vYear = vehicleItem.getVehicleYear();
+            SimpleDateFormat ySimpleDateFormat = new SimpleDateFormat("yyyy", Locale.US);
+            String year = ySimpleDateFormat.format(vYear);
+            vdf_obj.updateVehicleYear(year);
+        } else if (dateField.equalsIgnoreCase(VehiclesTable.COL_VEHICLE_REN_DATE)) {
+            long vMonthYear = vehicleItem.getVehicleLpRenewalDate();
+            SimpleDateFormat ymSimpleDateFormat = new SimpleDateFormat("MMM-yyyy", Locale.US);
+            String monthYear = ymSimpleDateFormat.format(vMonthYear);
+            vdf_obj.updateVehicleLpRenewalDate(monthYear);
+        }
 
     }
 }

@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.diversedistractions.vehiclelog.R;
 import com.diversedistractions.vehiclelog.database.VehiclesTable;
@@ -94,6 +94,8 @@ public class CustomDatePickerDialogFragment extends DialogFragment {
                 showDay = false;
                 showMonth = false;
                 showYear = true;
+                ((TextView) rootView.findViewById(R.id.customDatePickerTitle))
+                        .setText(R.string.set_model_year);
                 break;
             case VehiclesTable.COL_VEHICLE_REN_DATE: // Set the variables for the LP renewal date
                 // If this is modifying a vehicle, use the saved date
@@ -101,6 +103,8 @@ public class CustomDatePickerDialogFragment extends DialogFragment {
                 showDay = false;
                 showMonth = true;
                 showYear = true;
+                ((TextView) rootView.findViewById(R.id.customDatePickerTitle))
+                        .setText(R.string.set_renewal_date);
                 break;
         }
         int year = c.get(Calendar.YEAR);
@@ -125,7 +129,6 @@ public class CustomDatePickerDialogFragment extends DialogFragment {
         });
 
         datePicker = (DatePicker) rootView.findViewById(R.id.customDatePicker);
-        datePicker.init(year, month, day,null);
         // Modify the DatePicker to only show the fields desired
         initCustomDatePicker(datePicker, showDay, showMonth, showYear);
 
@@ -168,7 +171,7 @@ public class CustomDatePickerDialogFragment extends DialogFragment {
             vehicleItem.setVehicleLpRenewalDate(rd.getTime());
         }
 
-        mListener.onDatePickComplete(vehicleItem);
+        mListener.onDatePickComplete(vehicleItem, dateField);
     }
 
     /**
@@ -186,19 +189,6 @@ public class CustomDatePickerDialogFragment extends DialogFragment {
         int year    = dp.getYear();
         int month   = dp.getMonth();
         int day     = dp.getDayOfMonth();
-
-        dp.init(year, month, day, new DatePicker.OnDateChangedListener() {
-            @Override
-            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-//                long dateAsEpoch = dateConversionHelper.setIntYearIntMonthToEpoch(year,monthOfYear+1);
-//
-//                mVehicleLpRenewalDate = dateConversionHelper.getYearMonthAsString(dateAsEpoch);
-//                button.setText(mVehicleLpRenewalDate);
-//                month_i = monthOfYear + 1;
-//                Log.e("selected month:", Integer.toString(month_i));
-                //Add whatever you need to handle Date changes
-            }
-        });
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             int daySpinnerId = Resources.getSystem().getIdentifier(DAY, "id", "android");
@@ -298,6 +288,6 @@ public class CustomDatePickerDialogFragment extends DialogFragment {
     }
 
     public interface CustomDatePickerListener {
-        void onDatePickComplete(VehicleItem vehicleItem);
+        void onDatePickComplete(VehicleItem vehicleItem, String dateField);
     }
 }
