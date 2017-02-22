@@ -12,6 +12,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -151,6 +152,27 @@ public class VehicleDetailFragment extends Fragment {
                         showCustomDatePicker(VehiclesTable.COL_VEHICLE_YEAR);
                     }
                 });
+                // If a utility type vehicle is chosen, hide the license plate and license plate
+                // renewal date. If a car, truck, motorcycle vehicle type is chosen, make the
+                // license plate and license plate renewal date visible.
+                ((Spinner) rootView.findViewById(R.id.vehicleTypeSpinner)).setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        Spinner spinner = (Spinner) parent;
+                        if (spinner.getSelectedItemPosition() == 0) {
+                            (rootView.findViewById(R.id.lpRenewalDateEditContainer)).setVisibility(View.VISIBLE);
+                            (rootView.findViewById(R.id.lpEditContainer)).setVisibility(View.VISIBLE);
+                        } else {
+                            (rootView.findViewById(R.id.lpRenewalDateEditContainer)).setVisibility(View.GONE);
+                            (rootView.findViewById(R.id.lpEditContainer)).setVisibility(View.GONE);
+                        }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
                 Button btnSetLpRenewalDateCreate = (Button) rootView
                         .findViewById(R.id.vehicleLpRenewalDateButton);
                 btnSetLpRenewalDateCreate.setOnClickListener(new View.OnClickListener() {
@@ -166,6 +188,27 @@ public class VehicleDetailFragment extends Fragment {
                 rootView = inflater.inflate(R.layout.vehicle_detail_edit, container, false);
                 ((Spinner) rootView.findViewById(R.id.vehicleTypeSpinner))
                         .setSelection(vehicleItem.getVehicleType());
+                // If a utility type vehicle is chosen, hide the license plate and license plate
+                // renewal date. If a car, truck, motorcycle vehicle type is chosen, make the
+                // license plate and license plate renewal date visible.
+                ((Spinner) rootView.findViewById(R.id.vehicleTypeSpinner)).setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        Spinner spinner = (Spinner) parent;
+                        if (spinner.getSelectedItemPosition() == 0) {
+                            (rootView.findViewById(R.id.lpRenewalDateEditContainer)).setVisibility(View.VISIBLE);
+                            (rootView.findViewById(R.id.lpEditContainer)).setVisibility(View.VISIBLE);
+                        } else {
+                            (rootView.findViewById(R.id.lpRenewalDateEditContainer)).setVisibility(View.GONE);
+                            (rootView.findViewById(R.id.lpEditContainer)).setVisibility(View.GONE);
+                        }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
                 Button btnSetVehicleYearEdit = (Button) rootView
                         .findViewById(R.id.vehicleYearButton);
                 btnSetVehicleYearEdit.setOnClickListener(new View.OnClickListener() {
