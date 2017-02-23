@@ -41,7 +41,6 @@ public class CustomDatePickerDialogFragment extends DialogFragment {
 
     public static CustomDatePickerDialogFragment newInstance(VehicleItem vehicleItem,
                                                              String dateField){
-        Calendar calendar = Calendar.getInstance();
         Bundle args = new Bundle();
         args.putParcelable(VEHICLE_KEY, vehicleItem);
         args.putString(DATE_FIELD, dateField);
@@ -80,7 +79,6 @@ public class CustomDatePickerDialogFragment extends DialogFragment {
                              @Nullable Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.dialog_custom_date_picker, container, false);
-
 
         vehicleItem = getArguments().getParcelable(VEHICLE_KEY);
         dateField = getArguments().getString(DATE_FIELD);
@@ -129,6 +127,7 @@ public class CustomDatePickerDialogFragment extends DialogFragment {
         });
 
         datePicker = (DatePicker) rootView.findViewById(R.id.customDatePicker);
+        datePicker.init(year,month,day,null);
         // Modify the DatePicker to only show the fields desired
         initCustomDatePicker(datePicker, showDay, showMonth, showYear);
 

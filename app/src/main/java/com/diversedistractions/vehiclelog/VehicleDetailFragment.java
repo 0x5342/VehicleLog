@@ -14,13 +14,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.diversedistractions.vehiclelog.database.VehiclesTable;
 import com.diversedistractions.vehiclelog.models.VehicleItem;
@@ -45,21 +43,9 @@ public class VehicleDetailFragment extends Fragment {
     public static final int DETAIL_IN_EDIT_MODE = 2;
 
     private Context mContext;
-    private int mVehicleTypePosition = 0;
-    private String mVehicleMake;
-    private String mVehicleModel;
-    private long mVehicleYearLong;
-    private String mVehicleVin;
-    private String mVehicleLp;
-    private long mVehicleLpRenewalDateLong;
-    private String mVehicleImage;
-    private String mVehicleNotes;
-    private String mVehicleTdEfficiency;
-    private int mVehicleModOrder;
     private int mMode;
     DateConversionHelper dateConversionHelper;
     View rootView = null;
-    private DatePicker customDatePicker;
 
     VehicleItem vehicleItem = new VehicleItem();
 
@@ -143,7 +129,9 @@ public class VehicleDetailFragment extends Fragment {
         switch (mMode) {
 
             case DETAIL_IN_CREATE_MODE:
+
                 rootView = inflater.inflate(R.layout.vehicle_detail_edit, container, false);
+
                 Button btnSetVehicleYearCreate = (Button) rootView
                         .findViewById(R.id.vehicleYearButton);
                 btnSetVehicleYearCreate.setOnClickListener(new View.OnClickListener() {
@@ -152,19 +140,26 @@ public class VehicleDetailFragment extends Fragment {
                         showCustomDatePicker(VehiclesTable.COL_VEHICLE_YEAR);
                     }
                 });
+
                 // If a utility type vehicle is chosen, hide the license plate and license plate
                 // renewal date. If a car, truck, motorcycle vehicle type is chosen, make the
                 // license plate and license plate renewal date visible.
-                ((Spinner) rootView.findViewById(R.id.vehicleTypeSpinner)).setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                ((Spinner) rootView.findViewById(R.id.vehicleTypeSpinner))
+                        .setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
-                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    public void onItemSelected(AdapterView<?> parent, View view,
+                                               int position, long id) {
                         Spinner spinner = (Spinner) parent;
                         if (spinner.getSelectedItemPosition() == 0) {
-                            (rootView.findViewById(R.id.lpRenewalDateEditContainer)).setVisibility(View.VISIBLE);
-                            (rootView.findViewById(R.id.lpEditContainer)).setVisibility(View.VISIBLE);
+                            (rootView.findViewById(R.id.lpRenewalDateEditContainer))
+                                    .setVisibility(View.VISIBLE);
+                            (rootView.findViewById(R.id.lpEditContainer))
+                                    .setVisibility(View.VISIBLE);
                         } else {
-                            (rootView.findViewById(R.id.lpRenewalDateEditContainer)).setVisibility(View.GONE);
-                            (rootView.findViewById(R.id.lpEditContainer)).setVisibility(View.GONE);
+                            (rootView.findViewById(R.id.lpRenewalDateEditContainer))
+                                    .setVisibility(View.GONE);
+                            (rootView.findViewById(R.id.lpEditContainer))
+                                    .setVisibility(View.GONE);
                         }
                     }
 
@@ -173,6 +168,7 @@ public class VehicleDetailFragment extends Fragment {
 
                     }
                 });
+
                 Button btnSetLpRenewalDateCreate = (Button) rootView
                         .findViewById(R.id.vehicleLpRenewalDateButton);
                 btnSetLpRenewalDateCreate.setOnClickListener(new View.OnClickListener() {
@@ -181,26 +177,35 @@ public class VehicleDetailFragment extends Fragment {
                         showCustomDatePicker(VehiclesTable.COL_VEHICLE_REN_DATE);
                     }
                 });
+
                 break;
 
             case DETAIL_IN_EDIT_MODE:
+
                 // Show the vehicle's content in edit mode
                 rootView = inflater.inflate(R.layout.vehicle_detail_edit, container, false);
+
                 ((Spinner) rootView.findViewById(R.id.vehicleTypeSpinner))
                         .setSelection(vehicleItem.getVehicleType());
                 // If a utility type vehicle is chosen, hide the license plate and license plate
                 // renewal date. If a car, truck, motorcycle vehicle type is chosen, make the
                 // license plate and license plate renewal date visible.
-                ((Spinner) rootView.findViewById(R.id.vehicleTypeSpinner)).setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                ((Spinner) rootView.findViewById(R.id.vehicleTypeSpinner))
+                        .setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
-                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    public void onItemSelected(AdapterView<?> parent, View view,
+                                               int position, long id) {
                         Spinner spinner = (Spinner) parent;
                         if (spinner.getSelectedItemPosition() == 0) {
-                            (rootView.findViewById(R.id.lpRenewalDateEditContainer)).setVisibility(View.VISIBLE);
-                            (rootView.findViewById(R.id.lpEditContainer)).setVisibility(View.VISIBLE);
+                            (rootView.findViewById(R.id.lpRenewalDateEditContainer))
+                                    .setVisibility(View.VISIBLE);
+                            (rootView.findViewById(R.id.lpEditContainer))
+                                    .setVisibility(View.VISIBLE);
                         } else {
-                            (rootView.findViewById(R.id.lpRenewalDateEditContainer)).setVisibility(View.GONE);
-                            (rootView.findViewById(R.id.lpEditContainer)).setVisibility(View.GONE);
+                            (rootView.findViewById(R.id.lpRenewalDateEditContainer))
+                                    .setVisibility(View.GONE);
+                            (rootView.findViewById(R.id.lpEditContainer))
+                                    .setVisibility(View.GONE);
                         }
                     }
 
@@ -209,6 +214,7 @@ public class VehicleDetailFragment extends Fragment {
 
                     }
                 });
+
                 Button btnSetVehicleYearEdit = (Button) rootView
                         .findViewById(R.id.vehicleYearButton);
                 btnSetVehicleYearEdit.setOnClickListener(new View.OnClickListener() {
@@ -219,10 +225,13 @@ public class VehicleDetailFragment extends Fragment {
                 });
                 btnSetVehicleYearEdit.setText(dateConversionHelper
                         .getYearAsString(vehicleItem.getVehicleYear()));
+
                 ((EditText) rootView.findViewById(R.id.makeEditText))
                         .setText(vehicleItem.getVehicleMake());
+
                 ((EditText) rootView.findViewById(R.id.modelEditText))
                         .setText(vehicleItem.getVehicleModel());
+
                 ImageButton btnSetVehicleImageEdit = (ImageButton) rootView
                         .findViewById(R.id.vehicleImageButton);
                 btnSetVehicleImageEdit.setOnClickListener(new View.OnClickListener() {
@@ -239,8 +248,10 @@ public class VehicleDetailFragment extends Fragment {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
                 ((EditText) rootView.findViewById(R.id.vehicleVinEditText))
                         .setText(vehicleItem.getVehicleVin());
+
                 /*
                  * If the vehicle is a car, truck, motorcycle, etc., there will be a license plate
                  * and a license plate renewal date to put data into. If the vehicle is a utility
@@ -263,23 +274,31 @@ public class VehicleDetailFragment extends Fragment {
                     (rootView.findViewById(R.id.lpRenewalDateEditContainer)).setVisibility(View.GONE);
                     (rootView.findViewById(R.id.lpEditContainer)).setVisibility(View.GONE);
                 }
+
                 // Don't set the text if there isn't any saved text
-                if (mVehicleNotes != null && mVehicleNotes.length() > 0) {
+                if (vehicleItem.getVehicleNotes() != null &&
+                        vehicleItem.getVehicleNotes().length() > 0) {
                     ((EditText) rootView.findViewById(R.id.vehNotesEditText))
                             .setText(vehicleItem.getVehicleNotes());
                 }
+
                 break;
 
             case DETAIL_IN_VIEW_MODE:
+
                 // Show the vehicle's content
                 rootView = inflater.inflate(R.layout.vehicle_detail_view, container, false);
+
                 ((TextView) rootView.findViewById(R.id.vehicleYearText))
                         .setText(dateConversionHelper.getYearAsString
                                 (vehicleItem.getVehicleYear()));
+
                 ((TextView) rootView.findViewById(R.id.makeText))
                         .setText(vehicleItem.getVehicleMake());
+
                 ((TextView) rootView.findViewById(R.id.modelText))
                         .setText(vehicleItem.getVehicleModel());
+
                 try {
                     InputStream inputStream = getContext().getAssets().
                             open(vehicleItem.getVehicleImage());
@@ -289,8 +308,10 @@ public class VehicleDetailFragment extends Fragment {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
                 ((TextView) rootView.findViewById(R.id.vehicleVinText))
                         .setText(vehicleItem.getVehicleVin());
+
                 /*
                  * If the vehicle is a car, truck, motorcycle, etc., there will be a license plate
                  * and a license plate renewal date to put data into. If the vehicle is a utility
@@ -306,18 +327,21 @@ public class VehicleDetailFragment extends Fragment {
                     (rootView.findViewById(R.id.lpRenewalDateViewContainer)).setVisibility(View.GONE);
                     (rootView.findViewById(R.id.lpViewContainer)).setVisibility(View.GONE);
                 }
+
                 // Don't set the text if there isn't any saved text
                 if (vehicleItem.getVehicleTdEfficiency() != null) {
                     ((TextView) rootView.findViewById(R.id.vehToDateText))
                             .setText(vehicleItem.getVehicleTdEfficiency());
                 }
+
                 // Don't set the text if there isn't any saved text
                 if (vehicleItem.getVehicleNotes() != null &&
                         vehicleItem.getVehicleNotes().length() > 0) {
                     ((TextView) rootView.findViewById(R.id.vehNotesText))
                             .setText(vehicleItem.getVehicleNotes());
-                    break;
                 }
+
+                break;
         }
         return rootView;
     }
@@ -400,7 +424,7 @@ public class VehicleDetailFragment extends Fragment {
     private void showVehicleImageChoice() {
 
         VehicleImageChoiceFragment vehicleImageChoiceFragment =
-                VehicleImageChoiceFragment.newInstance("string1","string2");
+                VehicleImageChoiceFragment.newInstance();
 
         vehicleImageChoiceFragment.show(getFragmentManager(), "Vehicle Image Choice");
     }

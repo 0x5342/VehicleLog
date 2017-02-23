@@ -1,8 +1,11 @@
 package com.diversedistractions.vehiclelog;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
@@ -10,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.diversedistractions.vehiclelog.database.VehiclesTable;
 import com.diversedistractions.vehiclelog.models.VehicleItem;
@@ -18,6 +22,9 @@ import com.diversedistractions.vehiclelog.utilities.DateConversionHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
+
+import static android.R.attr.bitmap;
+import static android.support.v7.appcompat.R.id.image;
 
 /**
  * An activity representing a single Vehicle detail screen. This
@@ -29,6 +36,9 @@ public class VehicleDetailActivity extends AppCompatActivity
         implements CustomDatePickerDialogFragment.CustomDatePickerListener
         ,VehicleImageChoiceFragment.OnVehicleImageChoiceFragmentInteractionListener{
 
+    public static final int CHOOSE_APP_ICON = 1;
+    public static final int CHOOSE_IMAGE_ON_DEVICE = 2;
+    public static final int TAKE_PHOTO = 3;
     private Uri mVehicleUri;
     private int mMode;
     DateConversionHelper dateConversionHelper;
@@ -124,6 +134,11 @@ public class VehicleDetailActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     *
+     * @param vehicleItem
+     * @param dateField
+     */
     @Override
     public void onDatePickComplete(VehicleItem vehicleItem, String dateField) {
 
@@ -146,8 +161,76 @@ public class VehicleDetailActivity extends AppCompatActivity
     }
 
 
+    /**
+     *
+     * @param choice
+     */
     @Override
-    public void onFragmentInteraction(Uri uri) {
+    public void onVehicleImageChoiceFragmentInteraction(int choice) {
+        switch (choice){
+            case CHOOSE_APP_ICON:
+                ChooseAppIcon();
+                break;
+            case CHOOSE_IMAGE_ON_DEVICE:
+                ChooseImageOnDevice();
+                break;
+            case TAKE_PHOTO:
+                break;
+        }
+    }
+
+    public void ChooseAppIcon() {
+        Intent i = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(i, CHOOSE_APP_ICON);
+    }
+
+    public void ChooseImageOnDevice() {
+        Intent i = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(i, CHOOSE_IMAGE_ON_DEVICE);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == CHOOSE_IMAGE_ON_DEVICE && resultCode == RESULT_OK
+                && null != data) {
+
+            Uri selectedImage = data.getData();
+            String[] filePathColumn = { MediaStore.Images.Media.DATA };
+
+            Cursor cursor = getContentResolver().query(selectedImage,
+                    filePathColumn, null, null, null);
+            cursor.moveToFirst();
+
+            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+            String picturePath = cursor.getString(columnIndex);
+            cursor.close();
+
+//            bitmap = BitmapFactory.decodeFile(picturePath);
+//            image.setImageBitmap(bitmap);
+//
+//            if (bitmap != null) {
+//                ImageView rotate = (ImageView) findViewById(R.id.rotate);
+//
+//            }
+
+        } else {
+
+//            Log.i("SonaSys", "resultCode: " + resultCode);
+//            switch (resultCode) {
+//                case 0:
+//                    Log.i("SonaSys", "User cancelled");
+//                    break;
+//                case -1:
+//                    onPhotoTaken();
+//                    break;
+//
+//            }
+
+        }
 
     }
 }

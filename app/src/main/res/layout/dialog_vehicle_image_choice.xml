@@ -20,6 +20,7 @@
             android:padding="@dimen/text_margin" />
 
         <RadioGroup
+            android:id="@+id/rBtnGroupGetVehicleImage"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -29,17 +30,17 @@
                 android:text="@string/choose_app_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/appIconRadioButton" />
+                android:id="@+id/rBtnAppIcon" />
             <RadioButton
                 android:text="@string/choose_image_on_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/chooseImageRadioButton" />
+                android:id="@+id/rBtnChooseImage" />
             <RadioButton
                 android:text="@string/take_a_photo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/takePhotoRadioButton" />
+                android:id="@+id/rBtnTakePhoto" />
         </RadioGroup>
 
         <LinearLayout
