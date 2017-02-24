@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -14,11 +15,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.diversedistractions.vehiclelog.database.VehiclesTable;
 import com.diversedistractions.vehiclelog.models.VehicleItem;
 import com.diversedistractions.vehiclelog.utilities.CustomDatePickerDialogFragment;
 import com.diversedistractions.vehiclelog.utilities.DateConversionHelper;
+import com.diversedistractions.vehiclelog.utilities.IconFromAssetsFragment;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
@@ -34,7 +37,8 @@ import static android.support.v7.appcompat.R.id.image;
  */
 public class VehicleDetailActivity extends AppCompatActivity
         implements CustomDatePickerDialogFragment.CustomDatePickerListener
-        ,VehicleImageChoiceFragment.OnVehicleImageChoiceFragmentInteractionListener{
+        ,VehicleImageChoiceFragment.OnVehicleImageChoiceFragmentInteractionListener
+,IconFromAssetsFragment.OnListFragmentInteractionListener{
 
     public static final int CHOOSE_APP_ICON = 1;
     public static final int CHOOSE_IMAGE_ON_DEVICE = 2;
@@ -180,9 +184,7 @@ public class VehicleDetailActivity extends AppCompatActivity
     }
 
     public void ChooseAppIcon() {
-        Intent i = new Intent(Intent.ACTION_PICK,
-                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(i, CHOOSE_APP_ICON);
+        showVehicleImageFromIcon();
     }
 
     public void ChooseImageOnDevice() {
@@ -232,5 +234,16 @@ public class VehicleDetailActivity extends AppCompatActivity
 
         }
 
+    }
+    private void showVehicleImageFromIcon() {
+
+        IconFromAssetsFragment iconFromAssetsFragment = IconFromAssetsFragment.newInstance();
+
+        iconFromAssetsFragment.show(getFragmentManager(), "Vehicle Image Icon From Asset");
+    }
+
+    @Override
+    public void onListFragmentInteraction(IconFromAssetsFragment.IconItem item) {
+        Toast.makeText(this, item.content, Toast.LENGTH_LONG);
     }
 }

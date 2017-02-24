@@ -12,6 +12,11 @@ public class VehiclesTable {
     public static final String VEHICLE_DATABASE_TABLE = "vehicles";
 
     /*
+     * Folder in assets where icons reside
+     */
+    public static final String VEHICLE_ICONS_FOLDER = "icons/";
+
+    /*
      * Vehicle table column definitions
      */
     // Column name for the primary key

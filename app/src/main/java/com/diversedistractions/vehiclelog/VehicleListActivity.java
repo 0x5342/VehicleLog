@@ -295,7 +295,7 @@ public class VehicleListActivity extends AppCompatActivity
                     String model = cursor.getString
                             (cursor.getColumnIndex
                                     (VehiclesTable.COL_VEHICLE_MODEL));
-                    String imageFile = cursor.getString
+                    String imageFile = VehiclesTable.VEHICLE_ICONS_FOLDER + cursor.getString
                             (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_IMAGE));
 
                     ((TextView) view.findViewById(R.id.vehicleYear)).setText(year);

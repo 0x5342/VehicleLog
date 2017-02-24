@@ -1,6 +1,7 @@
 package com.diversedistractions.vehiclelog;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
@@ -8,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +26,7 @@ import com.diversedistractions.vehiclelog.database.VehiclesTable;
 import com.diversedistractions.vehiclelog.models.VehicleItem;
 import com.diversedistractions.vehiclelog.utilities.CustomDatePickerDialogFragment;
 import com.diversedistractions.vehiclelog.utilities.DateConversionHelper;
+import com.diversedistractions.vehiclelog.utilities.IconFromAssetsFragment;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,7 +37,7 @@ import java.io.InputStream;
  * in two-pane mode (on tablets) or a {@link VehicleDetailActivity}
  * on handsets.
  */
-public class VehicleDetailFragment extends Fragment {
+public class VehicleDetailFragment extends DialogFragment {
 
     public static final String ARG_ITEM_URI = "item_uri";
     public static final String DETAIL_MODE = "detail_mode";
@@ -242,7 +245,7 @@ public class VehicleDetailFragment extends Fragment {
                 });
                 try {
                     InputStream inputStream = getContext().getAssets()
-                            .open(vehicleItem.getVehicleImage());
+                            .open(VehiclesTable.VEHICLE_ICONS_FOLDER + vehicleItem.getVehicleImage());
                     Drawable drawable = Drawable.createFromStream(inputStream, null);
                     btnSetVehicleImageEdit.setImageDrawable(drawable);
                 } catch (IOException e) {
@@ -301,7 +304,7 @@ public class VehicleDetailFragment extends Fragment {
 
                 try {
                     InputStream inputStream = getContext().getAssets().
-                            open(vehicleItem.getVehicleImage());
+                            open(VehiclesTable.VEHICLE_ICONS_FOLDER + vehicleItem.getVehicleImage());
                     Drawable drawable = Drawable.createFromStream(inputStream, null);
                     ((ImageView) rootView.findViewById(R.id.vehicleImage))
                             .setImageDrawable(drawable);
