@@ -245,7 +245,7 @@ public class VehicleDetailFragment extends DialogFragment {
                 });
                 try {
                     InputStream inputStream = getContext().getAssets()
-                            .open(VehiclesTable.VEHICLE_ICONS_FOLDER + vehicleItem.getVehicleImage());
+                            .open(vehicleItem.getVehicleImage());
                     Drawable drawable = Drawable.createFromStream(inputStream, null);
                     btnSetVehicleImageEdit.setImageDrawable(drawable);
                 } catch (IOException e) {
@@ -304,7 +304,7 @@ public class VehicleDetailFragment extends DialogFragment {
 
                 try {
                     InputStream inputStream = getContext().getAssets().
-                            open(VehiclesTable.VEHICLE_ICONS_FOLDER + vehicleItem.getVehicleImage());
+                            open(vehicleItem.getVehicleImage());
                     Drawable drawable = Drawable.createFromStream(inputStream, null);
                     ((ImageView) rootView.findViewById(R.id.vehicleImage))
                             .setImageDrawable(drawable);
