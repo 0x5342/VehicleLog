@@ -6,15 +6,13 @@ package com.diversedistractions.vehiclelog.database;
 
 public class VehiclesTable {
 
-    /*
-     * Name of the table that contains the list of vehicles
-     */
+    // Name of the table that contains the list of vehicles
     public static final String VEHICLE_DATABASE_TABLE = "vehicles";
 
-    /*
-     * Folder in assets where icons reside
-     */
+    // Folder in assets where icons reside
     public static final String VEHICLE_ICONS_FOLDER = "icons/";
+    // Folder in assets where no vehicle image icon resides
+    public static final String VEHICLE_NO_ICON_FOLDER = "no_icon/";
 
     /*
      * Vehicle table column definitions

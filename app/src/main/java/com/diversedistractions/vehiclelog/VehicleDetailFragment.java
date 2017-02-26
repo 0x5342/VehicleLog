@@ -172,6 +172,17 @@ public class VehicleDetailFragment extends DialogFragment {
                     }
                 });
 
+                try {
+                    InputStream inputStream = getContext().getAssets()
+                            .open(VehiclesTable.VEHICLE_NO_ICON_FOLDER +
+                                    "vi_no_vehicle_image.png");
+                    Drawable drawable = Drawable.createFromStream(inputStream, null);
+                    ((ImageButton) rootView.findViewById(R.id.vehicleImageButton))
+                            .setImageDrawable(drawable);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
                 Button btnSetLpRenewalDateCreate = (Button) rootView
                         .findViewById(R.id.vehicleLpRenewalDateButton);
                 btnSetLpRenewalDateCreate.setOnClickListener(new View.OnClickListener() {
@@ -243,13 +254,26 @@ public class VehicleDetailFragment extends DialogFragment {
                         showVehicleImageChoice();
                     }
                 });
-                try {
-                    InputStream inputStream = getContext().getAssets()
-                            .open(vehicleItem.getVehicleImage());
-                    Drawable drawable = Drawable.createFromStream(inputStream, null);
-                    btnSetVehicleImageEdit.setImageDrawable(drawable);
-                } catch (IOException e) {
-                    e.printStackTrace();
+                // If there is a path to a vehicle image, load it; if not load the no image icon
+                if (null != vehicleItem.getVehicleImage()) {
+                    try {
+                        InputStream inputStream = getContext().getAssets()
+                                .open(vehicleItem.getVehicleImage());
+                        Drawable drawable = Drawable.createFromStream(inputStream, null);
+                        btnSetVehicleImageEdit.setImageDrawable(drawable);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    try {
+                        InputStream inputStream = getContext().getAssets()
+                                .open(VehiclesTable.VEHICLE_NO_ICON_FOLDER +
+                                        "vi_no_vehicle_image.png");
+                        Drawable drawable = Drawable.createFromStream(inputStream, null);
+                        btnSetVehicleImageEdit.setImageDrawable(drawable);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
 
                 ((EditText) rootView.findViewById(R.id.vehicleVinEditText))
@@ -302,14 +326,28 @@ public class VehicleDetailFragment extends DialogFragment {
                 ((TextView) rootView.findViewById(R.id.modelText))
                         .setText(vehicleItem.getVehicleModel());
 
-                try {
-                    InputStream inputStream = getContext().getAssets().
-                            open(vehicleItem.getVehicleImage());
-                    Drawable drawable = Drawable.createFromStream(inputStream, null);
-                    ((ImageView) rootView.findViewById(R.id.vehicleImage))
-                            .setImageDrawable(drawable);
-                } catch (IOException e) {
-                    e.printStackTrace();
+                // If there is a path to a vehicle image, load it; if not load the no image icon
+                if (null != vehicleItem.getVehicleImage()) {
+                    try {
+                        InputStream inputStream = getContext().getAssets().
+                                open(vehicleItem.getVehicleImage());
+                        Drawable drawable = Drawable.createFromStream(inputStream, null);
+                        ((ImageView) rootView.findViewById(R.id.vehicleImage))
+                                .setImageDrawable(drawable);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    try {
+                        InputStream inputStream = getContext().getAssets()
+                                .open(VehiclesTable.VEHICLE_NO_ICON_FOLDER +
+                                        "vi_no_vehicle_image.png");
+                        Drawable drawable = Drawable.createFromStream(inputStream, null);
+                        ((ImageView) rootView.findViewById(R.id.vehicleImage))
+                                .setImageDrawable(drawable);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
 
                 ((TextView) rootView.findViewById(R.id.vehicleVinText))

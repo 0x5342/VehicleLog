@@ -301,13 +301,27 @@ public class VehicleListActivity extends AppCompatActivity
                     ((TextView) view.findViewById(R.id.vehicleYear)).setText(year);
                     ((TextView) view.findViewById(R.id.makeText)).setText(make);
                     ((TextView) view.findViewById(R.id.modelText)).setText(model);
-                    try {
-                        InputStream inputStream = context.getAssets().open(imageFile);
-                        Drawable drawable = Drawable.createFromStream(inputStream, null);
-                        ((ImageView) view.findViewById
-                                (R.id.vehicleImage)).setImageDrawable(drawable);
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    // If there is a path to a vehicle image, load it; if not load the no image icon
+                    if (null != imageFile) {
+                        try {
+                            InputStream inputStream = context.getAssets().open(imageFile);
+                            Drawable drawable = Drawable.createFromStream(inputStream, null);
+                            ((ImageView) view.findViewById
+                                    (R.id.vehicleImage)).setImageDrawable(drawable);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        try {
+                            InputStream inputStream = context.getAssets()
+                                    .open(VehiclesTable.VEHICLE_NO_ICON_FOLDER +
+                                            "vi_no_vehicle_image.png");
+                            Drawable drawable = Drawable.createFromStream(inputStream, null);
+                            ((ImageView) view.findViewById
+                                    (R.id.vehicleImage)).setImageDrawable(drawable);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             };
