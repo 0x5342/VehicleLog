@@ -172,13 +172,20 @@ public class VehicleDetailFragment extends DialogFragment {
                     }
                 });
 
+                ImageButton btnSetVehicleImageCreate = (ImageButton) rootView
+                        .findViewById(R.id.vehicleImageButton);
+                btnSetVehicleImageCreate.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showVehicleImageChoice();
+                    }
+                });
                 try {
                     InputStream inputStream = getContext().getAssets()
                             .open(VehiclesTable.VEHICLE_NO_ICON_FOLDER +
                                     "vi_no_vehicle_image.png");
                     Drawable drawable = Drawable.createFromStream(inputStream, null);
-                    ((ImageButton) rootView.findViewById(R.id.vehicleImageButton))
-                            .setImageDrawable(drawable);
+                    btnSetVehicleImageCreate.setImageDrawable(drawable);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -438,8 +445,27 @@ public class VehicleDetailFragment extends DialogFragment {
      */
     private void showCustomDatePicker(String dateField){
 
+        VehicleItem item = null;
+        // If in create mode or either date fields are empty, set VehicleItem to null; else set
+        // VehicleItem to existing vehicleItem. This allows the original date in the DatePickers
+        // to be set to current date if null or the saved date if available.
+        switch (mMode){
+            case DETAIL_IN_CREATE_MODE:
+                item = null;
+                break;
+            case DETAIL_IN_EDIT_MODE:
+                if ((dateField == VehiclesTable.COL_VEHICLE_YEAR &&
+                        vehicleItem.getVehicleYear() > 0) || (dateField ==
+                        VehiclesTable.COL_VEHICLE_REN_DATE) &&
+                    vehicleItem.getVehicleLpRenewalDate() > 0) {
+                    item = vehicleItem;
+                } else {
+                    item = null;
+                }
+        }
+
         CustomDatePickerDialogFragment customDatePickerDialogFragment =
-                CustomDatePickerDialogFragment.newInstance(vehicleItem, dateField);
+                CustomDatePickerDialogFragment.newInstance(item, dateField);
 
         customDatePickerDialogFragment.show(getFragmentManager(), "Custom Date Picker");
     }

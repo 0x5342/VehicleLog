@@ -15,9 +15,9 @@
         android:layout_height="90dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="10dp"
-        app:srcCompat="@drawable/vi_no_vehicle_image"
         android:adjustViewBounds="true"
-        android:scaleType="fitCenter"/>
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/vi_no_vehicle_image"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,15 +35,15 @@
             android:text="@string/vehicle_type"/>
 
         <Spinner
+            android:id="@+id/vehicleTypeSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/vehicleTypeSpinner"
-            android:entries="@array/vehicle_type_array"
-            android:prompt="@string/vehicle_type_prompt"
-            android:spinnerMode="dropdown"
             android:layout_weight="1"
             android:background="@android:drawable/spinner_dropdown_background"
+            android:entries="@array/vehicle_type_array"
             android:gravity="center_horizontal"
+            android:prompt="@string/vehicle_type_prompt"
+            android:spinnerMode="dropdown"
             android:textStyle="normal|bold" />
 
     </LinearLayout>
@@ -68,9 +68,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="@string/enter_the_model_year"
             android:text="@string/set_model_year"
-            android:textStyle="normal|bold"
-            android:hint="@string/enter_the_model_year" />
+            android:textStyle="normal|bold" />
 
     </LinearLayout>
 
@@ -95,9 +95,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical"
+            android:inputType="text|textCapWords|textAutoComplete"
             android:maxLines="1"
-            android:text="@string/enter_the_make"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:hint="@string/enter_the_make" />
     </LinearLayout>
 
     <LinearLayout
@@ -121,9 +122,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical"
+            android:inputType="text|textCapWords|textAutoComplete"
             android:maxLines="1"
-            android:text="@string/enter_the_model"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:hint="@string/enter_the_model" />
     </LinearLayout>
 
     <LinearLayout
@@ -146,9 +148,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:inputType="text|textCapCharacters"
             android:maxLines="1"
-            android:text="@string/enter_the_vin"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:hint="@string/enter_the_vin" />
 
     </LinearLayout>
 
@@ -173,9 +176,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:inputType="text|textCapCharacters"
             android:maxLines="1"
-            android:text="@string/enter_the_license_plate"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:hint="@string/enter_the_license_plate" />
     </LinearLayout>
 
     <LinearLayout
@@ -188,21 +192,21 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
             android:layout_weight="2"
             android:gravity="end"
-            android:layout_gravity="center_vertical"
             android:text="@string/lp_renew_date_label" />
 
-           <Button
-                android:id="@+id/vehicleLpRenewalDateButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:maxLines="1"
-                android:layout_weight="1"
-                android:text="@string/set_renewal_date"
-                android:textStyle="normal|bold" />
+        <Button
+            android:id="@+id/vehicleLpRenewalDateButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:text="@string/set_renewal_date"
+            android:textStyle="normal|bold" />
 
     </LinearLayout>
 
@@ -217,12 +221,12 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:gravity="top"
         android:background="@drawable/border"
+        android:gravity="top"
+        android:inputType="textMultiLine"
         android:minLines="4"
         android:padding="5dp"
-        android:text="@string/enter_notes_here"
         android:textStyle="normal|bold"
-        android:inputType="textMultiLine" />
+        android:hint="@string/enter_notes_here" />
 
 </LinearLayout>

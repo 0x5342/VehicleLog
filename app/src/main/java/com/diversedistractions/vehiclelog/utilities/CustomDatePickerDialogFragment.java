@@ -137,7 +137,12 @@ public class CustomDatePickerDialogFragment extends DialogFragment {
     private void saveData() {
 
         DateConversionHelper dateConversionHelper = null;
-        
+
+        // If vehicleItem is null, create one in order to assign chosen dates and pass to listener
+        if (vehicleItem == null) {
+            vehicleItem = new VehicleItem();
+        }
+
         int year = datePicker.getYear();
         int month = datePicker.getMonth()+1;
         if (dateField.equalsIgnoreCase(VehiclesTable.COL_VEHICLE_YEAR)) {
