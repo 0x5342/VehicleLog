@@ -71,7 +71,7 @@ public class IconFromAssetsFragment extends DialogFragment {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            recyclerView.setAdapter(new MyIconFromAssetsRecyclerViewAdapter(getDialog(), ICONS, mListener));
+            recyclerView.setAdapter(new IconFromAssetsRecyclerViewAdapter(getDialog(), ICONS, mListener));
         }
         return view;
     }

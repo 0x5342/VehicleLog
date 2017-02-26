@@ -20,15 +20,15 @@ import java.util.List;
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
-public class MyIconFromAssetsRecyclerViewAdapter extends
-        RecyclerView.Adapter<MyIconFromAssetsRecyclerViewAdapter.ViewHolder> {
+public class IconFromAssetsRecyclerViewAdapter extends
+        RecyclerView.Adapter<IconFromAssetsRecyclerViewAdapter.ViewHolder> {
 
     Dialog dialog;
     private final List<IconItem> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyIconFromAssetsRecyclerViewAdapter(Dialog dialog, List<IconItem> items,
-                                               OnListFragmentInteractionListener listener) {
+    public IconFromAssetsRecyclerViewAdapter(Dialog dialog, List<IconItem> items,
+                                             OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
         this.dialog = dialog;
