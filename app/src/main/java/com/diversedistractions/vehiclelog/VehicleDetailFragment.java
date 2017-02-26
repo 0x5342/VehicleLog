@@ -428,12 +428,20 @@ public class VehicleDetailFragment extends DialogFragment {
         vehicleItem.setVehicleLpRenewalDate(epochMonthYear);
     }
 
+    /**
+     * Starts the fragment that allows one to choose WHERE the image will come from.
+     */
     private void showVehicleImageChoice() {
         VehicleImageChoiceFragment vehicleImageChoiceFragment =
                 VehicleImageChoiceFragment.newInstance();
         vehicleImageChoiceFragment.show(getFragmentManager(), "Vehicle Image Choice");
     }
 
+    /**
+     * Updates the vehicle image after selecting a new image and sets the vehicleItem image to the
+     * selected image as well.
+     * @param image: a string representing the path and image
+     */
     public void updateVehicleImage(String image){
         try {
             InputStream inputStream = getContext().getAssets().open(image);
