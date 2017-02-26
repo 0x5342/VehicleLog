@@ -409,26 +409,40 @@ public class VehicleDetailFragment extends DialogFragment {
     /**
      * This is used to set the text on the vehicle year button from the activity when the DatePicker
      * ENTER button is pressed.
-     * @param year: a four character string representing the vehicle year
+     * @param epochYear: the year in epoch form
+     * @param year: the year in string form
      */
-    public void updateVehicleYear(String year){
+    public void updateVehicleYear(long epochYear, String year){
         ((Button) rootView.findViewById(R.id.vehicleYearButton)).setText(year);
+        vehicleItem.setVehicleYear(epochYear);
     }
 
     /**
      * This is used to set the text on the license plate renewal date button from the activity when
      * the DatePicker ENTER button is pressed.
-     * @param monthYear
+     * @param epochMonthYear: the date in epoch form
+     * @param monthYear: the date in string form
      */
-    public void updateVehicleLpRenewalDate(String monthYear){
+    public void updateVehicleLpRenewalDate(long epochMonthYear, String monthYear){
         ((Button) rootView.findViewById(R.id.vehicleLpRenewalDateButton)).setText(monthYear);
+        vehicleItem.setVehicleLpRenewalDate(epochMonthYear);
     }
 
     private void showVehicleImageChoice() {
-
         VehicleImageChoiceFragment vehicleImageChoiceFragment =
                 VehicleImageChoiceFragment.newInstance();
-
         vehicleImageChoiceFragment.show(getFragmentManager(), "Vehicle Image Choice");
+    }
+
+    public void updateVehicleImage(String image){
+        try {
+            InputStream inputStream = getContext().getAssets().open(image);
+            Drawable drawable = Drawable.createFromStream(inputStream, null);
+            ((ImageButton) rootView.findViewById(R.id.vehicleImageButton))
+                    .setImageDrawable(drawable);
+            vehicleItem.setVehicleImage(image);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

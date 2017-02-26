@@ -71,7 +71,7 @@ public class IconFromAssetsFragment extends DialogFragment {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            recyclerView.setAdapter(new MyIconFromAssetsRecyclerViewAdapter(ICONS, mListener));
+            recyclerView.setAdapter(new MyIconFromAssetsRecyclerViewAdapter(getDialog(), ICONS, mListener));
         }
         return view;
     }
@@ -101,7 +101,7 @@ public class IconFromAssetsFragment extends DialogFragment {
      * activity.
      */
     public interface OnListFragmentInteractionListener {
-        void onListFragmentInteraction(IconItem item);
+        void onListFragmentInteraction(String imageString);
     }
 
     private String[] getAssetsFolderIcons(){

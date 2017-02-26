@@ -1,5 +1,6 @@
 package com.diversedistractions.vehiclelog.utilities;
 
+import android.app.Dialog;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -22,13 +23,15 @@ import java.util.List;
 public class MyIconFromAssetsRecyclerViewAdapter extends
         RecyclerView.Adapter<MyIconFromAssetsRecyclerViewAdapter.ViewHolder> {
 
+    Dialog dialog;
     private final List<IconItem> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyIconFromAssetsRecyclerViewAdapter(List<IconItem> items,
+    public MyIconFromAssetsRecyclerViewAdapter(Dialog dialog, List<IconItem> items,
                                                OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
+        this.dialog = dialog;
     }
 
     @Override
@@ -55,7 +58,8 @@ public class MyIconFromAssetsRecyclerViewAdapter extends
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.mItem);
+                    mListener.onListFragmentInteraction(holder.mItem.content);
+                    dialog.dismiss();
                 }
             }
         });

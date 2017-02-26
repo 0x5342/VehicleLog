@@ -155,12 +155,12 @@ public class VehicleDetailActivity extends AppCompatActivity
             long vYear = vehicleItem.getVehicleYear();
             SimpleDateFormat ySimpleDateFormat = new SimpleDateFormat("yyyy", Locale.US);
             String year = ySimpleDateFormat.format(vYear);
-            vdf_obj.updateVehicleYear(year);
+            vdf_obj.updateVehicleYear(vYear, year);
         } else if (dateField.equalsIgnoreCase(VehiclesTable.COL_VEHICLE_REN_DATE)) {
             long vMonthYear = vehicleItem.getVehicleLpRenewalDate();
             SimpleDateFormat ymSimpleDateFormat = new SimpleDateFormat("MMM-yyyy", Locale.US);
             String monthYear = ymSimpleDateFormat.format(vMonthYear);
-            vdf_obj.updateVehicleLpRenewalDate(monthYear);
+            vdf_obj.updateVehicleLpRenewalDate(vMonthYear, monthYear);
         }
     }
 
@@ -231,19 +231,20 @@ public class VehicleDetailActivity extends AppCompatActivity
 //                    break;
 //
 //            }
-
         }
-
     }
+
     private void showVehicleImageFromIcon() {
-
         IconFromAssetsFragment iconFromAssetsFragment = IconFromAssetsFragment.newInstance();
-
         iconFromAssetsFragment.show(getFragmentManager(), "Vehicle Image Icon From Asset");
     }
 
     @Override
-    public void onListFragmentInteraction(IconFromAssetsFragment.IconItem item) {
-        Toast.makeText(this, item.content, Toast.LENGTH_LONG);
+    public void onListFragmentInteraction(String imageString) {
+        // Get a reference to the vehicle detail fragment in order to update the values
+        VehicleDetailFragment vdf_obj = (VehicleDetailFragment)getSupportFragmentManager()
+                .findFragmentById(R.id.vehicle_detail_container);
+        // Update the displayed image in the editor
+        vdf_obj.updateVehicleImage((VehiclesTable.VEHICLE_ICONS_FOLDER + imageString));
     }
 }
