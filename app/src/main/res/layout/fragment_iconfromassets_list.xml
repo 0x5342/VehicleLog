@@ -10,4 +10,4 @@
     android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
     tools:context="com.diversedistractions.vehiclelog.utilities.IconFromAssetsFragment"
-    tools:listitem="@layout/fragment_iconfromassets" />
+    tools:listitem="@layout/fragment_iconfromassets_item" />

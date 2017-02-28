@@ -37,7 +37,7 @@ public class IconFromAssetsRecyclerViewAdapter extends
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_iconfromassets, parent, false);
+                .inflate(R.layout.fragment_iconfromassets_item, parent, false);
         return new ViewHolder(view);
     }
 

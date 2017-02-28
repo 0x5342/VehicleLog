@@ -87,8 +87,9 @@ public class CustomDatePickerDialogFragment extends DialogFragment {
         Calendar c = Calendar.getInstance();
         switch (dateField) {
             case VehiclesTable.COL_VEHICLE_YEAR: // Set the variables needed for the vehicle year
-                // If this is modifying a vehicle, use the saved date
-                if (vehicleItem != null) {c.setTimeInMillis(vehicleItem.getVehicleYear());}
+                // If this is modifying a vehicle, and the year field has data, use the saved date
+                if (vehicleItem.getVehicleYear() > 0) {
+                    c.setTimeInMillis(vehicleItem.getVehicleYear());}
                 showDay = false;
                 showMonth = false;
                 showYear = true;
@@ -96,8 +97,9 @@ public class CustomDatePickerDialogFragment extends DialogFragment {
                         .setText(R.string.set_model_year);
                 break;
             case VehiclesTable.COL_VEHICLE_REN_DATE: // Set the variables for the LP renewal date
-                // If this is modifying a vehicle, use the saved date
-                if (vehicleItem != null) {c.setTimeInMillis(vehicleItem.getVehicleLpRenewalDate());}
+                // If this is modifying a vehicle, and the renew date has data, use the saved date
+                if (vehicleItem.getVehicleLpRenewalDate() > 0) {
+                    c.setTimeInMillis(vehicleItem.getVehicleLpRenewalDate());}
                 showDay = false;
                 showMonth = true;
                 showYear = true;
@@ -135,13 +137,6 @@ public class CustomDatePickerDialogFragment extends DialogFragment {
     }
 
     private void saveData() {
-
-        DateConversionHelper dateConversionHelper = null;
-
-        // If vehicleItem is null, create one in order to assign chosen dates and pass to listener
-        if (vehicleItem == null) {
-            vehicleItem = new VehicleItem();
-        }
 
         int year = datePicker.getYear();
         int month = datePicker.getMonth()+1;

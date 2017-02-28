@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
@@ -246,5 +247,13 @@ public class VehicleDetailActivity extends AppCompatActivity
                 .findFragmentById(R.id.vehicle_detail_container);
         // Update the displayed image in the editor
         vdf_obj.updateVehicleImage((VehiclesTable.VEHICLE_ICONS_FOLDER + imageString));
+    }
+
+    @Override
+    public void onBackPressed(){
+        // Get a reference to the vehicle detail fragment in order to update the values
+        VehicleDetailFragment vdf_obj = (VehicleDetailFragment)getSupportFragmentManager()
+                .findFragmentById(R.id.vehicle_detail_container);
+        vdf_obj.finishEditing();
     }
 }

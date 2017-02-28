@@ -19,9 +19,6 @@ import java.util.Map;
 
 /**
  * A fragment representing a list of Items.
- * <p/>
- * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
- * interface.
  */
 public class IconFromAssetsFragment extends DialogFragment {
 
@@ -35,7 +32,7 @@ public class IconFromAssetsFragment extends DialogFragment {
      * A map of icon link items, by ID.
      */
     public static final Map<String, IconItem> ICON_MAP = new HashMap<String, IconItem>();
-    String[] icons;
+    String[] icons = null;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -56,6 +53,7 @@ public class IconFromAssetsFragment extends DialogFragment {
         icons = getAssetsFolderIcons();
         int numFiles = icons.length;
 
+        ICONS.clear();
         for (int i = 1; i <= numFiles; i++) {
             addItem(createIconItem(i));
         }
@@ -71,7 +69,8 @@ public class IconFromAssetsFragment extends DialogFragment {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            recyclerView.setAdapter(new IconFromAssetsRecyclerViewAdapter(getDialog(), ICONS, mListener));
+            recyclerView.setAdapter(new IconFromAssetsRecyclerViewAdapter(getDialog(),
+                    ICONS, mListener));
         }
         return view;
     }

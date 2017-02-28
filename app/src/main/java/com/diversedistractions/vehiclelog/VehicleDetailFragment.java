@@ -1,7 +1,7 @@
 package com.diversedistractions.vehiclelog;
 
 import android.app.Activity;
-import android.app.Dialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,14 +18,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.diversedistractions.vehiclelog.database.VehicleLogContentProvider;
 import com.diversedistractions.vehiclelog.database.VehiclesTable;
 import com.diversedistractions.vehiclelog.models.VehicleItem;
 import com.diversedistractions.vehiclelog.utilities.CustomDatePickerDialogFragment;
 import com.diversedistractions.vehiclelog.utilities.DateConversionHelper;
-import com.diversedistractions.vehiclelog.utilities.IconFromAssetsFragment;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -44,13 +44,22 @@ public class VehicleDetailFragment extends DialogFragment {
     public static final int DETAIL_IN_CREATE_MODE = 0;
     public static final int DETAIL_IN_VIEW_MODE = 1;
     public static final int DETAIL_IN_EDIT_MODE = 2;
-
-    private Context mContext;
-    private int mMode;
     DateConversionHelper dateConversionHelper;
     View rootView = null;
-
     VehicleItem vehicleItem = new VehicleItem();
+    private ImageButton mVehImageButton;
+    private Spinner mVehTypeSpinner;
+    private Button mVehYearButton;
+    private EditText mMakeText;
+    private EditText mModelText;
+    private EditText mVinText;
+    private LinearLayout mLpContainer;
+    private EditText mLpText;
+    private LinearLayout mLpRenewDateContainer;
+    private Button mLpRenewDateButton;
+    private EditText mNotesText;
+    private Context mContext;
+    private int mMode;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -84,8 +93,11 @@ public class VehicleDetailFragment extends DialogFragment {
         }
 
         // If there is a vehicle URI then we are in edit or view mode, so retrieve existing data.
+        // If not, create a new vehicleItem that can start containing the created data.
         if (mVehicleUri != null) {
             getVehicleData(mVehicleUri);
+        } else {
+            vehicleItem = new VehicleItem();
         }
 
         Activity activity = this.getActivity();
@@ -135,46 +147,20 @@ public class VehicleDetailFragment extends DialogFragment {
 
                 rootView = inflater.inflate(R.layout.vehicle_detail_edit, container, false);
 
-                Button btnSetVehicleYearCreate = (Button) rootView
-                        .findViewById(R.id.vehicleYearButton);
-                btnSetVehicleYearCreate.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        showCustomDatePicker(VehiclesTable.COL_VEHICLE_YEAR);
-                    }
-                });
+                mVehImageButton = (ImageButton) rootView.findViewById(R.id.vehicleImageButton);
+                mVehTypeSpinner = (Spinner) rootView.findViewById(R.id.vehicleTypeSpinner);
+                mVehYearButton = (Button) rootView.findViewById(R.id.vehicleYearButton);
+                mMakeText = (EditText) rootView.findViewById(R.id.makeEditText);
+                mModelText = (EditText) rootView.findViewById(R.id.modelEditText);
+                mVinText = (EditText) rootView.findViewById(R.id.vehicleVinEditText);
+                mLpContainer = (LinearLayout) rootView.findViewById(R.id.lpEditContainer);
+                mLpText = (EditText) rootView.findViewById(R.id.vehicleLicensePlateEditText);
+                mLpRenewDateContainer = (LinearLayout) rootView.
+                        findViewById(R.id.lpRenewalDateEditContainer);
+                mLpRenewDateButton = (Button) rootView.findViewById(R.id.vehicleLpRenewalDateButton);
+                mNotesText = (EditText) rootView.findViewById(R.id.vehNotesEditText);
 
-                // If a utility type vehicle is chosen, hide the license plate and license plate
-                // renewal date. If a car, truck, motorcycle vehicle type is chosen, make the
-                // license plate and license plate renewal date visible.
-                ((Spinner) rootView.findViewById(R.id.vehicleTypeSpinner))
-                        .setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> parent, View view,
-                                               int position, long id) {
-                        Spinner spinner = (Spinner) parent;
-                        if (spinner.getSelectedItemPosition() == 0) {
-                            (rootView.findViewById(R.id.lpRenewalDateEditContainer))
-                                    .setVisibility(View.VISIBLE);
-                            (rootView.findViewById(R.id.lpEditContainer))
-                                    .setVisibility(View.VISIBLE);
-                        } else {
-                            (rootView.findViewById(R.id.lpRenewalDateEditContainer))
-                                    .setVisibility(View.GONE);
-                            (rootView.findViewById(R.id.lpEditContainer))
-                                    .setVisibility(View.GONE);
-                        }
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> parent) {
-
-                    }
-                });
-
-                ImageButton btnSetVehicleImageCreate = (ImageButton) rootView
-                        .findViewById(R.id.vehicleImageButton);
-                btnSetVehicleImageCreate.setOnClickListener(new View.OnClickListener() {
+                mVehImageButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         showVehicleImageChoice();
@@ -185,14 +171,42 @@ public class VehicleDetailFragment extends DialogFragment {
                             .open(VehiclesTable.VEHICLE_NO_ICON_FOLDER +
                                     "vi_no_vehicle_image.png");
                     Drawable drawable = Drawable.createFromStream(inputStream, null);
-                    btnSetVehicleImageCreate.setImageDrawable(drawable);
+                    mVehImageButton.setImageDrawable(drawable);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
 
-                Button btnSetLpRenewalDateCreate = (Button) rootView
-                        .findViewById(R.id.vehicleLpRenewalDateButton);
-                btnSetLpRenewalDateCreate.setOnClickListener(new View.OnClickListener() {
+                mVehYearButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showCustomDatePicker(VehiclesTable.COL_VEHICLE_YEAR);
+                    }
+                });
+
+                // If a utility type vehicle is chosen, hide the license plate and license plate
+                // renewal date. If a car, truck, motorcycle vehicle type is chosen, make the
+                // license plate and license plate renewal date visible.
+                mVehTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view,
+                                               int position, long id) {
+                        Spinner spinner = (Spinner) parent;
+                        if (spinner.getSelectedItemPosition() == 0) {
+                            mLpRenewDateContainer.setVisibility(View.VISIBLE);
+                            mLpContainer.setVisibility(View.VISIBLE);
+                        } else {
+                            mLpRenewDateContainer.setVisibility(View.GONE);
+                            mLpContainer.setVisibility(View.GONE);
+                        }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
+
+                mLpRenewDateButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         showCustomDatePicker(VehiclesTable.COL_VEHICLE_REN_DATE);
@@ -206,56 +220,20 @@ public class VehicleDetailFragment extends DialogFragment {
                 // Show the vehicle's content in edit mode
                 rootView = inflater.inflate(R.layout.vehicle_detail_edit, container, false);
 
-                ((Spinner) rootView.findViewById(R.id.vehicleTypeSpinner))
-                        .setSelection(vehicleItem.getVehicleType());
-                // If a utility type vehicle is chosen, hide the license plate and license plate
-                // renewal date. If a car, truck, motorcycle vehicle type is chosen, make the
-                // license plate and license plate renewal date visible.
-                ((Spinner) rootView.findViewById(R.id.vehicleTypeSpinner))
-                        .setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> parent, View view,
-                                               int position, long id) {
-                        Spinner spinner = (Spinner) parent;
-                        if (spinner.getSelectedItemPosition() == 0) {
-                            (rootView.findViewById(R.id.lpRenewalDateEditContainer))
-                                    .setVisibility(View.VISIBLE);
-                            (rootView.findViewById(R.id.lpEditContainer))
-                                    .setVisibility(View.VISIBLE);
-                        } else {
-                            (rootView.findViewById(R.id.lpRenewalDateEditContainer))
-                                    .setVisibility(View.GONE);
-                            (rootView.findViewById(R.id.lpEditContainer))
-                                    .setVisibility(View.GONE);
-                        }
-                    }
+                mVehImageButton = (ImageButton) rootView.findViewById(R.id.vehicleImageButton);
+                mVehTypeSpinner = (Spinner) rootView.findViewById(R.id.vehicleTypeSpinner);
+                mVehYearButton = (Button) rootView.findViewById(R.id.vehicleYearButton);
+                mMakeText = (EditText) rootView.findViewById(R.id.makeEditText);
+                mModelText = (EditText) rootView.findViewById(R.id.modelEditText);
+                mVinText = (EditText) rootView.findViewById(R.id.vehicleVinEditText);
+                mLpContainer = (LinearLayout) rootView.findViewById(R.id.lpEditContainer);
+                mLpText = (EditText) rootView.findViewById(R.id.vehicleLicensePlateEditText);
+                mLpRenewDateContainer = (LinearLayout) rootView.
+                        findViewById(R.id.lpRenewalDateEditContainer);
+                mLpRenewDateButton = (Button) rootView.findViewById(R.id.vehicleLpRenewalDateButton);
+                mNotesText = (EditText) rootView.findViewById(R.id.vehNotesEditText);
 
-                    @Override
-                    public void onNothingSelected(AdapterView<?> parent) {
-
-                    }
-                });
-
-                Button btnSetVehicleYearEdit = (Button) rootView
-                        .findViewById(R.id.vehicleYearButton);
-                btnSetVehicleYearEdit.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        showCustomDatePicker(VehiclesTable.COL_VEHICLE_YEAR);
-                    }
-                });
-                btnSetVehicleYearEdit.setText(dateConversionHelper
-                        .getYearAsString(vehicleItem.getVehicleYear()));
-
-                ((EditText) rootView.findViewById(R.id.makeEditText))
-                        .setText(vehicleItem.getVehicleMake());
-
-                ((EditText) rootView.findViewById(R.id.modelEditText))
-                        .setText(vehicleItem.getVehicleModel());
-
-                ImageButton btnSetVehicleImageEdit = (ImageButton) rootView
-                        .findViewById(R.id.vehicleImageButton);
-                btnSetVehicleImageEdit.setOnClickListener(new View.OnClickListener() {
+                mVehImageButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         showVehicleImageChoice();
@@ -267,7 +245,7 @@ public class VehicleDetailFragment extends DialogFragment {
                         InputStream inputStream = getContext().getAssets()
                                 .open(vehicleItem.getVehicleImage());
                         Drawable drawable = Drawable.createFromStream(inputStream, null);
-                        btnSetVehicleImageEdit.setImageDrawable(drawable);
+                        mVehImageButton.setImageDrawable(drawable);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -277,14 +255,48 @@ public class VehicleDetailFragment extends DialogFragment {
                                 .open(VehiclesTable.VEHICLE_NO_ICON_FOLDER +
                                         "vi_no_vehicle_image.png");
                         Drawable drawable = Drawable.createFromStream(inputStream, null);
-                        btnSetVehicleImageEdit.setImageDrawable(drawable);
+                        mVehImageButton.setImageDrawable(drawable);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
 
-                ((EditText) rootView.findViewById(R.id.vehicleVinEditText))
-                        .setText(vehicleItem.getVehicleVin());
+                mVehTypeSpinner.setSelection(vehicleItem.getVehicleType());
+                // If a utility type vehicle is chosen, hide the license plate and license plate
+                // renewal date. If a car, truck, motorcycle vehicle type is chosen, make the
+                // license plate and license plate renewal date visible.
+                mVehTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view,
+                                               int position, long id) {
+                        Spinner spinner = (Spinner) parent;
+                        if (spinner.getSelectedItemPosition() == 0) {
+                            mLpRenewDateContainer.setVisibility(View.VISIBLE);
+                            mLpContainer.setVisibility(View.VISIBLE);
+                        } else {
+                            mLpRenewDateContainer.setVisibility(View.GONE);
+                            mLpContainer.setVisibility(View.GONE);
+                        }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
+
+                mVehYearButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showCustomDatePicker(VehiclesTable.COL_VEHICLE_YEAR);
+                    }
+                });
+                mVehYearButton.setText(dateConversionHelper
+                        .getYearAsString(vehicleItem.getVehicleYear()));
+
+                mMakeText.setText(vehicleItem.getVehicleMake());
+                mModelText.setText(vehicleItem.getVehicleModel());
+                mVinText.setText(vehicleItem.getVehicleVin());
 
                 /*
                  * If the vehicle is a car, truck, motorcycle, etc., there will be a license plate
@@ -292,28 +304,24 @@ public class VehicleDetailFragment extends DialogFragment {
                  * vehicle, we need to hide the license plate and license plate renewal date fields.
                  */
                 if (vehicleItem.getVehicleType()==0) {
-                    ((EditText) rootView.findViewById(R.id.vehicleLicensePlateEditText))
-                            .setText(vehicleItem.getVehicleLp());
-                    Button btnSetLpRenewalDateEdit = (Button) rootView
-                            .findViewById(R.id.vehicleLpRenewalDateButton);
-                    btnSetLpRenewalDateEdit.setOnClickListener(new View.OnClickListener() {
+                    mLpText.setText(vehicleItem.getVehicleLp());
+                    mLpRenewDateButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             showCustomDatePicker(VehiclesTable.COL_VEHICLE_REN_DATE);
                         }
                     });
-                    btnSetLpRenewalDateEdit.setText(dateConversionHelper
+                    mLpRenewDateButton.setText(dateConversionHelper
                             .getYearMonthAsString(vehicleItem.getVehicleLpRenewalDate()));
                 } else {
-                    (rootView.findViewById(R.id.lpRenewalDateEditContainer)).setVisibility(View.GONE);
-                    (rootView.findViewById(R.id.lpEditContainer)).setVisibility(View.GONE);
+                    mLpRenewDateContainer.setVisibility(View.GONE);
+                    mLpContainer.setVisibility(View.GONE);
                 }
 
                 // Don't set the text if there isn't any saved text
                 if (vehicleItem.getVehicleNotes() != null &&
                         vehicleItem.getVehicleNotes().length() > 0) {
-                    ((EditText) rootView.findViewById(R.id.vehNotesEditText))
-                            .setText(vehicleItem.getVehicleNotes());
+                    mNotesText.setText(vehicleItem.getVehicleNotes());
                 }
 
                 break;
@@ -445,27 +453,8 @@ public class VehicleDetailFragment extends DialogFragment {
      */
     private void showCustomDatePicker(String dateField){
 
-        VehicleItem item = null;
-        // If in create mode or either date fields are empty, set VehicleItem to null; else set
-        // VehicleItem to existing vehicleItem. This allows the original date in the DatePickers
-        // to be set to current date if null or the saved date if available.
-        switch (mMode){
-            case DETAIL_IN_CREATE_MODE:
-                item = null;
-                break;
-            case DETAIL_IN_EDIT_MODE:
-                if ((dateField == VehiclesTable.COL_VEHICLE_YEAR &&
-                        vehicleItem.getVehicleYear() > 0) || (dateField ==
-                        VehiclesTable.COL_VEHICLE_REN_DATE) &&
-                    vehicleItem.getVehicleLpRenewalDate() > 0) {
-                    item = vehicleItem;
-                } else {
-                    item = null;
-                }
-        }
-
         CustomDatePickerDialogFragment customDatePickerDialogFragment =
-                CustomDatePickerDialogFragment.newInstance(item, dateField);
+                CustomDatePickerDialogFragment.newInstance(vehicleItem, dateField);
 
         customDatePickerDialogFragment.show(getFragmentManager(), "Custom Date Picker");
     }
@@ -477,7 +466,7 @@ public class VehicleDetailFragment extends DialogFragment {
      * @param year: the year in string form
      */
     public void updateVehicleYear(long epochYear, String year){
-        ((Button) rootView.findViewById(R.id.vehicleYearButton)).setText(year);
+        mVehYearButton.setText(year);
         vehicleItem.setVehicleYear(epochYear);
     }
 
@@ -488,7 +477,7 @@ public class VehicleDetailFragment extends DialogFragment {
      * @param monthYear: the date in string form
      */
     public void updateVehicleLpRenewalDate(long epochMonthYear, String monthYear){
-        ((Button) rootView.findViewById(R.id.vehicleLpRenewalDateButton)).setText(monthYear);
+        mLpRenewDateButton.setText(monthYear);
         vehicleItem.setVehicleLpRenewalDate(epochMonthYear);
     }
 
@@ -510,11 +499,68 @@ public class VehicleDetailFragment extends DialogFragment {
         try {
             InputStream inputStream = getContext().getAssets().open(image);
             Drawable drawable = Drawable.createFromStream(inputStream, null);
-            ((ImageButton) rootView.findViewById(R.id.vehicleImageButton))
-                    .setImageDrawable(drawable);
+            mVehImageButton.setImageDrawable(drawable);
             vehicleItem.setVehicleImage(image);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void finishEditing() {
+        //TODO: handle blank entries
+        //TODO: handle VehicleModOrder
+        vehicleItem.setVehicleMake(mMakeText.getText().toString().trim());
+        vehicleItem.setVehicleModel(mModelText.getText().toString().trim());
+        vehicleItem.setVehicleVin(mVinText.getText().toString().trim());
+        vehicleItem.setVehicleLp(mLpText.getText().toString().trim());
+        vehicleItem.setVehicleNotes(mNotesText.getText().toString().trim());
+
+        ContentValues values = new ContentValues();
+        values.put(VehiclesTable.COL_VEHICLE_TYPE, vehicleItem.getVehicleType());
+        values.put(VehiclesTable.COL_VEHICLE_MAKE, vehicleItem.getVehicleMake());
+        values.put(VehiclesTable.COL_VEHICLE_MODEL, vehicleItem.getVehicleModel());
+        values.put(VehiclesTable.COL_VEHICLE_YEAR, vehicleItem.getVehicleYear());
+        values.put(VehiclesTable.COL_VEHICLE_VIN, vehicleItem.getVehicleVin());
+        values.put(VehiclesTable.COL_VEHICLE_LP, vehicleItem.getVehicleLp());
+        values.put(VehiclesTable.COL_VEHICLE_REN_DATE, vehicleItem.getVehicleLpRenewalDate());
+        values.put(VehiclesTable.COL_VEHICLE_IMAGE, vehicleItem.getVehicleImage());
+        values.put(VehiclesTable.COL_VEHICLE_TD_EFF, vehicleItem.getVehicleTdEfficiency());
+        values.put(VehiclesTable.COL_VEHICLE_NOTE, vehicleItem.getVehicleNotes());
+        values.put(VehiclesTable.COL_VEHICLE_MODIFIED_ORDER, vehicleItem.getVehicleModOrder());
+
+        switch (mMode){
+            case DETAIL_IN_EDIT_MODE:
+                updateVehicle(values);
+                break;
+            case DETAIL_IN_CREATE_MODE:
+                insertVehicle(values);
+                break;
+        }
+    }
+
+    /**
+     * Class that will update an existing vehicle in the database through the content provider
+     * @param values the vehicle item content values
+     */
+    private void updateVehicle(ContentValues values) {
+        //TODO: correct this
+        getContext().getContentResolver().update(VehicleLogContentProvider.VEHICLE_CONTENT_URI,
+                values, VehiclesTable.COL_VEHICLE_ID+"="+vehicleItem.getVehicleId(),null);
+    }
+
+    /**
+     * Class that will add a vehicle to the database through the content provider
+     * @param values the vehicle item content values
+     */
+    private void insertVehicle(ContentValues values) {
+        getContext().getContentResolver()
+                .insert(VehicleLogContentProvider.VEHICLE_CONTENT_URI, values);
+    }
+
+    private void deleteVehicle(int vehicleId) {
+        //TODO: this also needs to delete any entries for this vehicle
+        getContext().getContentResolver()
+                .delete(VehicleLogContentProvider.VEHICLE_CONTENT_URI,
+                        VehiclesTable.COL_VEHICLE_ID+"="+vehicleId,null);
     }
 }

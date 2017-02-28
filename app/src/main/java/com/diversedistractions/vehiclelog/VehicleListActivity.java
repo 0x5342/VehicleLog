@@ -137,28 +137,6 @@ public class VehicleListActivity extends AppCompatActivity
     }
 
     /**
-     * Class that will receive a vehicle and add it to the database through the content provider
-     * @param vehicleItem the parcelable vehicle item
-     */
-    private void insertVehicle(VehicleItem vehicleItem) {
-        ContentValues values = new ContentValues();
-        values.put(VehiclesTable.COL_VEHICLE_TYPE, vehicleItem.getVehicleType());
-        values.put(VehiclesTable.COL_VEHICLE_MAKE, vehicleItem.getVehicleMake());
-        values.put(VehiclesTable.COL_VEHICLE_MODEL, vehicleItem.getVehicleModel());
-        values.put(VehiclesTable.COL_VEHICLE_YEAR, vehicleItem.getVehicleYear());
-        values.put(VehiclesTable.COL_VEHICLE_VIN, vehicleItem.getVehicleVin());
-        values.put(VehiclesTable.COL_VEHICLE_LP, vehicleItem.getVehicleLp());
-        values.put(VehiclesTable.COL_VEHICLE_REN_DATE, vehicleItem.getVehicleLpRenewalDate());
-        values.put(VehiclesTable.COL_VEHICLE_IMAGE, vehicleItem.getVehicleImage());
-        values.put(VehiclesTable.COL_VEHICLE_TD_EFF, vehicleItem.getVehicleTdEfficiency());
-        values.put(VehiclesTable.COL_VEHICLE_NOTE, vehicleItem.getVehicleNotes());
-        values.put(VehiclesTable.COL_VEHICLE_MODIFIED_ORDER, vehicleItem.getVehicleModOrder());
-        Uri vehicleUri = getContentResolver()
-                .insert(VehicleLogContentProvider.VEHICLE_CONTENT_URI, values);
-        Log.d("VehicleListActivity", "Inserted vehicle " + vehicleUri.getLastPathSegment());
-    }
-
-    /**
      * Create the menu
      * @param menu
      * @return
