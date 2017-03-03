@@ -2,7 +2,6 @@ package com.diversedistractions.vehiclelog;
 
 import android.Manifest;
 import android.app.LoaderManager;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
@@ -23,7 +22,6 @@ import android.support.v4.widget.CursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -35,7 +33,6 @@ import android.widget.Toast;
 
 import com.diversedistractions.vehiclelog.database.VehicleLogContentProvider;
 import com.diversedistractions.vehiclelog.database.VehiclesTable;
-import com.diversedistractions.vehiclelog.models.VehicleItem;
 import com.diversedistractions.vehiclelog.utilities.DateConversionHelper;
 
 import java.io.IOException;

@@ -7,8 +7,6 @@ import android.os.Parcelable;
 
 import com.diversedistractions.vehiclelog.database.VehiclesTable;
 
-import java.util.UUID;
-
 public class VehicleItem implements Parcelable {
 
     private int vehicleId;

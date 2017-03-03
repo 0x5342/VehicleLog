@@ -2,7 +2,6 @@ package com.diversedistractions.vehiclelog.utilities;
 
 import android.content.Context;
 import android.os.Environment;
-import android.util.Log;
 
 import com.diversedistractions.vehiclelog.models.VehicleItem;
 import com.google.gson.Gson;

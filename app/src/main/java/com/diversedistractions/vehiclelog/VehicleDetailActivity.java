@@ -2,21 +2,16 @@ package com.diversedistractions.vehiclelog;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.diversedistractions.vehiclelog.database.VehiclesTable;
 import com.diversedistractions.vehiclelog.models.VehicleItem;
@@ -26,9 +21,6 @@ import com.diversedistractions.vehiclelog.utilities.IconFromAssetsFragment;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-
-import static android.R.attr.bitmap;
-import static android.support.v7.appcompat.R.id.image;
 
 /**
  * An activity representing a single Vehicle detail screen. This
@@ -64,6 +56,7 @@ public class VehicleDetailActivity extends AppCompatActivity
                 @Override
                 public void onClick(View view) {
                     // Replace the VehicleDetailFragment in view mode with it in edit mode.
+                    mMode = VehicleDetailFragment.DETAIL_IN_EDIT_MODE;
                     Bundle arguments = new Bundle();
                     arguments.putParcelable(VehicleDetailFragment.ARG_ITEM_URI, mVehicleUri);
                     arguments.putInt(VehicleDetailFragment.DETAIL_MODE,
@@ -251,9 +244,12 @@ public class VehicleDetailActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed(){
-        // Get a reference to the vehicle detail fragment in order to update the values
-        VehicleDetailFragment vdf_obj = (VehicleDetailFragment)getSupportFragmentManager()
-                .findFragmentById(R.id.vehicle_detail_container);
-        vdf_obj.finishEditing();
+        if (mMode != VehicleDetailFragment.DETAIL_IN_VIEW_MODE) {
+            // Get a reference to the vehicle detail fragment in order to update the values
+            VehicleDetailFragment vdf_obj = (VehicleDetailFragment)getSupportFragmentManager()
+                    .findFragmentById(R.id.vehicle_detail_container);
+            vdf_obj.finishEditing();
+        }
+        finish();
     }
 }
