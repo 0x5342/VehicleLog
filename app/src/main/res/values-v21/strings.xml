@@ -82,4 +82,5 @@
     <string name="choose_image_on_phone">Choose an image on the device</string>
     <string name="take_a_photo">Take a photo</string>
     <string name="ok">OK</string>
+    <string name="delete_vehicle">Delete vehicle</string>
 </resources>

@@ -106,22 +106,24 @@ public class VehicleDetailFragment extends DialogFragment {
 
         // When the fragment is not launched by an intent, and therefore VehicleDetailActivity won't
         // hide this button in all but view mode, this will allow the button to be hidden.
-        FloatingActionButton fab = (FloatingActionButton) activity.findViewById(R.id.fab);
-        if (mMode != VehicleDetailFragment.DETAIL_IN_VIEW_MODE) {
-            fab.setVisibility(View.INVISIBLE);
-        }
+        FloatingActionButton fabDelete = (FloatingActionButton) activity.findViewById(R.id.fabDelete);
+        FloatingActionButton fabEdit = (FloatingActionButton) activity.findViewById(R.id.fabEdit);
 
         // Set the title in the appBar (if active) to match whether creating, viewing, or editing.
         if (appBarLayout != null) {
             switch (mMode){
-                case 0:
+                case VehicleDetailFragment.DETAIL_IN_CREATE_MODE:
                     appBarLayout.setTitle(getString(R.string.new_vehicle));
+                    fabEdit.setVisibility(View.INVISIBLE);
+                    fabDelete.setVisibility(View.INVISIBLE);
                     break;
-                case 1:
+                case VehicleDetailFragment.DETAIL_IN_VIEW_MODE:
                     appBarLayout.setTitle(getString(R.string.view_vehicle));
                     break;
-                case 2:
+                case VehicleDetailFragment.DETAIL_IN_EDIT_MODE:
                     appBarLayout.setTitle(getString(R.string.edit_vehicle));
+                    fabEdit.setVisibility(View.INVISIBLE);
+                    break;
             }
         }
     }
@@ -420,12 +422,12 @@ public class VehicleDetailFragment extends DialogFragment {
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_ID)));
             vehicleItem.setVehicleType(cursor.getInt
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_TYPE)));
+            vehicleItem.setVehicleYear(cursor.getLong
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_YEAR)));
             vehicleItem.setVehicleMake(cursor.getString
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MAKE)));
             vehicleItem.setVehicleModel(cursor.getString
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MODEL)));
-            vehicleItem.setVehicleYear(cursor.getLong
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_YEAR)));
             vehicleItem.setVehicleVin(cursor.getString
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_VIN)));
             vehicleItem.setVehicleLp(cursor.getString

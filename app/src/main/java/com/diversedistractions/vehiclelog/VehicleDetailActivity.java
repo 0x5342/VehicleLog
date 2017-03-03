@@ -50,9 +50,9 @@ public class VehicleDetailActivity extends AppCompatActivity
         Intent intent = getIntent();
         mVehicleUri = intent.getParcelableExtra(VehicleDetailFragment.ARG_ITEM_URI);
         mMode = intent.getIntExtra(VehicleDetailFragment.DETAIL_MODE, 0);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fabEdit = (FloatingActionButton) findViewById(R.id.fabEdit);
         if (mMode == VehicleDetailFragment.DETAIL_IN_VIEW_MODE) {
-            fab.setOnClickListener(new View.OnClickListener() {
+            fabEdit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     // Replace the VehicleDetailFragment in view mode with it in edit mode.
@@ -69,7 +69,7 @@ public class VehicleDetailActivity extends AppCompatActivity
                 }
             });
         } else {
-            fab.setVisibility(View.INVISIBLE);
+            fabEdit.setVisibility(View.INVISIBLE);
         }
 
         // Show the Up button in the action bar.

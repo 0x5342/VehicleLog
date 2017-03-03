@@ -94,7 +94,7 @@ public class VehicleListActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabDelete);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -382,6 +382,37 @@ public class VehicleListActivity extends AppCompatActivity
 
                         context.startActivity(intent);
                     }
+                }
+            });
+
+            holder.view.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+
+                    String vYear = "";
+                    String vMake = "";
+                    String vModel = "";
+
+                    // Get the item id from the view's tag
+                    int vehicleSelected = (Integer) v.getTag();
+                    // Set the URI to the selected vehicle's id
+                    Uri vehicleUri = Uri.parse(VehicleLogContentProvider.
+                            VEHICLE_CONTENT_URI + "/" + vehicleSelected);
+
+                    Cursor cursor = mContext.getContentResolver().query
+                            (vehicleUri, null, null, null, null, null);
+
+                    if (cursor != null) {
+                        cursor.moveToFirst();
+                        vYear = dateConversionHelper.getYearAsString(cursor
+                                .getLong(cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_YEAR)));
+                        vMake = cursor.getString
+                                (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MAKE));
+                        vModel = cursor.getString
+                                (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MODEL));
+                    }
+                    //TODO: show a dialog fragment that asks user to verify deletion
+                    return false;
                 }
             });
         }
