@@ -82,4 +82,7 @@
     <string name="take_a_photo">Take a photo</string>
     <string name="ok">OK</string>
     <string name="delete_vehicle">Delete vehicle</string>
+    <string name="confirm_delete">Confirm Delete</string>
+    <string name="sure_want_to_delete">Are you sure you want to delete:</string>
+    <string name="delete">DELETE</string>
 </resources>

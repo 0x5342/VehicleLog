@@ -29,9 +29,10 @@ import java.util.Locale;
  * in a {@link VehicleListActivity}.
  */
 public class VehicleDetailActivity extends AppCompatActivity
-        implements CustomDatePickerDialogFragment.CustomDatePickerListener
-        ,VehicleImageChoiceFragment.OnVehicleImageChoiceFragmentInteractionListener
-,IconFromAssetsFragment.OnListFragmentInteractionListener{
+        implements CustomDatePickerDialogFragment.CustomDatePickerListener,
+        VehicleImageChoiceFragment.OnVehicleImageChoiceFragmentInteractionListener,
+        IconFromAssetsFragment.OnListFragmentInteractionListener,
+        ConfirmDeleteDialogFragment.ConfirmationListener{
 
     public static final int CHOOSE_APP_ICON = 1;
     public static final int CHOOSE_IMAGE_ON_DEVICE = 2;
@@ -50,26 +51,43 @@ public class VehicleDetailActivity extends AppCompatActivity
         Intent intent = getIntent();
         mVehicleUri = intent.getParcelableExtra(VehicleDetailFragment.ARG_ITEM_URI);
         mMode = intent.getIntExtra(VehicleDetailFragment.DETAIL_MODE, 0);
+        FloatingActionButton fabDelete = (FloatingActionButton) findViewById(R.id.fabDelete);
         FloatingActionButton fabEdit = (FloatingActionButton) findViewById(R.id.fabEdit);
-        if (mMode == VehicleDetailFragment.DETAIL_IN_VIEW_MODE) {
-            fabEdit.setOnClickListener(new View.OnClickListener() {
+        // When in create mode, hide both the edit and delete FABs.
+        // When not in create mode, display the delete FAB.
+        // When in view mode, also display the edit FAB.
+        if (mMode == VehicleDetailFragment.DETAIL_IN_CREATE_MODE){
+            fabEdit.setVisibility(View.INVISIBLE);
+            fabDelete.setVisibility(View.INVISIBLE);
+        } else {
+            fabDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
-                    // Replace the VehicleDetailFragment in view mode with it in edit mode.
-                    mMode = VehicleDetailFragment.DETAIL_IN_EDIT_MODE;
-                    Bundle arguments = new Bundle();
-                    arguments.putParcelable(VehicleDetailFragment.ARG_ITEM_URI, mVehicleUri);
-                    arguments.putInt(VehicleDetailFragment.DETAIL_MODE,
-                            VehicleDetailFragment.DETAIL_IN_EDIT_MODE);
-                    VehicleDetailFragment fragment = new VehicleDetailFragment();
-                    fragment.setArguments(arguments);
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.vehicle_detail_container, fragment)
-                            .commit();
+                public void onClick(View v) {
+                    VehicleDetailFragment vdf_obj = (VehicleDetailFragment)getSupportFragmentManager()
+                            .findFragmentById(R.id.vehicle_detail_container);
+                    vdf_obj.showConfirmDeleteDialog();
                 }
             });
-        } else {
-            fabEdit.setVisibility(View.INVISIBLE);
+            if (mMode == VehicleDetailFragment.DETAIL_IN_VIEW_MODE) {
+                fabEdit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // Replace the VehicleDetailFragment in view mode with it in edit mode.
+                        mMode = VehicleDetailFragment.DETAIL_IN_EDIT_MODE;
+                        Bundle arguments = new Bundle();
+                        arguments.putParcelable(VehicleDetailFragment.ARG_ITEM_URI, mVehicleUri);
+                        arguments.putInt(VehicleDetailFragment.DETAIL_MODE,
+                                VehicleDetailFragment.DETAIL_IN_EDIT_MODE);
+                        VehicleDetailFragment fragment = new VehicleDetailFragment();
+                        fragment.setArguments(arguments);
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.vehicle_detail_container, fragment)
+                                .commit();
+                    }
+                });
+            } else {
+                fabEdit.setVisibility(View.INVISIBLE);
+            }
         }
 
         // Show the Up button in the action bar.
@@ -174,6 +192,16 @@ public class VehicleDetailActivity extends AppCompatActivity
                 break;
             case TAKE_PHOTO:
                 break;
+        }
+    }
+
+    // interface from ConfirmDeleteDialogFragment
+    public void onConfirmVehicleDeleteInteraction(boolean choice) {
+        if (choice) {
+            VehicleDetailFragment vdf_obj = (VehicleDetailFragment)getSupportFragmentManager()
+                    .findFragmentById(R.id.vehicle_detail_container);
+            vdf_obj.deleteVehicle();
+            finish();
         }
     }
 

@@ -364,15 +364,16 @@ public class VehicleListActivity extends AppCompatActivity
                             VEHICLE_CONTENT_URI + "/" + vehicleSelected);
 
                     if (mTwoPane) {
-                        Bundle arguments = new Bundle();
-                        arguments.putParcelable(VehicleDetailFragment.ARG_ITEM_URI, vehicleUri);
-                        arguments.putInt(VehicleDetailFragment.DETAIL_MODE,
-                                VehicleDetailFragment.DETAIL_IN_VIEW_MODE);
-                        VehicleDetailFragment fragment = new VehicleDetailFragment();
-                        fragment.setArguments(arguments);
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.vehicle_detail_container, fragment)
-                                .commit();
+                        //TODO: need to rework two pane mode
+//                        Bundle arguments = new Bundle();
+//                        arguments.putParcelable(VehicleDetailFragment.ARG_ITEM_URI, vehicleUri);
+//                        arguments.putInt(VehicleDetailFragment.DETAIL_MODE,
+//                                VehicleDetailFragment.DETAIL_IN_VIEW_MODE);
+//                        VehicleDetailFragment fragment = new VehicleDetailFragment();
+//                        fragment.setArguments(arguments);
+//                        getSupportFragmentManager().beginTransaction()
+//                                .replace(R.id.vehicle_detail_container, fragment)
+//                                .commit();
                     } else {
                         Context context = v.getContext();
                         Intent intent = new Intent(context, VehicleDetailActivity.class);
