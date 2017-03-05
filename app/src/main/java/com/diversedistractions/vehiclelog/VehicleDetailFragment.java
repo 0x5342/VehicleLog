@@ -27,6 +27,7 @@ import com.diversedistractions.vehiclelog.database.VehiclesTable;
 import com.diversedistractions.vehiclelog.models.VehicleItem;
 import com.diversedistractions.vehiclelog.utilities.CustomDatePickerDialogFragment;
 import com.diversedistractions.vehiclelog.utilities.DateConversionHelper;
+import com.diversedistractions.vehiclelog.utilities.VehicleModOrderTool;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -546,9 +547,11 @@ public class VehicleDetailFragment extends DialogFragment {
      * @param values the vehicle item content values
      */
     private void updateVehicle(ContentValues values) {
-        //TODO: correct this
         getContext().getContentResolver().update(VehicleLogContentProvider.VEHICLE_CONTENT_URI,
                 values, VehiclesTable.COL_VEHICLE_ID+"="+vehicleItem.getVehicleId(),null);
+        Uri uri = Uri.parse(VehicleLogContentProvider.VEHICLE_CONTENT_URI+"/"+vehicleItem.getVehicleId());
+        VehicleModOrderTool vehicleModOrderTool = new VehicleModOrderTool(getContext());
+        vehicleModOrderTool.RenumberVehicleModOrder(uri);
     }
 
     /**
@@ -556,14 +559,18 @@ public class VehicleDetailFragment extends DialogFragment {
      * @param values the vehicle item content values
      */
     private void insertVehicle(ContentValues values) {
-        getContext().getContentResolver()
+        Uri uri = getContext().getContentResolver()
                 .insert(VehicleLogContentProvider.VEHICLE_CONTENT_URI, values);
+        VehicleModOrderTool vehicleModOrderTool = new VehicleModOrderTool(getContext());
+        vehicleModOrderTool.RenumberVehicleModOrder(uri);
     }
 
     public void deleteVehicle() {
         getContext().getContentResolver()
                 .delete(VehicleLogContentProvider.VEHICLE_CONTENT_URI,
                         VehiclesTable.COL_VEHICLE_ID+"="+vehicleItem.getVehicleId(),null);
+        VehicleModOrderTool vehicleModOrderTool = new VehicleModOrderTool(getContext());
+        vehicleModOrderTool.RenumberVehicleModOrder(null);
     }
 
     public void showConfirmDeleteDialog() {
