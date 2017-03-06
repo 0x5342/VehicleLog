@@ -45,7 +45,6 @@ public class VehicleDetailFragment extends DialogFragment {
     public static final int DETAIL_IN_CREATE_MODE = 0;
     public static final int DETAIL_IN_VIEW_MODE = 1;
     public static final int DETAIL_IN_EDIT_MODE = 2;
-    private static final int CONFIRM_DELETE_DIALOG = 21;
     DateConversionHelper dateConversionHelper;
     View rootView = null;
     VehicleItem vehicleItem = new VehicleItem();
@@ -578,7 +577,6 @@ public class VehicleDetailFragment extends DialogFragment {
     public void showConfirmDeleteDialog() {
         ConfirmDeleteDialogFragment confirmDeleteDialogFragment =
                 ConfirmDeleteDialogFragment.newInstance(vehicleItem);
-        confirmDeleteDialogFragment.setTargetFragment(this, CONFIRM_DELETE_DIALOG);
         confirmDeleteDialogFragment.setCancelable(false);
         confirmDeleteDialogFragment.show(getFragmentManager(), "CONFIRM_DELETE");
     }

@@ -34,7 +34,9 @@ import android.widget.Toast;
 
 import com.diversedistractions.vehiclelog.database.VehicleLogContentProvider;
 import com.diversedistractions.vehiclelog.database.VehiclesTable;
+import com.diversedistractions.vehiclelog.models.VehicleItem;
 import com.diversedistractions.vehiclelog.utilities.DateConversionHelper;
+import com.diversedistractions.vehiclelog.utilities.VehicleModOrderTool;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -49,7 +51,8 @@ import java.io.InputStream;
  * item details side-by-side using two vertical panes.
  */
 public class VehicleListActivity extends AppCompatActivity
-        implements LoaderManager.LoaderCallbacks<Cursor> {
+        implements LoaderManager.LoaderCallbacks<Cursor>,
+        ConfirmDeleteDialogFragment.ConfirmationListener{
 
     private static final int REQUEST_PERMISSION_WRITE = 1001;
     private static final int VEHICLE_DETAIL_REQUEST_CODE = 2112;
@@ -65,7 +68,7 @@ public class VehicleListActivity extends AppCompatActivity
     private CursorAdapter mCursorAdapter;
     private String sortByField;
     DateConversionHelper dateConversionHelper;
-
+    VehicleItem vehicleItem = new VehicleItem();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -230,6 +233,19 @@ public class VehicleListActivity extends AppCompatActivity
         mCursorAdapter.swapCursor(null);
     }
 
+    // interface from ConfirmDeleteDialogFragment
+    @Override
+    public void onConfirmVehicleDeleteInteraction(boolean choice) {
+        if (choice) {
+            getContentResolver().delete(VehicleLogContentProvider.VEHICLE_CONTENT_URI,
+                            VehiclesTable.COL_VEHICLE_ID+"="+vehicleItem.getVehicleId(),null);
+            VehicleModOrderTool vehicleModOrderTool = new VehicleModOrderTool(this);
+            vehicleModOrderTool.RenumberVehicleModOrder(null);
+            finish();
+            startActivity(getIntent());
+        }
+    }
+
     /**
      * //TODO: description
      */
@@ -374,18 +390,6 @@ public class VehicleListActivity extends AppCompatActivity
                     Uri vehicleUri = Uri.parse(VehicleLogContentProvider.
                             VEHICLE_CONTENT_URI + "/" + vehicleSelected);
 
-                    if (mTwoPane) {
-                        //TODO: need to rework two pane mode
-//                        Bundle arguments = new Bundle();
-//                        arguments.putParcelable(VehicleDetailFragment.ARG_ITEM_URI, vehicleUri);
-//                        arguments.putInt(VehicleDetailFragment.DETAIL_MODE,
-//                                VehicleDetailFragment.DETAIL_IN_VIEW_MODE);
-//                        VehicleDetailFragment fragment = new VehicleDetailFragment();
-//                        fragment.setArguments(arguments);
-//                        getSupportFragmentManager().beginTransaction()
-//                                .replace(R.id.vehicle_detail_container, fragment)
-//                                .commit();
-                    } else {
                         Context context = v.getContext();
                         Intent intent = new Intent(context, VehicleDetailActivity.class);
                         intent.putExtra(VehicleDetailFragment.ARG_ITEM_URI, vehicleUri);
@@ -393,7 +397,6 @@ public class VehicleListActivity extends AppCompatActivity
                                 VehicleDetailFragment.DETAIL_IN_VIEW_MODE);
 
                         startActivityForResult(intent, VEHICLE_DETAIL_REQUEST_CODE);
-                    }
                 }
             });
 
@@ -401,30 +404,32 @@ public class VehicleListActivity extends AppCompatActivity
                 @Override
                 public boolean onLongClick(View v) {
 
-                    String vYear = "";
-                    String vMake = "";
-                    String vModel = "";
-
                     // Get the item id from the view's tag
                     int vehicleSelected = (Integer) v.getTag();
                     // Set the URI to the selected vehicle's id
-                    Uri vehicleUri = Uri.parse(VehicleLogContentProvider.
+                    Uri vehicleToDeleteUri = Uri.parse(VehicleLogContentProvider.
                             VEHICLE_CONTENT_URI + "/" + vehicleSelected);
 
                     Cursor cursor = mContext.getContentResolver().query
-                            (vehicleUri, null, null, null, null, null);
+                            (vehicleToDeleteUri, null, null, null, null, null);
 
                     if (cursor != null) {
                         cursor.moveToFirst();
-                        vYear = dateConversionHelper.getYearAsString(cursor
-                                .getLong(cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_YEAR)));
-                        vMake = cursor.getString
-                                (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MAKE));
-                        vModel = cursor.getString
-                                (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MODEL));
+                        vehicleItem.setVehicleId(cursor.getInt
+                                (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_ID)));
+                        vehicleItem.setVehicleYear(cursor.getLong
+                                (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_YEAR)));
+                        vehicleItem.setVehicleMake(cursor.getString
+                                (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MAKE)));
+                        vehicleItem.setVehicleModel(cursor.getString
+                                (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MODEL)));
+                        cursor.close();
                     }
-                    //TODO: show a dialog fragment that asks user to verify deletion
-                    return false;
+                    ConfirmDeleteDialogFragment confirmDeleteDialogFragment =
+                            ConfirmDeleteDialogFragment.newInstance(vehicleItem);
+                    confirmDeleteDialogFragment.setCancelable(false);
+                    confirmDeleteDialogFragment.show(getSupportFragmentManager(), "CONFIRM_DELETE");
+                    return true;
                 }
             });
         }
