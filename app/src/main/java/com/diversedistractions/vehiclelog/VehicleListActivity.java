@@ -1,6 +1,7 @@
 package com.diversedistractions.vehiclelog;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.LoaderManager;
 import android.content.Context;
 import android.content.CursorLoader;
@@ -51,6 +52,7 @@ public class VehicleListActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private static final int REQUEST_PERMISSION_WRITE = 1001;
+    private static final int VEHICLE_DETAIL_REQUEST_CODE = 2112;
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -131,6 +133,15 @@ public class VehicleListActivity extends AppCompatActivity
         }
 
         getLoaderManager().initLoader(0, null, this);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == VEHICLE_DETAIL_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            // doing this because I couldn't get notifyDataSetChanged to work
+            finish();
+            startActivity(getIntent());
+        }
     }
 
     /**
@@ -381,7 +392,7 @@ public class VehicleListActivity extends AppCompatActivity
                         intent.putExtra(VehicleDetailFragment.DETAIL_MODE,
                                 VehicleDetailFragment.DETAIL_IN_VIEW_MODE);
 
-                        context.startActivity(intent);
+                        startActivityForResult(intent, VEHICLE_DETAIL_REQUEST_CODE);
                     }
                 }
             });

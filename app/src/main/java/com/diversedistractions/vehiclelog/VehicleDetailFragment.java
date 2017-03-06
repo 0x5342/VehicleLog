@@ -108,7 +108,7 @@ public class VehicleDetailFragment extends DialogFragment {
 
         // When the fragment is not launched by an intent, and therefore VehicleDetailActivity won't
         // hide this button in all but view mode, this will allow the button to be hidden.
-        FloatingActionButton fabDelete = (FloatingActionButton) activity.findViewById(R.id.fabDelete);
+        FloatingActionButton fabDelete =(FloatingActionButton)activity.findViewById(R.id.fabDelete);
         FloatingActionButton fabEdit = (FloatingActionButton) activity.findViewById(R.id.fabEdit);
 
         // Set the title in the appBar (if active) to match whether creating, viewing, or editing.
@@ -161,7 +161,7 @@ public class VehicleDetailFragment extends DialogFragment {
                 mLpText = (EditText) rootView.findViewById(R.id.vehicleLicensePlateEditText);
                 mLpRenewDateContainer = (LinearLayout) rootView.
                         findViewById(R.id.lpRenewalDateEditContainer);
-                mLpRenewDateButton = (Button) rootView.findViewById(R.id.vehicleLpRenewalDateButton);
+                mLpRenewDateButton = (Button)rootView.findViewById(R.id.vehicleLpRenewalDateButton);
                 mNotesText = (EditText) rootView.findViewById(R.id.vehNotesEditText);
 
                 mVehImageButton.setOnClickListener(new View.OnClickListener() {
@@ -234,7 +234,7 @@ public class VehicleDetailFragment extends DialogFragment {
                 mLpText = (EditText) rootView.findViewById(R.id.vehicleLicensePlateEditText);
                 mLpRenewDateContainer = (LinearLayout) rootView.
                         findViewById(R.id.lpRenewalDateEditContainer);
-                mLpRenewDateButton = (Button) rootView.findViewById(R.id.vehicleLpRenewalDateButton);
+                mLpRenewDateButton = (Button)rootView.findViewById(R.id.vehicleLpRenewalDateButton);
                 mNotesText = (EditText) rootView.findViewById(R.id.vehNotesEditText);
 
                 mVehImageButton.setOnClickListener(new View.OnClickListener() {
@@ -384,7 +384,8 @@ public class VehicleDetailFragment extends DialogFragment {
                             .setText(dateConversionHelper.getYearMonthAsString
                                     (vehicleItem.getVehicleLpRenewalDate()));
                 } else {
-                    (rootView.findViewById(R.id.lpRenewalDateViewContainer)).setVisibility(View.GONE);
+                    (rootView.findViewById(R.id.lpRenewalDateViewContainer))
+                            .setVisibility(View.GONE);
                     (rootView.findViewById(R.id.lpViewContainer)).setVisibility(View.GONE);
                 }
 
@@ -549,7 +550,8 @@ public class VehicleDetailFragment extends DialogFragment {
     private void updateVehicle(ContentValues values) {
         getContext().getContentResolver().update(VehicleLogContentProvider.VEHICLE_CONTENT_URI,
                 values, VehiclesTable.COL_VEHICLE_ID+"="+vehicleItem.getVehicleId(),null);
-        Uri uri = Uri.parse(VehicleLogContentProvider.VEHICLE_CONTENT_URI+"/"+vehicleItem.getVehicleId());
+        Uri uri = Uri.parse(VehicleLogContentProvider.VEHICLE_CONTENT_URI+
+                "/"+vehicleItem.getVehicleId());
         VehicleModOrderTool vehicleModOrderTool = new VehicleModOrderTool(getContext());
         vehicleModOrderTool.RenumberVehicleModOrder(uri);
     }

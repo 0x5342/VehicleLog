@@ -63,7 +63,7 @@ public class VehicleDetailActivity extends AppCompatActivity
             fabDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    VehicleDetailFragment vdf_obj = (VehicleDetailFragment)getSupportFragmentManager()
+                    VehicleDetailFragment vdf_obj=(VehicleDetailFragment)getSupportFragmentManager()
                             .findFragmentById(R.id.vehicle_detail_container);
                     vdf_obj.showConfirmDeleteDialog();
                 }
@@ -278,6 +278,7 @@ public class VehicleDetailActivity extends AppCompatActivity
                     .findFragmentById(R.id.vehicle_detail_container);
             vdf_obj.finishEditing();
         }
+        setResult(RESULT_OK);
         finish();
     }
 }
