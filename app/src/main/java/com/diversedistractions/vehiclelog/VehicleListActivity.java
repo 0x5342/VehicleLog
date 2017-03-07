@@ -118,7 +118,7 @@ public class VehicleListActivity extends AppCompatActivity
                     intent.putExtra(VehicleDetailFragment.DETAIL_MODE,
                             VehicleDetailFragment.DETAIL_IN_CREATE_MODE);
 
-                    context.startActivity(intent);
+                    startActivityForResult(intent, VEHICLE_DETAIL_REQUEST_CODE);
                 }
             }
         });
@@ -135,13 +135,13 @@ public class VehicleListActivity extends AppCompatActivity
             mTwoPane = true;
         }
 
-        getLoaderManager().initLoader(0, null, this);
+        getLoaderManager().restartLoader(0, null, this);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == VEHICLE_DETAIL_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            // doing this because I couldn't get notifyDataSetChanged to work
+            // doing this because I couldn't get restartLoader to work
             finish();
             startActivity(getIntent());
         }
@@ -316,8 +316,7 @@ public class VehicleListActivity extends AppCompatActivity
                     } else {
                         try {
                             InputStream inputStream = context.getAssets()
-                                    .open(VehiclesTable.VEHICLE_NO_ICON_FOLDER +
-                                            "vi_no_vehicle_image.png");
+                                    .open(VehiclesTable.VEHICLE_NO_ICON);
                             Drawable drawable = Drawable.createFromStream(inputStream, null);
                             ((ImageView) view.findViewById
                                     (R.id.vehicleImage)).setImageDrawable(drawable);
@@ -327,17 +326,6 @@ public class VehicleListActivity extends AppCompatActivity
                     }
                 }
             };
-        }
-
-        /**
-         * //TODO: description
-         * @param c
-         */
-        public void reQuery(Cursor c) {
-            if (mCursorAdapter != null) {
-                mCursorAdapter.changeCursor(c);
-                mCursorAdapter.notifyDataSetChanged();
-            }
         }
 
         /**

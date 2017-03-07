@@ -277,8 +277,11 @@ public class VehicleDetailActivity extends AppCompatActivity
             VehicleDetailFragment vdf_obj = (VehicleDetailFragment)getSupportFragmentManager()
                     .findFragmentById(R.id.vehicle_detail_container);
             vdf_obj.finishEditing();
+            setResult(RESULT_OK);
+            finish();
+        } else {
+            setResult(RESULT_CANCELED);
+            finish();
         }
-        setResult(RESULT_OK);
-        finish();
     }
 }

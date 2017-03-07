@@ -12,7 +12,7 @@ public class VehiclesTable {
     // Folder in assets where icons reside
     public static final String VEHICLE_ICONS_FOLDER = "icons/";
     // Folder in assets where no vehicle image icon resides
-    public static final String VEHICLE_NO_ICON_FOLDER = "no_icon/";
+    public static final String VEHICLE_NO_ICON = "no_icon/vi_no_vehicle_image.png";
 
     /*
      * Vehicle table column definitions

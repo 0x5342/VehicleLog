@@ -48,6 +48,7 @@ public class VehicleDetailFragment extends DialogFragment {
     DateConversionHelper dateConversionHelper;
     View rootView = null;
     VehicleItem vehicleItem = new VehicleItem();
+    VehicleItem vehicleItemOriginal = new VehicleItem();
     private ImageButton mVehImageButton;
     private Spinner mVehTypeSpinner;
     private Button mVehYearButton;
@@ -171,8 +172,7 @@ public class VehicleDetailFragment extends DialogFragment {
                 });
                 try {
                     InputStream inputStream = getContext().getAssets()
-                            .open(VehiclesTable.VEHICLE_NO_ICON_FOLDER +
-                                    "vi_no_vehicle_image.png");
+                            .open(VehiclesTable.VEHICLE_NO_ICON);
                     Drawable drawable = Drawable.createFromStream(inputStream, null);
                     mVehImageButton.setImageDrawable(drawable);
                 } catch (IOException e) {
@@ -194,6 +194,7 @@ public class VehicleDetailFragment extends DialogFragment {
                     public void onItemSelected(AdapterView<?> parent, View view,
                                                int position, long id) {
                         Spinner spinner = (Spinner) parent;
+                        vehicleItem.setVehicleType(spinner.getSelectedItemPosition());
                         if (spinner.getSelectedItemPosition() == 0) {
                             mLpRenewDateContainer.setVisibility(View.VISIBLE);
                             mLpContainer.setVisibility(View.VISIBLE);
@@ -255,8 +256,7 @@ public class VehicleDetailFragment extends DialogFragment {
                 } else {
                     try {
                         InputStream inputStream = getContext().getAssets()
-                                .open(VehiclesTable.VEHICLE_NO_ICON_FOLDER +
-                                        "vi_no_vehicle_image.png");
+                                .open(VehiclesTable.VEHICLE_NO_ICON);
                         Drawable drawable = Drawable.createFromStream(inputStream, null);
                         mVehImageButton.setImageDrawable(drawable);
                     } catch (IOException e) {
@@ -273,6 +273,7 @@ public class VehicleDetailFragment extends DialogFragment {
                     public void onItemSelected(AdapterView<?> parent, View view,
                                                int position, long id) {
                         Spinner spinner = (Spinner) parent;
+                        vehicleItem.setVehicleType(spinner.getSelectedItemPosition());
                         if (spinner.getSelectedItemPosition() == 0) {
                             mLpRenewDateContainer.setVisibility(View.VISIBLE);
                             mLpContainer.setVisibility(View.VISIBLE);
@@ -358,8 +359,7 @@ public class VehicleDetailFragment extends DialogFragment {
                 } else {
                     try {
                         InputStream inputStream = getContext().getAssets()
-                                .open(VehiclesTable.VEHICLE_NO_ICON_FOLDER +
-                                        "vi_no_vehicle_image.png");
+                                .open(VehiclesTable.VEHICLE_NO_ICON);
                         Drawable drawable = Drawable.createFromStream(inputStream, null);
                         ((ImageView) rootView.findViewById(R.id.vehicleImage))
                                 .setImageDrawable(drawable);
@@ -445,6 +445,32 @@ public class VehicleDetailFragment extends DialogFragment {
             vehicleItem.setVehicleModOrder(cursor.getInt
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MODIFIED_ORDER)));
 
+            vehicleItemOriginal.setVehicleId(cursor.getInt
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_ID)));
+            vehicleItemOriginal.setVehicleType(cursor.getInt
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_TYPE)));
+            vehicleItemOriginal.setVehicleYear(cursor.getLong
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_YEAR)));
+            vehicleItemOriginal.setVehicleMake(cursor.getString
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MAKE)));
+            vehicleItemOriginal.setVehicleModel(cursor.getString
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MODEL)));
+            vehicleItemOriginal.setVehicleVin(cursor.getString
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_VIN)));
+            vehicleItemOriginal.setVehicleLp(cursor.getString
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_LP)));
+            vehicleItemOriginal.setVehicleLpRenewalDate(cursor.getLong
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_REN_DATE)));
+            vehicleItemOriginal.setVehicleImage(cursor.getString
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_IMAGE)));
+            vehicleItemOriginal.setVehicleTdEfficiency(cursor.getString
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_TD_EFF)));
+            vehicleItemOriginal.setVehicleNotes(cursor.getString
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_NOTE)));
+            vehicleItemOriginal.setVehicleModOrder(cursor.getInt
+                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MODIFIED_ORDER)));
+
+
             cursor.close();
         }
     }
@@ -512,7 +538,6 @@ public class VehicleDetailFragment extends DialogFragment {
 
     public void finishEditing() {
         //TODO: handle blank entries
-        //TODO: handle VehicleModOrder
         vehicleItem.setVehicleMake(mMakeText.getText().toString().trim());
         vehicleItem.setVehicleModel(mModelText.getText().toString().trim());
         vehicleItem.setVehicleVin(mVinText.getText().toString().trim());
@@ -527,15 +552,37 @@ public class VehicleDetailFragment extends DialogFragment {
         values.put(VehiclesTable.COL_VEHICLE_VIN, vehicleItem.getVehicleVin());
         values.put(VehiclesTable.COL_VEHICLE_LP, vehicleItem.getVehicleLp());
         values.put(VehiclesTable.COL_VEHICLE_REN_DATE, vehicleItem.getVehicleLpRenewalDate());
-        values.put(VehiclesTable.COL_VEHICLE_IMAGE, vehicleItem.getVehicleImage());
+        if (vehicleItem.getVehicleImage()!=null) {
+            values.put(VehiclesTable.COL_VEHICLE_IMAGE, vehicleItem.getVehicleImage());
+        } else {
+            values.put(VehiclesTable.COL_VEHICLE_IMAGE, VehiclesTable.VEHICLE_NO_ICON);
+        }
         values.put(VehiclesTable.COL_VEHICLE_TD_EFF, vehicleItem.getVehicleTdEfficiency());
         values.put(VehiclesTable.COL_VEHICLE_NOTE, vehicleItem.getVehicleNotes());
         values.put(VehiclesTable.COL_VEHICLE_MODIFIED_ORDER, vehicleItem.getVehicleModOrder());
 
         switch (mMode){
             case DETAIL_IN_EDIT_MODE:
-                updateVehicle(values);
-                break;
+                if (vehicleItem.getVehicleType()==vehicleItemOriginal.getVehicleType() &&
+                        (vehicleItem.getVehicleMake()).equals
+                                (vehicleItemOriginal.getVehicleMake()) &&
+                        (vehicleItem.getVehicleModel()).equals
+                                (vehicleItemOriginal.getVehicleModel()) &&
+                        vehicleItem.getVehicleYear()==vehicleItemOriginal.getVehicleYear() &&
+                        (vehicleItem.getVehicleVin()).equals
+                                (vehicleItemOriginal.getVehicleVin()) &&
+                        (vehicleItem.getVehicleLp()).equals(vehicleItemOriginal.getVehicleLp()) &&
+                        vehicleItem.getVehicleLpRenewalDate()==
+                                        vehicleItemOriginal.getVehicleLpRenewalDate() &&
+                        (vehicleItem.getVehicleImage()).equals
+                                        (vehicleItemOriginal.getVehicleImage()) &&
+                        (vehicleItem.getVehicleNotes()).equals
+                                        (vehicleItemOriginal.getVehicleNotes())) {
+                    break;
+                } else {
+                    updateVehicle(values);
+                    break;
+                }
             case DETAIL_IN_CREATE_MODE:
                 insertVehicle(values);
                 break;
