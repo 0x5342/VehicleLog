@@ -25,7 +25,7 @@ public class VehicleModOrderTool {
         this.mContext = context;
     }
 
-    public void RenumberVehicleModOrder(Uri uri) {
+    public boolean RenumberVehicleModOrder(Uri uri) {
         int mNewModNum = 0;
         // if a valid URI was passed in (after a vehicle delete, this will be null)
         if (uri != null) {
@@ -84,6 +84,7 @@ public class VehicleModOrderTool {
             }
             cursor.close();
         }
+        return true;
     }
     private void updateVehicle(ContentValues values, int vehId) {
         mContext.getContentResolver().update(VehicleLogContentProvider.VEHICLE_CONTENT_URI,

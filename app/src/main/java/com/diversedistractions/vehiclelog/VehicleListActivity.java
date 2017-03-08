@@ -55,7 +55,6 @@ public class VehicleListActivity extends AppCompatActivity
         ConfirmDeleteDialogFragment.ConfirmationListener{
 
     private static final int REQUEST_PERMISSION_WRITE = 1001;
-    private static final int VEHICLE_DETAIL_REQUEST_CODE = 2112;
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -104,21 +103,21 @@ public class VehicleListActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 if (mTwoPane) {
-                    Bundle arguments = new Bundle();
-                    arguments.putInt(VehicleDetailFragment.DETAIL_MODE,
-                            VehicleDetailFragment.DETAIL_IN_CREATE_MODE);
-                    VehicleDetailFragment fragment = new VehicleDetailFragment();
-                    fragment.setArguments(arguments);
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.vehicle_detail_container, fragment)
-                            .commit();
+//                    Bundle arguments = new Bundle();
+//                    arguments.putInt(VehicleDetailFragment.DETAIL_MODE,
+//                            VehicleDetailFragment.DETAIL_IN_CREATE_MODE);
+//                    VehicleDetailFragment fragment = new VehicleDetailFragment();
+//                    fragment.setArguments(arguments);
+//                    getSupportFragmentManager().beginTransaction()
+//                            .replace(R.id.vehicle_detail_container, fragment)
+//                            .commit();
                 } else {
                     Context context = view.getContext();
                     Intent intent = new Intent(context, VehicleDetailActivity.class);
                     intent.putExtra(VehicleDetailFragment.DETAIL_MODE,
                             VehicleDetailFragment.DETAIL_IN_CREATE_MODE);
 
-                    startActivityForResult(intent, VEHICLE_DETAIL_REQUEST_CODE);
+                    startActivity(intent);
                 }
             }
         });
@@ -139,31 +138,11 @@ public class VehicleListActivity extends AppCompatActivity
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == VEHICLE_DETAIL_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            // doing this because I couldn't get restartLoader to work
-            finish();
-            startActivity(getIntent());
-        }
-    }
-
-    /**
-     * Create the menu
-     * @param menu
-     * @return
-     */
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
-    /**
-     * When an item is selected from the menu, act accordingly.
-     * //:TODO describe each action
-     * @param item
-     * @return
-     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -194,61 +173,110 @@ public class VehicleListActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * //TODO: description
-     * @param recyclerView
-     */
-    private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
+     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
         recyclerView.setAdapter(new VehicleItemAdapter(this, null));
     }
 
-    /**
-     * //TODO: description
-     * @param id
-     * @param args
-     * @return
-     */
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         return new CursorLoader(this, VehicleLogContentProvider.VEHICLE_CONTENT_URI,
                 null, null, null, sortByField );
     }
 
-    /**
-     * //TODO: description
-     * @param loader
-     * @param data
-     */
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         mCursorAdapter.swapCursor(data);
     }
 
-    /**
-     * //TODO: description
-     * @param loader
-     */
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         mCursorAdapter.swapCursor(null);
     }
 
-    // interface from ConfirmDeleteDialogFragment
+    /**
+     * interface from ConfirmDeleteDialogFragment
+     * @param choice: TRUE to delete vehicle
+     */
     @Override
     public void onConfirmVehicleDeleteInteraction(boolean choice) {
         if (choice) {
             getContentResolver().delete(VehicleLogContentProvider.VEHICLE_CONTENT_URI,
                             VehiclesTable.COL_VEHICLE_ID+"="+vehicleItem.getVehicleId(),null);
             VehicleModOrderTool vehicleModOrderTool = new VehicleModOrderTool(this);
-            vehicleModOrderTool.RenumberVehicleModOrder(null);
+            while (!vehicleModOrderTool.RenumberVehicleModOrder(null)) {}
             finish();
             startActivity(getIntent());
         }
     }
 
     /**
-     * //TODO: description
+     * Checks if external storage is available for read and write
+     * @return: TRUE if available to read and write
      */
+    public boolean isExternalStorageWritable() {
+        String state = Environment.getExternalStorageState();
+        return Environment.MEDIA_MOUNTED.equals(state);
+    }
+
+    /**
+     * Checks if external storage is available to at least read
+     * @return: TRUE is only available to read
+     */
+    public boolean isExternalStorageReadable() {
+        String state = Environment.getExternalStorageState();
+        return (Environment.MEDIA_MOUNTED.equals(state) ||
+                Environment.MEDIA_MOUNTED_READ_ONLY.equals(state));
+    }
+
+    /**
+     * Initiate request for permissions.
+     * @return
+     */
+    private boolean checkPermissions() {
+
+        if (!isExternalStorageReadable() || !isExternalStorageWritable()) {
+            Toast.makeText(this, "Import/Export only works on devices with usable external storage",
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        int permissionCheck = ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    REQUEST_PERMISSION_WRITE);
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    /**
+     * Handle permissions result
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
+     */
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String permissions[],
+                                           @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_PERMISSION_WRITE:
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    permissionGranted = true;
+                    Toast.makeText(this, "External storage permission granted",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "You must grant permission to import or export data!",
+                            Toast.LENGTH_SHORT).show();
+                }
+                break;
+        }
+    }
+
     public class VehicleItemAdapter extends RecyclerView.Adapter<VehicleItemAdapter.ViewHolder>{
 
         // Because RecyclerView.Adapter in its current form doesn't natively
@@ -266,13 +294,6 @@ public class VehicleListActivity extends AppCompatActivity
 
             mCursorAdapter = new CursorAdapter(mContext, cursor, 0) {
 
-                /**
-                 * //TODO: description
-                 * @param context
-                 * @param cursor
-                 * @param parent
-                 * @return
-                 */
                 @Override
                 public View newView(Context context, Cursor cursor, ViewGroup parent) {
                     LayoutInflater inflater = (LayoutInflater) context
@@ -280,12 +301,6 @@ public class VehicleListActivity extends AppCompatActivity
                     return inflater.inflate(R.layout.vehicle_list_item, parent, false);
                 }
 
-                /**
-                 * //TODO: description
-                 * @param view
-                 * @param context
-                 * @param cursor
-                 */
                 @Override
                 public void bindView(View view, Context context, Cursor cursor) {
                     // Set a tag in order to get the ID of the item clicked on
@@ -328,21 +343,11 @@ public class VehicleListActivity extends AppCompatActivity
             };
         }
 
-        /**
-         * //TODO: description
-         * @return
-         */
         @Override
         public int getItemCount() {
             return mCursorAdapter.getCount();
         }
 
-        /**
-         * //TODO: description
-         * @param parent
-         * @param viewType
-         * @return
-         */
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             // Passing the inflater job to the cursor adapter
@@ -350,11 +355,6 @@ public class VehicleListActivity extends AppCompatActivity
             return new ViewHolder(v);
         }
 
-        /**
-         * //TODO: description
-         * @param holder
-         * @param position
-         */
         @Override
         public void onBindViewHolder(final ViewHolder holder, final int position) {
             // Passing the binding operation to cursor loader
@@ -362,11 +362,8 @@ public class VehicleListActivity extends AppCompatActivity
             mCursorAdapter.bindView(holder.view, mContext, mCursorAdapter.getCursor());
 
             /*
-             *When an item in the vehicle list is clicked on:
-             *If in two pane mode, i.e. tablet in landscape mode, pass the vehicle as a parcelable
-             *into a fragment for the second pane. If in single pane mode, i.e. phone in either
-             *orientation or tablet in portrait mode, pass the vehicle as a parcelable into an
-             * intent to launch the new activity.
+             * When an item in the vehicle list is clicked on:
+             * Pass the vehicle ID into an intent to launch the new activity.
              */
             holder.view.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -384,7 +381,7 @@ public class VehicleListActivity extends AppCompatActivity
                         intent.putExtra(VehicleDetailFragment.DETAIL_MODE,
                                 VehicleDetailFragment.DETAIL_IN_VIEW_MODE);
 
-                        startActivityForResult(intent, VEHICLE_DETAIL_REQUEST_CODE);
+                        startActivity(intent);
                 }
             });
 
@@ -422,83 +419,12 @@ public class VehicleListActivity extends AppCompatActivity
             });
         }
 
-        /**
-         * //TODO: description
-         */
         public class ViewHolder extends RecyclerView.ViewHolder {
             View view;
             public ViewHolder(View itemView) {
                 super(itemView);
                 view = itemView.findViewById(R.id.vehicle_list_item);
             }
-        }
-    }
-
-    /**
-     * Checks if external storage is available for read and write
-     * @return
-     */
-    public boolean isExternalStorageWritable() {
-        String state = Environment.getExternalStorageState();
-        return Environment.MEDIA_MOUNTED.equals(state);
-    }
-
-    /**
-     * Checks if external storage is available to at least read
-     * @return
-     */
-    public boolean isExternalStorageReadable() {
-        String state = Environment.getExternalStorageState();
-        return (Environment.MEDIA_MOUNTED.equals(state) ||
-                Environment.MEDIA_MOUNTED_READ_ONLY.equals(state));
-    }
-
-    /**
-     * Initiate request for permissions.
-     * @return
-     */
-    private boolean checkPermissions() {
-
-        if (!isExternalStorageReadable() || !isExternalStorageWritable()) {
-            Toast.makeText(this, "Import/Export only works on devices with usable external storage",
-                    Toast.LENGTH_SHORT).show();
-            return false;
-        }
-
-        int permissionCheck = ContextCompat.checkSelfPermission(this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                    REQUEST_PERMISSION_WRITE);
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-   /**
-     * Handle permissions result
-     * @param requestCode
-     * @param permissions
-     * @param grantResults
-     */
-    @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           @NonNull String permissions[],
-                                           @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case REQUEST_PERMISSION_WRITE:
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    permissionGranted = true;
-                    Toast.makeText(this, "External storage permission granted",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(this, "You must grant permission to import or export data!",
-                            Toast.LENGTH_SHORT).show();
-                }
-                break;
         }
     }
 }

@@ -86,4 +86,8 @@
     <string name="confirm_delete">Confirm Delete</string>
     <string name="sure_want_to_delete">Are you sure you want to delete:</string>
     <string name="delete">DELETE</string>
+    <string name="save">SAVE</string>
+    <string name="return_to_edit">RETURN TO EDIT</string>
+    <string name="do_you_want_to_save_your_changes">Do you want to save your changes?</string>
+    <string name="discard">DISCARD</string>
 </resources>

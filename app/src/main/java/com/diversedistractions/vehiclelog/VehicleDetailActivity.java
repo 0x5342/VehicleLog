@@ -32,14 +32,18 @@ public class VehicleDetailActivity extends AppCompatActivity
         implements CustomDatePickerDialogFragment.CustomDatePickerListener,
         VehicleImageChoiceFragment.OnVehicleImageChoiceFragmentInteractionListener,
         IconFromAssetsFragment.OnListFragmentInteractionListener,
-        ConfirmDeleteDialogFragment.ConfirmationListener{
+        ConfirmDeleteDialogFragment.ConfirmationListener,
+        SaveDismissReturnDialogFragment.OnSaveDismissReturnInteractionListener{
 
-    public static final int CHOOSE_APP_ICON = 1;
-    public static final int CHOOSE_IMAGE_ON_DEVICE = 2;
-    public static final int TAKE_PHOTO = 3;
+    public static final int CHOOSE_APP_ICON = 2001;
+    public static final int CHOOSE_IMAGE_ON_DEVICE = 2002;
+    public static final int TAKE_PHOTO = 2003;
+    public static final int SAVE_EDIT = 3001;
+    public static final int CANCEL_EDIT = 3002;
+    public static final int RETURN_TO_EDIT = 3003;
+    DateConversionHelper dateConversionHelper;
     private Uri mVehicleUri;
     private int mMode;
-    DateConversionHelper dateConversionHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,8 @@ public class VehicleDetailActivity extends AppCompatActivity
         setContentView(R.layout.activity_vehicle_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
+
+        dateConversionHelper = new DateConversionHelper();
 
         Intent intent = getIntent();
         mVehicleUri = intent.getParcelableExtra(VehicleDetailFragment.ARG_ITEM_URI);
@@ -127,33 +133,27 @@ public class VehicleDetailActivity extends AppCompatActivity
         }
     }
 
-    /**
-     * When an option is selected from the menu, act on it accordingly.
-     * //TODO: explain what each item that can be selected will do
-     * @param item
-     * @return
-     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == android.R.id.home) {
-            // This ID represents the Home or Up button. In the case of this
-            // activity, the Up button is shown. Use NavUtils to allow users
-            // to navigate up one level in the application structure. For
-            // more details, see the Navigation pattern on Android Design:
-            //
-            // http://developer.android.com/design/patterns/navigation.html#up-vs-back
-            //
-            NavUtils.navigateUpTo(this, new Intent(this, VehicleListActivity.class));
-            return true;
+            if (mMode != VehicleDetailFragment.DETAIL_IN_VIEW_MODE) {
+                askToSave();
+                return true;
+            } else {
+                NavUtils.navigateUpTo(this, new Intent(this, VehicleListActivity.class));
+                return true;
+            }
         }
         return super.onOptionsItemSelected(item);
     }
 
     /**
+     * Called after the custom date picker dialog to update the appropriate date field in the
+     * vehicle that is being created or edited.
      *
-     * @param vehicleItem
-     * @param dateField
+     * @param vehicleItem: the temporary vehicle that the DatePicker assigned the date to
+     * @param dateField: a string to denote whether it was the vehicle year or license renewal date
      */
     @Override
     public void onDatePickComplete(VehicleItem vehicleItem, String dateField) {
@@ -165,13 +165,12 @@ public class VehicleDetailActivity extends AppCompatActivity
         // Only update the appropriate date field
         if (dateField.equalsIgnoreCase(VehiclesTable.COL_VEHICLE_YEAR)) {
             long vYear = vehicleItem.getVehicleYear();
-            SimpleDateFormat ySimpleDateFormat = new SimpleDateFormat("yyyy", Locale.US);
-            String year = ySimpleDateFormat.format(vYear);
+            String year = dateConversionHelper.getYearAsString(vYear);
             vdf_obj.updateVehicleYear(vYear, year);
         } else if (dateField.equalsIgnoreCase(VehiclesTable.COL_VEHICLE_REN_DATE)) {
             long vMonthYear = vehicleItem.getVehicleLpRenewalDate();
             SimpleDateFormat ymSimpleDateFormat = new SimpleDateFormat("MMM-yyyy", Locale.US);
-            String monthYear = ymSimpleDateFormat.format(vMonthYear);
+            String monthYear = dateConversionHelper.getYearMonthAsString(vMonthYear);
             vdf_obj.updateVehicleLpRenewalDate(vMonthYear, monthYear);
         }
     }
@@ -273,15 +272,34 @@ public class VehicleDetailActivity extends AppCompatActivity
     @Override
     public void onBackPressed(){
         if (mMode != VehicleDetailFragment.DETAIL_IN_VIEW_MODE) {
-            // Get a reference to the vehicle detail fragment in order to update the values
-            VehicleDetailFragment vdf_obj = (VehicleDetailFragment)getSupportFragmentManager()
-                    .findFragmentById(R.id.vehicle_detail_container);
-            vdf_obj.finishEditing();
-            setResult(RESULT_OK);
-            finish();
+            askToSave();
         } else {
             setResult(RESULT_CANCELED);
             finish();
+        }
+    }
+
+    public void askToSave(){
+        SaveDismissReturnDialogFragment saveDismissReturnDialogFragment =
+                SaveDismissReturnDialogFragment.newInstance();
+        saveDismissReturnDialogFragment.show(getSupportFragmentManager(), "SaveDismissReturn");
+    }
+
+    @Override
+    public void onSaveDismissReturnInteraction(int choice) {
+        switch (choice){
+            case SAVE_EDIT:
+                // Get a reference to the vehicle detail fragment in order to update the values
+                VehicleDetailFragment vdf_obj = (VehicleDetailFragment)getSupportFragmentManager()
+                        .findFragmentById(R.id.vehicle_detail_container);
+                vdf_obj.finishEditing();
+                NavUtils.navigateUpTo(this, new Intent(this, VehicleListActivity.class));
+                break;
+            case RETURN_TO_EDIT:
+                break;
+            case CANCEL_EDIT:
+                NavUtils.navigateUpTo(this, new Intent(this, VehicleListActivity.class));
+                break;
         }
     }
 }

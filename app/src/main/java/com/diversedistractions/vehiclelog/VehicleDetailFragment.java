@@ -42,13 +42,13 @@ public class VehicleDetailFragment extends DialogFragment {
 
     public static final String ARG_ITEM_URI = "item_uri";
     public static final String DETAIL_MODE = "detail_mode";
-    public static final int DETAIL_IN_CREATE_MODE = 0;
-    public static final int DETAIL_IN_VIEW_MODE = 1;
-    public static final int DETAIL_IN_EDIT_MODE = 2;
+    public static final int DETAIL_IN_CREATE_MODE = 4001;
+    public static final int DETAIL_IN_VIEW_MODE = 4002;
+    public static final int DETAIL_IN_EDIT_MODE = 4003;
     DateConversionHelper dateConversionHelper;
     View rootView = null;
-    VehicleItem vehicleItem = new VehicleItem();
-    VehicleItem vehicleItemOriginal = new VehicleItem();
+    VehicleItem vehicleItem;
+    VehicleItem vehicleItemOriginal;
     private ImageButton mVehImageButton;
     private Spinner mVehTypeSpinner;
     private Button mVehYearButton;
@@ -76,6 +76,8 @@ public class VehicleDetailFragment extends DialogFragment {
 
         mContext = this.getActivity();
         dateConversionHelper = new DateConversionHelper();
+        vehicleItem = new VehicleItem();
+
 
         // If arguments contains a URI, retrieve it & assign to mVehicleUri.
         // Else set mVehicleUri to null.
@@ -90,6 +92,11 @@ public class VehicleDetailFragment extends DialogFragment {
         // Else assume should be in create mode.
         if (getArguments().containsKey(DETAIL_MODE)) {
             mMode = getArguments().getInt(DETAIL_MODE);
+            // If in edit mode, create another vehicle item to store the original data to compare
+            // to when done editing to verify if any fields changed.
+            if (mMode == DETAIL_IN_EDIT_MODE) {
+                vehicleItemOriginal = new VehicleItem();
+            }
         } else {
             mMode = DETAIL_IN_CREATE_MODE;
         }
@@ -130,13 +137,6 @@ public class VehicleDetailFragment extends DialogFragment {
         }
     }
 
-    /**
-     * //TODO: description of class
-     * @param inflater
-     * @param container
-     * @param savedInstanceState
-     * @return
-     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -445,30 +445,33 @@ public class VehicleDetailFragment extends DialogFragment {
             vehicleItem.setVehicleModOrder(cursor.getInt
                     (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MODIFIED_ORDER)));
 
-            vehicleItemOriginal.setVehicleId(cursor.getInt
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_ID)));
-            vehicleItemOriginal.setVehicleType(cursor.getInt
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_TYPE)));
-            vehicleItemOriginal.setVehicleYear(cursor.getLong
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_YEAR)));
-            vehicleItemOriginal.setVehicleMake(cursor.getString
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MAKE)));
-            vehicleItemOriginal.setVehicleModel(cursor.getString
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MODEL)));
-            vehicleItemOriginal.setVehicleVin(cursor.getString
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_VIN)));
-            vehicleItemOriginal.setVehicleLp(cursor.getString
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_LP)));
-            vehicleItemOriginal.setVehicleLpRenewalDate(cursor.getLong
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_REN_DATE)));
-            vehicleItemOriginal.setVehicleImage(cursor.getString
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_IMAGE)));
-            vehicleItemOriginal.setVehicleTdEfficiency(cursor.getString
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_TD_EFF)));
-            vehicleItemOriginal.setVehicleNotes(cursor.getString
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_NOTE)));
-            vehicleItemOriginal.setVehicleModOrder(cursor.getInt
-                    (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MODIFIED_ORDER)));
+            // make an original to compare to if in edit mode
+            if (mMode == VehicleDetailFragment.DETAIL_IN_EDIT_MODE) {
+                vehicleItemOriginal.setVehicleId(cursor.getInt
+                        (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_ID)));
+                vehicleItemOriginal.setVehicleType(cursor.getInt
+                        (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_TYPE)));
+                vehicleItemOriginal.setVehicleYear(cursor.getLong
+                        (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_YEAR)));
+                vehicleItemOriginal.setVehicleMake(cursor.getString
+                        (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MAKE)));
+                vehicleItemOriginal.setVehicleModel(cursor.getString
+                        (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MODEL)));
+                vehicleItemOriginal.setVehicleVin(cursor.getString
+                        (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_VIN)));
+                vehicleItemOriginal.setVehicleLp(cursor.getString
+                        (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_LP)));
+                vehicleItemOriginal.setVehicleLpRenewalDate(cursor.getLong
+                        (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_REN_DATE)));
+                vehicleItemOriginal.setVehicleImage(cursor.getString
+                        (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_IMAGE)));
+                vehicleItemOriginal.setVehicleTdEfficiency(cursor.getString
+                        (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_TD_EFF)));
+                vehicleItemOriginal.setVehicleNotes(cursor.getString
+                        (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_NOTE)));
+                vehicleItemOriginal.setVehicleModOrder(cursor.getInt
+                        (cursor.getColumnIndex(VehiclesTable.COL_VEHICLE_MODIFIED_ORDER)));
+            }
 
 
             cursor.close();
