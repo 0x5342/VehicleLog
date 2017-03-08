@@ -1,7 +1,6 @@
 package com.diversedistractions.vehiclelog;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.LoaderManager;
 import android.content.Context;
 import android.content.CursorLoader;
@@ -36,10 +35,13 @@ import com.diversedistractions.vehiclelog.database.VehicleLogContentProvider;
 import com.diversedistractions.vehiclelog.database.VehiclesTable;
 import com.diversedistractions.vehiclelog.models.VehicleItem;
 import com.diversedistractions.vehiclelog.utilities.DateConversionHelper;
+import com.diversedistractions.vehiclelog.utilities.JSONHelper;
 import com.diversedistractions.vehiclelog.utilities.VehicleModOrderTool;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This is the main activity.
@@ -55,6 +57,8 @@ public class VehicleListActivity extends AppCompatActivity
         ConfirmDeleteDialogFragment.ConfirmationListener{
 
     private static final int REQUEST_PERMISSION_WRITE = 1001;
+    private static final int LISTVIEW_LOADER = 1002;
+    private static final int JSON_LOADER = 1003;
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -64,10 +68,13 @@ public class VehicleListActivity extends AppCompatActivity
 
     private boolean permissionGranted;
 
-    private CursorAdapter mCursorAdapter;
+    private CursorAdapter mLvCursorAdapter;
+    private CursorAdapter mJsonCursorAdapter;
     private String sortByField;
     DateConversionHelper dateConversionHelper;
-    VehicleItem vehicleItem = new VehicleItem();
+    VehicleItem vehicleItem;
+    List<VehicleItem> vehicleItems;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +82,8 @@ public class VehicleListActivity extends AppCompatActivity
         setContentView(R.layout.activity_vehicle_list);
 
         dateConversionHelper = new DateConversionHelper();
+        vehicleItem = new VehicleItem();
+        vehicleItems = new ArrayList<>();
 
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
         // This will retrieve the preferred sort order and set the sort by field accordingly
@@ -134,7 +143,7 @@ public class VehicleListActivity extends AppCompatActivity
             mTwoPane = true;
         }
 
-        getLoaderManager().restartLoader(0, null, this);
+            getLoaderManager().restartLoader(LISTVIEW_LOADER, null, this);
     }
 
     @Override
@@ -152,13 +161,7 @@ public class VehicleListActivity extends AppCompatActivity
                 startActivity(settingsIntent);
                 return true;
             case R.id.action_export:
-                //TODO: Correct this code to use the content provider
-//                boolean result = JSONHelper.exportToJSON(this,vehicleItemList);
-//                if (result) {
-//                    Toast.makeText(this, "Data exported", Toast.LENGTH_SHORT).show();
-//                } else {
-//                    Toast.makeText(this, "Export failed", Toast.LENGTH_SHORT).show();
-//                }
+                getLoaderManager().initLoader(JSON_LOADER, null, this);
                 return true;
             case R.id.action_import:
                 //TODO: Correct this code to use the content provider
@@ -179,18 +182,74 @@ public class VehicleListActivity extends AppCompatActivity
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        return new CursorLoader(this, VehicleLogContentProvider.VEHICLE_CONTENT_URI,
-                null, null, null, sortByField );
+        switch (id) {
+            case LISTVIEW_LOADER:
+                return new CursorLoader(this, VehicleLogContentProvider.VEHICLE_CONTENT_URI,
+                        null, null, null, sortByField);
+            case JSON_LOADER:
+                return new CursorLoader(this, VehicleLogContentProvider.VEHICLE_CONTENT_URI,
+                        null, null, null, null);
+        }
+        return null;
     }
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        mCursorAdapter.swapCursor(data);
+        switch (loader.getId()) {
+            case LISTVIEW_LOADER:
+                mLvCursorAdapter.swapCursor(data);
+                break;
+            case JSON_LOADER:
+                vehicleItems.clear();
+                while (data.moveToNext()){
+                    VehicleItem item = new VehicleItem();
+                    item.setVehicleId(data.getInt
+                            (data.getColumnIndex(VehiclesTable.COL_VEHICLE_ID)));
+                    item.setVehicleType(data.getInt
+                            (data.getColumnIndex(VehiclesTable.COL_VEHICLE_TYPE)));
+                    item.setVehicleMake(data.getString
+                            (data.getColumnIndex(VehiclesTable.COL_VEHICLE_MAKE)));
+                    item.setVehicleModel(data.getString
+                            (data.getColumnIndex(VehiclesTable.COL_VEHICLE_MODEL)));
+                    item.setVehicleYear(data.getLong
+                            (data.getColumnIndex(VehiclesTable.COL_VEHICLE_YEAR)));
+                    item.setVehicleVin(data.getString
+                            (data.getColumnIndex(VehiclesTable.COL_VEHICLE_VIN)));
+                    item.setVehicleLp(data.getString
+                            (data.getColumnIndex(VehiclesTable.COL_VEHICLE_LP)));
+                    item.setVehicleLpRenewalDate(data.getLong
+                            (data.getColumnIndex(VehiclesTable.COL_VEHICLE_REN_DATE)));
+                    item.setVehicleImage(data.getString
+                            (data.getColumnIndex(VehiclesTable.COL_VEHICLE_IMAGE)));
+                    item.setVehicleNotes(data.getString
+                            (data.getColumnIndex(VehiclesTable.COL_VEHICLE_NOTE)));
+                    item.setVehicleTdEfficiency(data.getString
+                            (data.getColumnIndex(VehiclesTable.COL_VEHICLE_TD_EFF)));
+                    item.setVehicleModOrder(data.getInt
+                            (data.getColumnIndex(VehiclesTable.COL_VEHICLE_MODIFIED_ORDER)));
+                    vehicleItems.add(item);
+                }
+                data.close();
+                boolean result = JSONHelper.exportToJSON(this,vehicleItems);
+                if (result) {
+                    Toast.makeText(this, "Data exported", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "Export failed", Toast.LENGTH_SHORT).show();
+                }
+                break;
+        }
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
-        mCursorAdapter.swapCursor(null);
+        switch (loader.getId()) {
+            case LISTVIEW_LOADER:
+                mLvCursorAdapter.swapCursor(null);
+                break;
+            case JSON_LOADER:
+                loader = null;
+                break;
+        }
     }
 
     /**
@@ -292,7 +351,7 @@ public class VehicleListActivity extends AppCompatActivity
 
             mContext = context;
 
-            mCursorAdapter = new CursorAdapter(mContext, cursor, 0) {
+            mLvCursorAdapter = new CursorAdapter(mContext, cursor, 0) {
 
                 @Override
                 public View newView(Context context, Cursor cursor, ViewGroup parent) {
@@ -319,7 +378,7 @@ public class VehicleListActivity extends AppCompatActivity
                     ((TextView) view.findViewById(R.id.makeText)).setText(make);
                     ((TextView) view.findViewById(R.id.modelText)).setText(model);
                     // If there is a path to a vehicle image, load it; if not load the no image icon
-                    if (null != imageFile) {
+                    if (imageFile != null) {
                         try {
                             InputStream inputStream = context.getAssets().open(imageFile);
                             Drawable drawable = Drawable.createFromStream(inputStream, null);
@@ -345,21 +404,21 @@ public class VehicleListActivity extends AppCompatActivity
 
         @Override
         public int getItemCount() {
-            return mCursorAdapter.getCount();
+            return mLvCursorAdapter.getCount();
         }
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             // Passing the inflater job to the cursor adapter
-            View v = mCursorAdapter.newView(mContext, mCursorAdapter.getCursor(), parent);
+            View v = mLvCursorAdapter.newView(mContext, mLvCursorAdapter.getCursor(), parent);
             return new ViewHolder(v);
         }
 
         @Override
         public void onBindViewHolder(final ViewHolder holder, final int position) {
             // Passing the binding operation to cursor loader
-            mCursorAdapter.getCursor().moveToPosition(position);
-            mCursorAdapter.bindView(holder.view, mContext, mCursorAdapter.getCursor());
+            mLvCursorAdapter.getCursor().moveToPosition(position);
+            mLvCursorAdapter.bindView(holder.view, mContext, mLvCursorAdapter.getCursor());
 
             /*
              * When an item in the vehicle list is clicked on:

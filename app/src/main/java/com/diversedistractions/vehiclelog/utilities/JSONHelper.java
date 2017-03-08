@@ -21,7 +21,11 @@ public class JSONHelper {
     public static boolean exportToJSON(Context context, List<VehicleItem> vehicleItemList) {
 
         VehicleItems vehicleData = new VehicleItems();
+
         vehicleData.setVehicleItems(vehicleItemList);
+
+        //TODO: get all fuel entries from content provider and make a list
+        //TODO: get all service entries from content provider and make a list
 
         Gson gson = new Gson();
         String jsonString = gson.toJson(vehicleData);
@@ -44,7 +48,6 @@ public class JSONHelper {
                 }
             }
         }
-
         return false;
     }
 
@@ -70,7 +73,6 @@ public class JSONHelper {
                 }
             }
         }
-
         return null;
     }
 
@@ -85,5 +87,4 @@ public class JSONHelper {
             this.vehicleItems = vehicleItems;
         }
     }
-
 }
