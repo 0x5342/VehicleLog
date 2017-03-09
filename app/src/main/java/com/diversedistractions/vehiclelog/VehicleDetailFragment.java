@@ -3,7 +3,10 @@ package com.diversedistractions.vehiclelog;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -29,6 +32,8 @@ import com.diversedistractions.vehiclelog.utilities.CustomDatePickerDialogFragme
 import com.diversedistractions.vehiclelog.utilities.DateConversionHelper;
 import com.diversedistractions.vehiclelog.utilities.VehicleModOrderTool;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -243,15 +248,41 @@ public class VehicleDetailFragment extends DialogFragment {
                         showVehicleImageChoice();
                     }
                 });
+                //TODO: simplify this
                 // If there is a path to a vehicle image, load it; if not load the no image icon
-                if (null != vehicleItem.getVehicleImage()) {
-                    try {
-                        InputStream inputStream = getContext().getAssets()
-                                .open(vehicleItem.getVehicleImage());
-                        Drawable drawable = Drawable.createFromStream(inputStream, null);
-                        mVehImageButton.setImageDrawable(drawable);
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                if (vehicleItem.getVehicleImage() != null) {
+                    if (vehicleItem.getVehicleImage().length() >= 5) {
+                        if (vehicleItem.getVehicleImage().substring(0,5)
+                                .equals(VehiclesTable.VEHICLE_ICONS_FOLDER.substring(0,5))) {
+                            try {
+                                InputStream inputStream = getContext().getAssets()
+                                        .open(vehicleItem.getVehicleImage());
+                                Drawable drawable = Drawable.createFromStream(inputStream, null);
+                                mVehImageButton.setImageDrawable(drawable);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            try {
+                                ContextWrapper cw = new ContextWrapper(getActivity().getBaseContext());
+                                File directory = cw.getFilesDir();
+                                File file = new File(directory, vehicleItem.getVehicleImage());
+                                Bitmap bitmap = BitmapFactory.decodeStream(new FileInputStream(file));
+                                mVehImageButton.setImageBitmap(bitmap);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    } else {
+                        try {
+                            ContextWrapper cw = new ContextWrapper(getActivity().getBaseContext());
+                            File directory = cw.getFilesDir();
+                            File file = new File(directory, vehicleItem.getVehicleImage());
+                            Bitmap bitmap = BitmapFactory.decodeStream(new FileInputStream(file));
+                            mVehImageButton.setImageBitmap(bitmap);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 } else {
                     try {
@@ -345,16 +376,44 @@ public class VehicleDetailFragment extends DialogFragment {
                 ((TextView) rootView.findViewById(R.id.modelText))
                         .setText(vehicleItem.getVehicleModel());
 
+                //TODO: simplify this
                 // If there is a path to a vehicle image, load it; if not load the no image icon
-                if (null != vehicleItem.getVehicleImage()) {
-                    try {
-                        InputStream inputStream = getContext().getAssets().
-                                open(vehicleItem.getVehicleImage());
-                        Drawable drawable = Drawable.createFromStream(inputStream, null);
-                        ((ImageView) rootView.findViewById(R.id.vehicleImage))
-                                .setImageDrawable(drawable);
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                if (vehicleItem.getVehicleImage() != null) {
+                    if (vehicleItem.getVehicleImage().length() >= 5) {
+                        if (vehicleItem.getVehicleImage().substring(0,5)
+                                .equals(VehiclesTable.VEHICLE_ICONS_FOLDER.substring(0,5))) {
+                            try {
+                                InputStream inputStream = getContext().getAssets()
+                                        .open(vehicleItem.getVehicleImage());
+                                Drawable drawable = Drawable.createFromStream(inputStream, null);
+                                ((ImageView) rootView.findViewById(R.id.vehicleImage))
+                                        .setImageDrawable(drawable);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            try {
+                                ContextWrapper cw = new ContextWrapper(getActivity().getBaseContext());
+                                File directory = cw.getFilesDir();
+                                File file = new File(directory, vehicleItem.getVehicleImage());
+                                Bitmap bitmap = BitmapFactory.decodeStream(new FileInputStream(file));
+                                ((ImageView) rootView.findViewById(R.id.vehicleImage))
+                                        .setImageBitmap(bitmap);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    } else {
+                        try {
+                            ContextWrapper cw = new ContextWrapper(getActivity().getBaseContext());
+                            File directory = cw.getFilesDir();
+                            File file = new File(directory, vehicleItem.getVehicleImage());
+                            Bitmap bitmap = BitmapFactory.decodeStream(new FileInputStream(file));
+                            ((ImageView) rootView.findViewById(R.id.vehicleImage))
+                                    .setImageBitmap(bitmap);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 } else {
                     try {
@@ -529,13 +588,51 @@ public class VehicleDetailFragment extends DialogFragment {
      * @param image: a string representing the path and image
      */
     public void updateVehicleImage(String image){
-        try {
-            InputStream inputStream = getContext().getAssets().open(image);
-            Drawable drawable = Drawable.createFromStream(inputStream, null);
-            mVehImageButton.setImageDrawable(drawable);
+        //TODO: simplify this
+        if (image != null) {
+            if (image.length() >= 5) {
+                if (image.substring(0,5)
+                        .equals(VehiclesTable.VEHICLE_ICONS_FOLDER.substring(0,5))) {
+                    try {
+                        InputStream inputStream = getContext().getAssets().open(image);
+                        Drawable drawable = Drawable.createFromStream(inputStream, null);
+                        mVehImageButton.setImageDrawable(drawable);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    try {
+                        ContextWrapper cw = new ContextWrapper(getActivity().getBaseContext());
+                        File directory = cw.getFilesDir();
+                        File file = new File(directory, image);
+                        Bitmap bitmap = BitmapFactory.decodeStream(new FileInputStream(file));
+                        mVehImageButton.setImageBitmap(bitmap);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } else {
+                try {
+                    ContextWrapper cw = new ContextWrapper(getActivity().getBaseContext());
+                    File directory = cw.getFilesDir();
+                    File file = new File(directory, image);
+                    Bitmap bitmap = BitmapFactory.decodeStream(new FileInputStream(file));
+                    mVehImageButton.setImageBitmap(bitmap);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
             vehicleItem.setVehicleImage(image);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } else {
+            try {
+                InputStream inputStream = getContext().getAssets()
+                        .open(VehiclesTable.VEHICLE_NO_ICON);
+                Drawable drawable = Drawable.createFromStream(inputStream, null);
+                mVehImageButton.setImageDrawable(drawable);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            vehicleItem.setVehicleImage(VehiclesTable.VEHICLE_NO_ICON);
         }
     }
 
@@ -576,11 +673,11 @@ public class VehicleDetailFragment extends DialogFragment {
                                 (vehicleItemOriginal.getVehicleVin()) &&
                         (vehicleItem.getVehicleLp()).equals(vehicleItemOriginal.getVehicleLp()) &&
                         vehicleItem.getVehicleLpRenewalDate()==
-                                        vehicleItemOriginal.getVehicleLpRenewalDate() &&
+                                vehicleItemOriginal.getVehicleLpRenewalDate() &&
                         (vehicleItem.getVehicleImage()).equals
-                                        (vehicleItemOriginal.getVehicleImage()) &&
+                                (vehicleItemOriginal.getVehicleImage()) &&
                         (vehicleItem.getVehicleNotes()).equals
-                                        (vehicleItemOriginal.getVehicleNotes())) {
+                                (vehicleItemOriginal.getVehicleNotes())) {
                     break;
                 } else {
                     updateVehicle(values);

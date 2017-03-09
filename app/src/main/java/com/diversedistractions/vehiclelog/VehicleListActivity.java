@@ -3,12 +3,15 @@ package com.diversedistractions.vehiclelog;
 import android.Manifest;
 import android.app.LoaderManager;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -38,6 +41,8 @@ import com.diversedistractions.vehiclelog.utilities.DateConversionHelper;
 import com.diversedistractions.vehiclelog.utilities.JSONHelper;
 import com.diversedistractions.vehiclelog.utilities.VehicleModOrderTool;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -377,23 +382,51 @@ public class VehicleListActivity extends AppCompatActivity
                     ((TextView) view.findViewById(R.id.vehicleYear)).setText(year);
                     ((TextView) view.findViewById(R.id.makeText)).setText(make);
                     ((TextView) view.findViewById(R.id.modelText)).setText(model);
+                    //TODO: simplify this
                     // If there is a path to a vehicle image, load it; if not load the no image icon
                     if (imageFile != null) {
-                        try {
-                            InputStream inputStream = context.getAssets().open(imageFile);
-                            Drawable drawable = Drawable.createFromStream(inputStream, null);
-                            ((ImageView) view.findViewById
-                                    (R.id.vehicleImage)).setImageDrawable(drawable);
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                        if (imageFile.length() >= 5) {
+                            if (imageFile.substring(0,5)
+                                    .equals(VehiclesTable.VEHICLE_ICONS_FOLDER.substring(0,5))) {
+                                try {
+                                    InputStream inputStream = context.getAssets().open(imageFile);
+                                    Drawable drawable = Drawable.createFromStream(inputStream, null);
+                                    ((ImageView) view.findViewById(R.id.vehicleImage))
+                                            .setImageDrawable(drawable);
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            } else {
+                                try {
+                                    ContextWrapper cw = new ContextWrapper(getApplicationContext());
+                                    File directory = cw.getFilesDir();
+                                    File file = new File(directory, imageFile);
+                                    Bitmap bitmap = BitmapFactory.decodeStream(new FileInputStream(file));
+                                    ((ImageView) view.findViewById(R.id.vehicleImage))
+                                            .setImageBitmap(bitmap);
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        } else {
+                            try {
+                                ContextWrapper cw = new ContextWrapper(getApplicationContext());
+                                File directory = cw.getFilesDir();
+                                File file = new File(directory, imageFile);
+                                Bitmap bitmap = BitmapFactory.decodeStream(new FileInputStream(file));
+                                ((ImageView) view.findViewById(R.id.vehicleImage))
+                                        .setImageBitmap(bitmap);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
                     } else {
                         try {
                             InputStream inputStream = context.getAssets()
                                     .open(VehiclesTable.VEHICLE_NO_ICON);
                             Drawable drawable = Drawable.createFromStream(inputStream, null);
-                            ((ImageView) view.findViewById
-                                    (R.id.vehicleImage)).setImageDrawable(drawable);
+                            ((ImageView) view.findViewById(R.id.vehicleImage))
+                                    .setImageDrawable(drawable);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

@@ -1,7 +1,10 @@
 package com.diversedistractions.vehiclelog;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -19,8 +22,14 @@ import com.diversedistractions.vehiclelog.utilities.CustomDatePickerDialogFragme
 import com.diversedistractions.vehiclelog.utilities.DateConversionHelper;
 import com.diversedistractions.vehiclelog.utilities.IconFromAssetsFragment;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
+
+import static android.R.attr.bitmap;
+import static android.support.v7.appcompat.R.id.image;
 
 /**
  * An activity representing a single Vehicle detail screen. This
@@ -41,6 +50,7 @@ public class VehicleDetailActivity extends AppCompatActivity
     public static final int SAVE_EDIT = 3001;
     public static final int CANCEL_EDIT = 3002;
     public static final int RETURN_TO_EDIT = 3003;
+    private static final String IMAGE_PATH = "/photos/";
     DateConversionHelper dateConversionHelper;
     private Uri mVehicleUri;
     private int mMode;
@@ -169,7 +179,6 @@ public class VehicleDetailActivity extends AppCompatActivity
             vdf_obj.updateVehicleYear(vYear, year);
         } else if (dateField.equalsIgnoreCase(VehiclesTable.COL_VEHICLE_REN_DATE)) {
             long vMonthYear = vehicleItem.getVehicleLpRenewalDate();
-            SimpleDateFormat ymSimpleDateFormat = new SimpleDateFormat("MMM-yyyy", Locale.US);
             String monthYear = dateConversionHelper.getYearMonthAsString(vMonthYear);
             vdf_obj.updateVehicleLpRenewalDate(vMonthYear, monthYear);
         }
@@ -232,13 +241,34 @@ public class VehicleDetailActivity extends AppCompatActivity
             String picturePath = cursor.getString(columnIndex);
             cursor.close();
 
-//            bitmap = BitmapFactory.decodeFile(picturePath);
-//            image.setImageBitmap(bitmap);
-//
-//            if (bitmap != null) {
-//                ImageView rotate = (ImageView) findViewById(R.id.rotate);
-//
-//            }
+            BitmapFactory.Options bfOptions = new BitmapFactory.Options();
+            bfOptions.inJustDecodeBounds = true;
+            BitmapFactory.decodeFile(picturePath, bfOptions);
+            int width = bfOptions.outWidth;
+            int height = bfOptions.outHeight;
+            if (width > height) {
+                height = (height*(1600000/width))/10000;
+                width = 160;
+            } else {
+                width = (width*(1220000/height))/10000;
+                height = 122;
+            }
+            Bitmap bitmap = BitmapFactory.decodeFile(picturePath);
+            Bitmap resizedBitmap = Bitmap.createScaledBitmap(bitmap, width, height, true);
+            int count = getFilesDir().listFiles().length;
+            String FILE_NAME = count+1+".png";
+            try {
+                FileOutputStream fos = openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
+                resizedBitmap.compress(Bitmap.CompressFormat.PNG, 70, fos);
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            // Get a reference to the vehicle detail fragment in order to update the values
+            VehicleDetailFragment vdf_obj = (VehicleDetailFragment)getSupportFragmentManager()
+                    .findFragmentById(R.id.vehicle_detail_container);
+            // Update the displayed image in the editor
+            vdf_obj.updateVehicleImage((FILE_NAME));
 
         } else {
 
