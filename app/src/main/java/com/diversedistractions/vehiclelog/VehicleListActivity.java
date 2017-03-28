@@ -112,7 +112,7 @@ public class VehicleListActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabDelete);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabFuelEntry);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

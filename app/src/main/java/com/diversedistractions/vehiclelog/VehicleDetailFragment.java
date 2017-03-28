@@ -120,8 +120,8 @@ public class VehicleDetailFragment extends DialogFragment {
 
         // When the fragment is not launched by an intent, and therefore VehicleDetailActivity won't
         // hide this button in all but view mode, this will allow the button to be hidden.
-        FloatingActionButton fabDelete =(FloatingActionButton)activity.findViewById(R.id.fabDelete);
-        FloatingActionButton fabEdit = (FloatingActionButton) activity.findViewById(R.id.fabEdit);
+        FloatingActionButton fabDelete =(FloatingActionButton)activity.findViewById(R.id.fabFuelEntry);
+        FloatingActionButton fabEdit = (FloatingActionButton) activity.findViewById(R.id.fabServiceEntry);
 
         // Set the title in the appBar (if active) to match whether creating, viewing, or editing.
         if (appBarLayout != null) {

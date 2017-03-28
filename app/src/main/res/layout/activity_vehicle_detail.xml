@@ -40,25 +40,25 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabDelete"
+        android:id="@+id/fabFuelEntry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|start"
         android:layout_margin="@dimen/fab_margin"
         app:layout_anchor="@+id/vehicle_detail_container"
         app:layout_anchorGravity="top|end"
-        app:srcCompat="@android:drawable/ic_menu_delete" />
+        app:srcCompat="@drawable/ic_action_fuel_entry_holo_dark" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabEdit"
+        android:id="@+id/fabServiceEntry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:layout_margin="@dimen/fab_margin"
         app:backgroundTint="@color/colorPrimaryDark"
         android:layout_marginTop="85dp"
-        app:layout_anchor="@+id/fabDelete"
+        app:layout_anchor="@+id/fabFuelEntry"
         app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
+        app:srcCompat="@drawable/ic_action_service_entry_holo_dark" />
 
 </android.support.design.widget.CoordinatorLayout>
