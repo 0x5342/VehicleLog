@@ -1,4 +1,5 @@
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -43,10 +44,13 @@
         android:id="@+id/fabFuelEntry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical|start"
+        android:layout_gravity="bottom"
         android:layout_margin="@dimen/fab_margin"
+        android:scaleType="center"
+        app:backgroundTint="@color/colorPrimaryDark"
+        app:elevation="5dp"
         app:layout_anchor="@+id/vehicle_detail_container"
-        app:layout_anchorGravity="top|end"
+        app:layout_anchorGravity="top|start"
         app:srcCompat="@drawable/ic_action_fuel_entry_holo_dark" />
 
     <android.support.design.widget.FloatingActionButton
@@ -55,10 +59,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:layout_margin="@dimen/fab_margin"
+        android:scaleType="center"
         app:backgroundTint="@color/colorPrimaryDark"
-        android:layout_marginTop="85dp"
-        app:layout_anchor="@+id/fabFuelEntry"
-        app:layout_anchorGravity="bottom|end"
+        app:elevation="5dp"
+        app:layout_anchor="@id/vehicle_detail_container"
+        app:layout_anchorGravity="top|end"
         app:srcCompat="@drawable/ic_action_service_entry_holo_dark" />
 
 </android.support.design.widget.CoordinatorLayout>
