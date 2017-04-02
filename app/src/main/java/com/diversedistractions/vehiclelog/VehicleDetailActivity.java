@@ -72,10 +72,12 @@ public class VehicleDetailActivity extends AppCompatActivity
             fabFuelEntry.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //TODO: change code to go to fuel entries
-//                    VehicleDetailFragment vdf_obj=(VehicleDetailFragment)getSupportFragmentManager()
-//                            .findFragmentById(R.id.vehicle_detail_container);
-//                    vdf_obj.showConfirmDeleteDialog();
+                    //TODO: complete code to go to fuel entries
+                    Context context = v.getContext();
+                    Intent intent = new Intent(context, FuelEntryListActivity.class);
+
+                    startActivity(intent);
+
                 }
             });
             fabServiceEntry.setOnClickListener(new View.OnClickListener() {
@@ -136,7 +138,7 @@ public class VehicleDetailActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.vehicle_item_menu, menu);
+        getMenuInflater().inflate(R.menu.menu_vehicle_item, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

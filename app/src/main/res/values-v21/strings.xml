@@ -90,4 +90,6 @@
     <string name="return_to_edit">RETURN TO EDIT</string>
     <string name="do_you_want_to_save_your_changes">Do you want to save your changes?</string>
     <string name="discard">DISCARD</string>
+    <string name="title_activity_fuel_entry_list">Fuel Entries</string>
+    <string name="action_settings">Settings</string>
 </resources>

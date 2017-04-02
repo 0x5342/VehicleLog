@@ -153,7 +153,7 @@ public class VehicleListActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getMenuInflater().inflate(R.menu.menu_vehicle_list, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
