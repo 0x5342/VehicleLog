@@ -2,18 +2,19 @@ package com.diversedistractions.vehiclelog;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.DialogFragment;
 
 import com.diversedistractions.vehiclelog.models.VehicleItem;
 import com.diversedistractions.vehiclelog.utilities.DateConversionHelper;
 
-public class ConfirmDeleteDialogFragment extends android.support.v4.app.DialogFragment{
+public class ConfirmDeleteDialogFragment extends DialogFragment {
 
     public static final String VEHICLE_KEY = "vehicle_key";
     DateConversionHelper dateConversionHelper;
