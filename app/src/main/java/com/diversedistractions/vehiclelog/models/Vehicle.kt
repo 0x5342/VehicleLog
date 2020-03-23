@@ -6,12 +6,12 @@ import android.os.Parcelable
 import com.diversedistractions.vehiclelog.database.VehiclesTable
 
 class Vehicle(
-        private var vehicleId:  Int, private var vehicleType: Int, private var vehicleMake: String?,
-        private var vehicleModel: String?, private var vehicleYear: Long,
-        private var vehicleVin: String?, private var vehicleLp: String?,
-        private var vehicleLpRenewalDate: Long, private var vehicleImage: String?,
-        private var vehicleNotes: String?, private var vehicleTdEfficiency: String?,
-        private var vehicleModOrder: Int) : Parcelable{
+        var vehicleId:  Int, var vehicleType: Int, var vehicleMake: String?,
+        var vehicleModel: String?, var vehicleYear: Long,
+        var vehicleVin: String?, var vehicleLp: String?,
+        var vehicleLpRenewalDate: Long, var vehicleImage: String?,
+        var vehicleNotes: String?, var vehicleTdEfficiency: String?,
+        var vehicleModOrder: Int) : Parcelable{
 
     constructor(parcel: Parcel) : this(
             parcel.readInt(),
@@ -29,20 +29,18 @@ class Vehicle(
     )
 
     override fun toString(): String {
-        return "VehicleItem{" +
-                "vehicleId='" + vehicleId + '\'' +
-                ", vehicleType='" + vehicleType + '\'' +
-                ", vehicleMake='" + vehicleMake + '\'' +
-                ", vehicleModel='" + vehicleModel + '\'' +
-                ", vehicleYear=" + vehicleYear +
-                ", vehicleVin='" + vehicleVin + '\'' +
-                ", vehicleLp='" + vehicleLp + '\'' +
-                ", vehicleLpRenewalDate=" + vehicleLpRenewalDate +
-                ", vehicleImage='" + vehicleImage + '\'' +
-                ", vehicleNotes='" + vehicleNotes + '\'' +
-                ", vehicleTdEfficiency='" + vehicleTdEfficiency + '\'' +
-                ", vehicleModOrder='" + vehicleModOrder + '\'' +
-                '}'
+        return "Vehicle(vehicleId='$vehicleId', " +
+                "vehicleType='$vehicleType', " +
+                "vehicleMake='$vehicleMake', " +
+                "vehicleModel='$vehicleModel', " +
+                "vehicleYear='$vehicleYear', " +
+                "vehicleVin='$vehicleVin', " +
+                "vehicleLp='$vehicleLp', " +
+                "vehicleLpRenewalDate='$vehicleLpRenewalDate', " +
+                "vehicleImage='$vehicleImage', " +
+                "vehicleNotes='$vehicleNotes', " +
+                "vehicleTdEfficiency='$vehicleTdEfficiency', " +
+                "vehicleModOrder='$vehicleModOrder')"
     }
 
 

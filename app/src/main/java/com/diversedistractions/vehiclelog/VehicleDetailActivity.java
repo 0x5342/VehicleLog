@@ -31,7 +31,7 @@ import java.io.IOException;
  * An activity representing a single Vehicle detail screen. This
  * activity is only used on narrow width devices. On tablet-size devices,
  * item details are presented side-by-side with a list of items
- * in a {@link VehicleListActivity}.
+ * in a {@link OldVehicleListActivity}.
  */
 public class VehicleDetailActivity extends AppCompatActivity
         implements CustomDatePickerDialogFragment.CustomDatePickerListener,
@@ -152,7 +152,7 @@ public class VehicleDetailActivity extends AppCompatActivity
                     askToSave();
                     return true;
                 } else {
-                    NavUtils.navigateUpTo(this, new Intent(this, VehicleListActivity.class));
+                    NavUtils.navigateUpTo(this, new Intent(this, OldVehicleListActivity.class));
                     return true;
                 }
             case R.id.action_veh_delete:
@@ -342,12 +342,12 @@ public class VehicleDetailActivity extends AppCompatActivity
                 VehicleDetailFragment vdf_obj = (VehicleDetailFragment)getSupportFragmentManager()
                         .findFragmentById(R.id.vehicle_detail_container);
                 vdf_obj.finishEditing();
-                NavUtils.navigateUpTo(this, new Intent(this, VehicleListActivity.class));
+                NavUtils.navigateUpTo(this, new Intent(this, OldVehicleListActivity.class));
                 break;
             case RETURN_TO_EDIT:
                 break;
             case CANCEL_EDIT:
-                NavUtils.navigateUpTo(this, new Intent(this, VehicleListActivity.class));
+                NavUtils.navigateUpTo(this, new Intent(this, OldVehicleListActivity.class));
                 break;
         }
     }

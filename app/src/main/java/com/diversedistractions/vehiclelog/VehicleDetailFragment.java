@@ -40,7 +40,7 @@ import java.io.InputStream;
 
 /**
  * A fragment representing a single Vehicle detail screen.
- * This fragment is either contained in a {@link VehicleListActivity}
+ * This fragment is either contained in a {@link OldVehicleListActivity}
  * in two-pane mode (on tablets) or a {@link VehicleDetailActivity}
  * on handsets.
  */

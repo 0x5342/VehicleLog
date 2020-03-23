@@ -58,7 +58,7 @@ import java.util.List;
  * item details. On tablets, the activity presents the list of items and
  * item details side-by-side using two vertical panes.
  */
-public class VehicleListActivity extends AppCompatActivity
+public class OldVehicleListActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<Cursor>,
         ConfirmDeleteDialogFragment.ConfirmationListener{
 
@@ -137,9 +137,9 @@ public class VehicleListActivity extends AppCompatActivity
             }
         });
 
-        View recyclerView = findViewById(R.id.vehicle_list);
-        assert recyclerView != null;
-        setupRecyclerView((RecyclerView) recyclerView);
+//        View recyclerView = findViewById(R.id.vehicle_list);
+//        assert recyclerView != null;
+//        setupRecyclerView((RecyclerView) recyclerView);
 
         if (findViewById(R.id.vehicle_detail_container) != null) {
             // The detail container view will be present only in the

@@ -10,45 +10,46 @@
     >
 
     <ImageView
+        android:id="@+id/vehicleImage"
         android:layout_width="120dp"
         android:layout_height="90dp"
-        app:srcCompat="@drawable/vi_no_vehicle_image"
-        android:id="@+id/vehicleImage"/>
+        android:contentDescription="@string/vehicle_image_content_description"
+        app:srcCompat="@drawable/vi_no_vehicle_image" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginLeft="@dimen/text_margin">
+        android:layout_marginStart="@dimen/text_margin"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/vehicleYear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/no_vehicle_year_to_display"
             android:layout_weight="1"
-            android:textColor="@color/colorListItemText"
+            android:gravity="bottom"
+            android:text="@string/no_vehicle_year_to_display"
             android:textAppearance="?attr/textAppearanceListItem"
-            android:gravity="bottom" />
+            android:textColor="@color/colorListItemText" />
 
         <TextView
             android:id="@+id/makeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/no_vehicle_make_to_display"
             android:layout_weight="1"
-            android:textColor="@color/colorListItemText"
+            android:gravity="bottom"
+            android:text="@string/no_vehicle_make_to_display"
             android:textAppearance="?attr/textAppearanceListItem"
-            android:gravity="bottom" />
+            android:textColor="@color/colorListItemText" />
 
         <TextView
             android:id="@+id/modelText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/no_vehicle_model_to_display"
             android:layout_weight="1"
-            android:textColor="@color/colorListItemText"
+            android:gravity="top"
+            android:text="@string/no_vehicle_model_to_display"
             android:textAppearance="?attr/textAppearanceListItem"
-            android:gravity="top" />
+            android:textColor="@color/colorListItemText" />
     </LinearLayout>
 </LinearLayout>

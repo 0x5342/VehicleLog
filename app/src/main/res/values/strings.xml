@@ -91,4 +91,5 @@
     <string name="discard">DISCARD</string>
     <string name="title_activity_fuel_entry_list">Fuel Entries</string>
     <string name="action_settings">Settings</string>
+    <string name="vehicle_image_content_description">Vehicle Image or Icon</string>
 </resources>
