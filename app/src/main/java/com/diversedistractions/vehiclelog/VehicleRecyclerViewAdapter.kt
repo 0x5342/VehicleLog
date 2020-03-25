@@ -17,7 +17,8 @@ class VehicleListItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     var modelText: TextView = view.findViewById(R.id.modelText)
 }
 
-class VehicleRecyclerViewAdapter(private var vehicleList : List<Vehicle>) : RecyclerView.Adapter<VehicleListItemViewHolder>() {
+class VehicleRecyclerViewAdapter(private var vehicleList: List<Vehicle>)
+    : RecyclerView.Adapter<VehicleListItemViewHolder>() {
     private val TAG = "VehicleRecyclerVA"
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VehicleListItemViewHolder {
@@ -35,7 +36,7 @@ class VehicleRecyclerViewAdapter(private var vehicleList : List<Vehicle>) : Recy
     override fun onBindViewHolder(holder: VehicleListItemViewHolder, position: Int) {
         // Called by the layout manager when it wants new data in an existing view
         val vehicleItem = vehicleList[position]
-        Log.d(TAG, ".onBindViewHolder: ${vehicleItem.vehicleModel} --> $position")
+        Log.d(TAG, ".onBindViewHolder: ${vehicleItem.vehicleModel} --> $position") //TODO: remove for final version
         Picasso.with(holder.vehicleImage.context).load(vehicleItem.vehicleImage)
         holder.vehicleYear.text = vehicleItem.vehicleYear.toString()
         holder.makeText.text = vehicleItem.vehicleMake

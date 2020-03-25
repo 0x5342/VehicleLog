@@ -6,18 +6,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:scrollbars="vertical"
     android:textIsSelectable="true"
-    tools:context="com.diversedistractions.vehiclelog.VehicleDetailFragment" >
+    tools:context="com.diversedistractions.vehiclelog.VehicleDetailFragment">
 
-    <android.support.v7.widget.AppCompatImageButton
+    <ImageButton
         android:id="@+id/vehicleImageButton"
         android:layout_width="120dp"
         android:layout_height="90dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="10dp"
         android:adjustViewBounds="true"
+        android:contentDescription="@string/vehicle_image_content_description"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/vi_no_vehicle_image"/>
+        android:src="@drawable/vi_no_vehicle_image" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,10 +31,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
             android:layout_weight="2"
             android:gravity="end"
-            android:text="@string/vehicle_type"/>
+            android:text="@string/vehicle_type" />
 
         <Spinner
             android:id="@+id/vehicleTypeSpinner"
@@ -58,10 +59,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
             android:layout_weight="2"
             android:gravity="end"
-            android:text="@string/model_year"/>
+            android:text="@string/model_year" />
 
         <Button
             android:id="@+id/vehicleYearButton"
@@ -84,21 +84,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
             android:layout_weight="2"
             android:gravity="end"
             android:text="@string/make_label" />
 
-        <android.support.v7.widget.AppCompatEditText
+        <EditText
             android:id="@+id/makeEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical"
+            android:hint="@string/enter_the_make"
             android:inputType="text|textCapWords|textAutoComplete"
             android:maxLines="1"
             android:textStyle="normal|bold"
-            android:hint="@string/enter_the_make" />
+            android:importantForAutofill="no" />
     </LinearLayout>
 
     <LinearLayout
@@ -111,21 +111,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
             android:layout_weight="2"
             android:gravity="end"
             android:text="@string/model_label" />
 
-        <android.support.v7.widget.AppCompatEditText
+        <EditText
             android:id="@+id/modelEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical"
+            android:hint="@string/enter_the_model"
             android:inputType="text|textCapWords|textAutoComplete"
             android:maxLines="1"
             android:textStyle="normal|bold"
-            android:hint="@string/enter_the_model" />
+            android:importantForAutofill="no" />
     </LinearLayout>
 
     <LinearLayout
@@ -138,20 +138,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
             android:layout_weight="2"
             android:gravity="end"
             android:text="@string/vin_label" />
 
-        <android.support.v7.widget.AppCompatEditText
+        <EditText
             android:id="@+id/vehicleVinEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="@string/enter_the_vin"
             android:inputType="text|textCapCharacters"
             android:maxLines="1"
             android:textStyle="normal|bold"
-            android:hint="@string/enter_the_vin" />
+            android:importantForAutofill="no" />
 
     </LinearLayout>
 
@@ -166,20 +166,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
             android:layout_weight="2"
             android:gravity="end"
             android:text="@string/license_plate_label" />
 
-        <android.support.v7.widget.AppCompatEditText
+        <EditText
             android:id="@+id/vehicleLicensePlateEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="@string/enter_the_license_plate"
             android:inputType="text|textCapCharacters"
             android:maxLines="1"
             android:textStyle="normal|bold"
-            android:hint="@string/enter_the_license_plate" />
+            android:importantForAutofill="no" />
     </LinearLayout>
 
     <LinearLayout
@@ -194,7 +194,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
             android:layout_weight="2"
             android:gravity="end"
             android:text="@string/lp_renew_date_label" />
@@ -216,17 +215,18 @@
         android:layout_marginTop="5dp"
         android:text="@string/notes_label" />
 
-    <android.support.v7.widget.AppCompatEditText
+    <EditText
         android:id="@+id/vehNotesEditText"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@drawable/border"
         android:gravity="top"
+        android:hint="@string/enter_notes_here"
         android:inputType="textMultiLine"
         android:minLines="4"
         android:padding="5dp"
         android:textStyle="normal|bold"
-        android:hint="@string/enter_notes_here" />
+        android:importantForAutofill="no" />
 
 </LinearLayout>
