@@ -1,4 +1,4 @@
-package com.diversedistractions.vehiclelog
+package com.diversedistractions.vehiclelog.utilities
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.diversedistractions.vehiclelog.R
 import com.diversedistractions.vehiclelog.models.Vehicle
 import com.squareup.picasso.Picasso
 

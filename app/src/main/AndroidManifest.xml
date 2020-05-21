@@ -25,7 +25,8 @@
             android:name=".VehicleDetailActivity"
             android:label="@string/title_vehicle_detail"
             android:parentActivityName=".VehicleListActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateUnspecified|adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.diversedistractions.vehiclelog.VehicleListActivity" />

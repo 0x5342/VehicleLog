@@ -15,7 +15,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.diversedistractions.vehiclelog.utilities.VehicleRecyclerViewAdapter
 import kotlinx.android.synthetic.main.content_vehicle_list.*
 
 // Tag for troubleshooting in Logcat
@@ -31,6 +33,16 @@ class VehicleListActivity : BaseActivity() {
         setContentView(R.layout.activity_vehicle_list)
 
         activateToolbar(false)
+
+        val fab: View = findViewById(R.id.fabNewVehicle)
+        fab.setOnClickListener { view ->
+            Log.d(TAG, "fabNewVehicle pressed")
+            val intent = Intent(this, VehicleDetailActivity::class.java)
+            intent.putExtra(VehicleDetailFragment.DETAIL_MODE,
+                    VehicleDetailFragment.DETAIL_IN_CREATE_MODE)
+
+            startActivity(intent)
+        }
 
         vehicle_recycler_view.layoutManager = LinearLayoutManager(this)
 //        vehicle_recycler_view.addOnItemTouchListener(VehicleListRecyclerItemClickListener(this, vehicle_recycler_view, this))

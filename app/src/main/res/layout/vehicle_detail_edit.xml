@@ -4,6 +4,7 @@
     style="?android:attr/textAppearanceLarge"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:isScrollContainer="false"
     android:orientation="vertical"
     android:padding="16dp"
     android:scrollbars="vertical"
@@ -95,10 +96,10 @@
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:hint="@string/enter_the_make"
+            android:importantForAutofill="no"
             android:inputType="text|textCapWords|textAutoComplete"
             android:maxLines="1"
-            android:textStyle="normal|bold"
-            android:importantForAutofill="no" />
+            android:textStyle="normal|bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -122,10 +123,10 @@
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:hint="@string/enter_the_model"
+            android:importantForAutofill="no"
             android:inputType="text|textCapWords|textAutoComplete"
             android:maxLines="1"
-            android:textStyle="normal|bold"
-            android:importantForAutofill="no" />
+            android:textStyle="normal|bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -148,10 +149,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="@string/enter_the_vin"
+            android:importantForAutofill="no"
             android:inputType="text|textCapCharacters"
             android:maxLines="1"
-            android:textStyle="normal|bold"
-            android:importantForAutofill="no" />
+            android:textStyle="normal|bold" />
 
     </LinearLayout>
 
@@ -176,10 +177,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="@string/enter_the_license_plate"
+            android:importantForAutofill="no"
             android:inputType="text|textCapCharacters"
             android:maxLines="1"
-            android:textStyle="normal|bold"
-            android:importantForAutofill="no" />
+            android:textStyle="normal|bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -223,10 +224,11 @@
         android:background="@drawable/border"
         android:gravity="top"
         android:hint="@string/enter_notes_here"
+        android:importantForAutofill="no"
         android:inputType="textMultiLine"
         android:minLines="4"
         android:padding="5dp"
-        android:textStyle="normal|bold"
-        android:importantForAutofill="no" />
+        android:scrollbars="vertical"
+        android:textStyle="normal|bold" />
 
 </LinearLayout>

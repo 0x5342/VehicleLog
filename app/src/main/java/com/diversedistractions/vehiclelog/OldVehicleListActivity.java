@@ -113,7 +113,7 @@ public class OldVehicleListActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabFuelEntry);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabNewVehicle);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

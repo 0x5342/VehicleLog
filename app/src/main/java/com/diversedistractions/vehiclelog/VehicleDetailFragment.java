@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,11 +41,13 @@ import java.io.InputStream;
 
 /**
  * A fragment representing a single Vehicle detail screen.
- * This fragment is either contained in a {@link OldVehicleListActivity}
+ * This fragment is either contained in a {@link VehicleListActivity}
  * in two-pane mode (on tablets) or a {@link VehicleDetailActivity}
  * on handsets.
  */
 public class VehicleDetailFragment extends DialogFragment {
+
+    private static final String TAG = "VehicleDetailFragmnt";
 
     public static final String ARG_ITEM_URI = "item_uri";
     public static final String DETAIL_MODE = "detail_mode";
@@ -80,6 +83,8 @@ public class VehicleDetailFragment extends DialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Log.d(TAG, ".onCreate called");
+
         mContext = this.getActivity();
         dateConversionHelper = new DateConversionHelper();
         vehicleItem = new VehicleItem();
@@ -101,6 +106,7 @@ public class VehicleDetailFragment extends DialogFragment {
             // If in edit mode, create another vehicle item to store the original data to compare
             // to when done editing to verify if any fields changed.
             if (mMode == DETAIL_IN_EDIT_MODE) {
+                Log.d(TAG, "In edit mode called");
                 vehicleItemOriginal = new VehicleItem();
             }
         } else {
@@ -116,34 +122,34 @@ public class VehicleDetailFragment extends DialogFragment {
         }
 
         Activity activity = this.getActivity();
-        CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.
-                findViewById(R.id.toolbar_layout);
+//        CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.
+//                findViewById(R.id.toolbar_layout);
 
         // When the fragment is not launched by an intent, and therefore VehicleDetailActivity won't
         // hide these buttons in all but view mode, this will allow the buttons to be hidden.
         FloatingActionButton fabFuelEntry =
-                (FloatingActionButton)activity.findViewById(R.id.fabFuelEntry);
+                (FloatingActionButton)activity.findViewById(R.id.fabNewVehicle);
         FloatingActionButton fabServiceEntry =
                 (FloatingActionButton) activity.findViewById(R.id.fabServiceEntry);
 
         // Set the title in the appBar (if active) to match whether creating, viewing, or editing.
-        if (appBarLayout != null) {
-            switch (mMode){
-                case VehicleDetailFragment.DETAIL_IN_CREATE_MODE:
-                    appBarLayout.setTitle(getString(R.string.new_vehicle));
-                    fabFuelEntry.setVisibility(View.INVISIBLE);
-                    fabServiceEntry.setVisibility(View.INVISIBLE);
-                    break;
-                case VehicleDetailFragment.DETAIL_IN_VIEW_MODE:
-                    appBarLayout.setTitle(getString(R.string.view_vehicle));
-                    break;
-                case VehicleDetailFragment.DETAIL_IN_EDIT_MODE:
-                    appBarLayout.setTitle(getString(R.string.edit_vehicle));
-                    fabFuelEntry.setVisibility(View.INVISIBLE);
-                    fabServiceEntry.setVisibility(View.INVISIBLE);
-                    break;
-            }
-        }
+//        if (appBarLayout != null) {
+//            switch (mMode){
+//                case VehicleDetailFragment.DETAIL_IN_CREATE_MODE:
+//                    appBarLayout.setTitle(getString(R.string.new_vehicle));
+//                    fabFuelEntry.setVisibility(View.INVISIBLE);
+//                    fabServiceEntry.setVisibility(View.INVISIBLE);
+//                    break;
+//                case VehicleDetailFragment.DETAIL_IN_VIEW_MODE:
+//                    appBarLayout.setTitle(getString(R.string.view_vehicle));
+//                    break;
+//                case VehicleDetailFragment.DETAIL_IN_EDIT_MODE:
+//                    appBarLayout.setTitle(getString(R.string.edit_vehicle));
+//                    fabFuelEntry.setVisibility(View.INVISIBLE);
+//                    fabServiceEntry.setVisibility(View.INVISIBLE);
+//                    break;
+//            }
+//        }
     }
 
     @Override

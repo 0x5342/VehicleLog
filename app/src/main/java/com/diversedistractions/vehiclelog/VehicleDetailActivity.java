@@ -14,7 +14,6 @@ import android.view.View;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NavUtils;
 
 import com.diversedistractions.vehiclelog.database.VehiclesTable;
@@ -31,7 +30,7 @@ import java.io.IOException;
  * An activity representing a single Vehicle detail screen. This
  * activity is only used on narrow width devices. On tablet-size devices,
  * item details are presented side-by-side with a list of items
- * in a {@link OldVehicleListActivity}.
+ * in a {@link VehicleListActivity}.
  */
 public class VehicleDetailActivity extends AppCompatActivity
         implements CustomDatePickerDialogFragment.CustomDatePickerListener,
@@ -55,8 +54,8 @@ public class VehicleDetailActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vehicle_detail);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
+//        setSupportActionBar(toolbar);
 
         dateConversionHelper = new DateConversionHelper();
 
@@ -152,7 +151,7 @@ public class VehicleDetailActivity extends AppCompatActivity
                     askToSave();
                     return true;
                 } else {
-                    NavUtils.navigateUpTo(this, new Intent(this, OldVehicleListActivity.class));
+                    NavUtils.navigateUpTo(this, new Intent(this, VehicleListActivity.class));
                     return true;
                 }
             case R.id.action_veh_delete:
@@ -342,12 +341,12 @@ public class VehicleDetailActivity extends AppCompatActivity
                 VehicleDetailFragment vdf_obj = (VehicleDetailFragment)getSupportFragmentManager()
                         .findFragmentById(R.id.vehicle_detail_container);
                 vdf_obj.finishEditing();
-                NavUtils.navigateUpTo(this, new Intent(this, OldVehicleListActivity.class));
+                NavUtils.navigateUpTo(this, new Intent(this, VehicleListActivity.class));
                 break;
             case RETURN_TO_EDIT:
                 break;
             case CANCEL_EDIT:
-                NavUtils.navigateUpTo(this, new Intent(this, OldVehicleListActivity.class));
+                NavUtils.navigateUpTo(this, new Intent(this, VehicleListActivity.class));
                 break;
         }
     }
